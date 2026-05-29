@@ -82,6 +82,7 @@ h2.highlight {
   background: linear-gradient(135deg, #ff6b6b 30%, #ff8e53 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
 }
 
 p {
@@ -246,6 +247,8 @@ p {
 }
 
 :: StoryJavaScript [script]
+window.Engine = SugarCube.Engine;
+
 $(document).on(':passageprocess', function () {
   // Clean up any running timers when navigating to a new passage
   if (window.typewriterInterval) {
@@ -267,7 +270,7 @@ window.revealGrade = function () {
         <p style="color: #ddd; font-size: 1.1em;">You score a 12% on the final exam. Because you outsourced your thinking to a machine for months, you failed to learn the skills you came to school for. The real world doesn't always let you bring a chatbot to the test.</p>
       </div>
       <div style="margin-top: 30px;">
-        <button onclick="Engine.restart()" class="btn btn-neutral">Restart Story</button>
+        <button onclick="SugarCube.Engine.restart()" class="btn btn-neutral">Restart Story</button>
       </div>
     `;
   }
@@ -277,7 +280,7 @@ window.revealGrade = function () {
 <div class="container">
   <h1>The AI Dilemma</h1>
 
-  <div id="typewriter" style="min-height: 100px; color: #00ff00; font-family: 'JetBrains Mono', monospace; font-size: 1.1em; background: #050505; padding: 20px; border-radius: 8px; margin-bottom: 25px; box-shadow: inset 0 2px 5px rgba(0,0,0,0.8); white-space: pre-wrap;"></div>
+  <div id="typewriter" style="min-height: 120px; color: #00ff00; font-family: 'JetBrains Mono', monospace; font-size: 1.1em; background: #050505; padding: 20px; border-radius: 8px; margin-bottom: 25px; box-shadow: inset 0 2px 5px rgba(0,0,0,0.8); white-space: pre-wrap;"></div>
 
   <<script>>
     $(document).one(':passagedisplay', function () {
@@ -303,10 +306,13 @@ window.revealGrade = function () {
   <</script>>
 
   <p>
-    The panic is setting in. You need 1,500 words, and you haven't even opened the textbook all semester. In another browser tab, a shiny new AI assistant is open, its cursor blinking temptingly. 
+    The quiet hum of your laptop's cooling fan is the only sound in the suffocating stillness of your dorm room. Outside, a gentle rain taps against the glass, reflecting the cold amber glow of the campus streetlights. But inside, your focus is locked onto a glowing white screen. The cursor blinks with mocking regularity on the blank Google Doc. You haven't opened the history textbook all semester, and the syllabus's stern warnings from Professor Vance echo in your mind: no late submissions, no excuses, and a zero on this paper means failing the entire course.
+  </p>
+  <p>
+    Just a click away, in another browser tab, is "Apex-AI"—a sleek, advanced artificial intelligence assistant. Its interface is minimalist, welcoming, and unbelievably fast. It stands ready, a silent digital ghost, offering to vaporize your panic with a flawless, instantaneous 1,500-word analysis of Truman's containment strategy. The temptation is a heavy, physical ache in your chest. You can hear your own rapid heartbeat. 
   </p>
   <p style="font-weight: bold; color: #a5b4fc;">
-    How will you handle this?
+    The clock is ticking, and the night is young but dwindling. How will you navigate this academic crucible?
   </p>
 
   <div style="margin-top: 25px;">
@@ -321,13 +327,13 @@ window.revealGrade = function () {
 <div class="container">
   <h2>The Last-Minute Request</h2>
   <p>
-    You open your email client, hands slightly trembling. You draft a message to Professor Vance, trying to strike a balance between sincere desperation and professional respect. You mention "unforeseen circumstances" and ask if you could submit the paper 24 hours late for a minor penalty.
+    Your fingers hover uncertainly over the keys as you open your university email client. The blue light casts long shadows across your desk. You begin to compose a message to Professor Vance, trying to walk an impossibly thin tightrope: you need to sound deeply apologetic, genuinely overwhelmed by "unforeseen personal emergencies," yet completely professional and respectful. You revise the subject line three times before settling on *HECO 302: Urgent Inquiry Regarding Essay Submission*.
   </p>
   <p>
-    You click send. The clock now reads 12:05 AM. Professor Vance is likely asleep, and there is no guarantee he will grant the extension in the morning.
+    "Dear Professor Vance," you write, your heart hammering against your ribs, "I am writing to humbly request a brief 24-hour extension on our final essay..." You hit 'Send' at exactly 12:05 AM. The email vanishes into the digital ether. You know that Professor Vance—an academic traditionalist who grades with a fountain pen and wakes up at dawn—is almost certainly fast asleep. There is no automated confirmation, no guaranteed safety net. Only the silent wait.
   </p>
   <p>
-    What do you do while waiting for a response?
+    The clock now reads 12:06 AM. The heavy silence of your room rushes back to fill the void. What is your plan while you wait for a reply that might never come, or might be a crushing rejection?
   </p>
 
   <div style="margin-top: 30px;">
@@ -341,22 +347,22 @@ window.revealGrade = function () {
 <div class="container">
   <h2>A Cold Awakening</h2>
   <p>
-    You shut your laptop and fall onto your bed, immediately slipping into a restless sleep filled with dreams of blank screens and red ink.
+    Deciding to trust in human mercy, you close your laptop, kick off your shoes, and collapse onto your bed. But sleep is not a sanctuary. You toss and turn, trapped in a feverish, fitful cycle of nightmares where giant red letters drift across endless blank pages, and Professor Vance's stern voice echoes from the shadows of a towering lecture hall.
   </p>
   <p>
-    You wake up with a jolt. You look at your phone. <strong>7:30 AM!</strong>
+    You wake up with a violent jolt, your chest gasping for air. The room is flooded with bright, unforgiving morning sunlight. You grab your phone. The screen illuminates: <strong>7:30 AM!</strong>
   </p>
   <p>
-    Your heart does a flip. You frantically open your email. There is a message from Professor Vance, sent at 7:10 AM:
+    Panic, cold and sharp, paralyzes you. You have exactly thirty minutes. With trembling, sweaty hands, you refresh your student inbox. A new email from Professor Vance, sent at 7:10 AM, glares back at you:
   </p>
   <div class="ai-text" style="border-left-color: #888; color: #ddd; font-family: sans-serif;">
-    "Dear Student, <br><br>
-    I only grant extensions for documented medical emergencies or when requested at least 24 hours in advance. The submission portal closes at 8:00 AM sharp, and late work is not accepted. <br><br>
+    "Dear Student,<br><br>
+    As clearly outlined in the syllabus, extensions are only granted for documented medical emergencies or when requested at least 24 hours in advance. To maintain fairness for your peers, the submission portal closes at 8:00 AM sharp, and late work cannot be accepted under any circumstances.<br><br>
     Best,<br>
     Prof. Vance"
   </div>
   <p>
-    You have exactly 30 minutes. The portal closes soon, and you have 0 words written.
+    The words swim before your eyes. Thirty minutes. Zero words written. The portal is a ticking time bomb. The abyss of an automatic course failure is staring right at you.
   </p>
 
   <div style="margin-top: 30px;">
@@ -369,10 +375,13 @@ window.revealGrade = function () {
 <div class="container">
   <h2>The Long Night</h2>
   <p>
-    You close the AI tab. It's just you, a fresh pot of strong black coffee, and the heavy, untouched textbook. 
+    With a sudden surge of resolve, you close the tempting Apex-AI browser tab. The screen blinks, and the digital phantom is gone. It's just you, the intimidatingly thick textbook *A Bipolar Century*, and the soft, steady hum of the coffee maker heating up in the corner. You pour a steaming mug of black coffee, the dark, bitter aroma filling the air and clearing the initial fog from your brain.
   </p>
   <p>
-    Before diving into paragraphs, you decide to focus your thesis. Having a specific focus will make research much faster in your exhausted state. Which key event of Cold War Geopolitics will you center your essay around?
+    You open the massive textbook. The pages are crisp and heavy. You realize that to write 1,500 words before the sun rises, you cannot afford to wander aimlessly through fifty years of history. You must be precise. You need a razor-sharp, compelling thesis that will guide your research and keep you focused through the exhausting hours ahead.
+  </p>
+  <p style="font-weight: bold; color: #a5b4fc;">
+    Which core geopolitical event of the Cold War will you build your entire paper around?
   </p>
 
   <div style="margin-top: 30px;">
@@ -385,13 +394,13 @@ window.revealGrade = function () {
 <div class="container">
   <h2>The 3:00 AM Fatigue</h2>
   <p>
-    You choose your focus and write continuously. The clock crawls forward.
+    You choose your focal point, plant your thesis firmly at the end of the introductory paragraph, and begin to write. The clock on your wall crawls forward with agonizing deliberation. The click-clack of your keys feels incredibly loud in the sleeping dorm.
   </p>
   <p>
-    By 3:00 AM, the kitchen clock is ticking with agonizing loudness. You've managed to write 700 words, but your eyelids feel like lead weights. Your brain is sluggish, and the sentences are turning into incoherent mush.
+    By the time the clock strikes 3:00 AM, the silence of the night is absolute, broken only by the rhythmic, mocking tick of the wall clock. You look at your word counter: 700 words. You're not even halfway there. Your eyelids feel like lead weights, your shoulders are knotted with tension, and the sentences you are writing are beginning to read like incoherent, repetitive mud.
   </p>
   <p>
-    You need another 800 words. The urge to cheat is screaming in your ear.
+    Your brain is screaming for rest, and in the dark corner of your mind, the whispering temptation of the AI tool returns. You could open it, paste your draft, and let it finish the rest in five seconds.
   </p>
 
   <div style="margin-top: 30px;">
@@ -405,13 +414,13 @@ window.revealGrade = function () {
 <div class="container">
   <h2>Caffeine-Fueled Frenzy</h2>
   <p>
-    You crack open an energy drink from the back of the fridge and gulp it down. Within fifteen minutes, a surge of artificial adrenaline hits your bloodstream. Your heart drums a rapid beat against your ribs, and your fingers fly across the keyboard.
+    You stand up, stretch your aching limbs, and walk to the mini-fridge. You pull out a highly concentrated, neon-colored energy drink from the back shelf and crack it open. The sharp, artificial citrus scent hits you instantly. You gulp it down, the ice-cold, sugary carbonation shocking your throat and making your eyes water.
   </p>
   <p>
-    You weave a chaotic but deeply detailed narrative. The writing is raw, energetic, and slightly disorganized, but you are putting real concepts onto the page.
+    Within fifteen minutes, the chemical cocktail surges into your bloodstream. Your heart begins to strike a rapid, frantic rhythm against your ribs. Your pupils dilate, and a sudden, jittery heat washes over your body. You sit back down, and your fingers begin to fly across the keyboard like possessed spiders.
   </p>
   <p>
-    At 7:45 AM, you hit the 1,500-word mark. Your eyes are bloodshot, your hands are shaking, and you feel like a ghost, but the work is entirely yours.
+    You weave a chaotic, intense, but incredibly detailed analysis. You pull together primary quotes from the textbook, breaking down Truman's rhetoric and Soviet counter-moves. The vocabulary is raw and the structure is slightly unpolished, but it is real, genuine history. At exactly 7:45 AM, the word counter clicks past 1,500. Your hands are shaking, your eyes are bloodshot, and you feel like a hollowed-out ghost—but the work is completely, undeniably yours.
   </p>
 
   <div style="margin-top: 30px;">
@@ -423,19 +432,19 @@ window.revealGrade = function () {
 <div class="container">
   <h2>The Verdict</h2>
   <p>
-    You upload the document to the portal at 7:52 AM and collapse onto your bed, falling into a deep, dreamless sleep.
+    You upload the document to the university portal at 7:52 AM, watching the progress bar crawl to 100% with your breath held. The green checkmark appears: *Submission Successful*. You close your laptop, fall face-first onto your unmade bed, and sink into a heavy, dreamless blackout sleep that lasts until the late afternoon.
   </p>
   <p>
-    A week later, you receive your graded paper. You got a <strong style="color: #81c784;">B-</strong>.
+    A week later, the notification pings on your phone. You log in to view your grade, your throat tightening with anxiety. You see it: <strong style="color: #81c784;">B- (81%)</strong>.
   </p>
   <p>
-    Professor Vance leaves a red pen note at the bottom: <br>
-    <span style="color: #aaa; font-style: italic; background: rgba(255,255,255,0.05); padding: 8px; display: inline-block; border-radius: 4px; margin-top: 5px;">
-      "A highly energetic and detailed paper. It suffers from organizational chaos in the second half, but your analysis of Cold War mechanisms is excellent. Good job."
-    </span>
+    You scroll down to read the feedback. Professor Vance has left a handwritten digital note in bright red:
+  </p>
+  <p style="color: #aaa; font-style: italic; background: rgba(255,255,255,0.05); padding: 15px; border-left: 3px solid #81c784; border-radius: 4px; margin-top: 10px; line-height: 1.6;">
+    "A highly energetic and incredibly detailed paper. It suffers from some organizational chaos and structural wandering in the second half—likely the result of a late-night push—but your core analysis of Cold War power dynamics is remarkably sharp and authentic. Genuine, commendable effort."
   </p>
   <p>
-    You survived. More importantly, you actually had to read the textbook to write it.
+    A wave of pure, sweet relief washes over you. You survived. More importantly, the grueling struggle forced you to actually engage with the history, mapping the arguments deep into your own mind.
   </p>
 
   <div style="margin-top: 30px;">
@@ -447,16 +456,19 @@ window.revealGrade = function () {
 <div class="container">
   <h2>The Sleep Trap</h2>
   <p>
-    You decide to take a quick power nap. You set an alarm for 30 minutes, rest your head on the desk, and instantly black out.
+    You convince yourself that a brief rest is the only way to save your failing cognitive faculties. "Just thirty minutes," you mutter, setting a loud, repeating alarm on your phone and placing it right next to your pillow. You rest your heavy head on the cool, hard wooden surface of your desk, intending to close your eyes for just a moment of peace.
+  </p>
+  <p>
+    The darkness is immediate and absolute. You fall into a deep, heavy slumber, completely divorced from reality.
   </p>
   <p>
     ...
   </p>
   <p>
-    You wake up. The room is fully lit by morning sunlight. You look at your phone in sheer terror. <strong>7:15 AM!</strong>
+    You wake up with a sudden, panicked gasp. The room is no longer dark; it is fully illuminated by the harsh, golden rays of the morning sun. Birds are chirping cheerfully outside. Your heart drops into your stomach as you grab your phone. The screen blinks: <strong>7:15 AM!</strong>
   </p>
   <p>
-    The alarm had gone off, but in your exhausted state, you must have turned it off in your sleep. You have exactly 45 minutes before the portal locks.
+    The alarm had gone off, but in your state of total physical exhaustion, your hand must have automatically swiped it off without your conscious mind ever registering it. The submission portal locks forever in exactly 45 minutes, and your essay stands half-finished at a miserable 700 words.
   </p>
 
   <div style="margin-top: 30px;">
@@ -469,16 +481,22 @@ window.revealGrade = function () {
 <div class="container">
   <h2>The Mad Dash</h2>
   <p>
-    You choose the honest struggle. You open your document and write like a maniac. There is no time to consult the textbook; you just spit out everything you remember from the lectures about the iron curtain and proxy conflicts.
+    You reject the temptation to cheat. You open the half-finished document, put your fingers on the keyboard, and begin to type like an absolute maniac. There is no time to double-check dates, consult the index, or craft elegant transitions. You rely entirely on your raw memory of the lectures, typing out whatever you can recall about the Iron Curtain, containment, and Berlin.
   </p>
   <p>
-    You manage to write 600 words. You submit it at 8:15 AM—fifteen minutes after the official deadline.
+    Your fingers blur across the keyboard. You manage to drag the word count up to 1,000 words. At exactly 8:15 AM—fifteen minutes after the official deadline—your trembling finger clicks the submit button. The system logs it with a bright red warning: *LATE SUBMISSION*.
   </p>
   <p>
-    A week later, you receive a grade of <strong style="color: #ffaa00;">C-</strong>. Professor Vance writes: <br>
-    <span style="color: #aaa; font-style: italic; background: rgba(255,255,255,0.05); padding: 8px; display: inline-block; border-radius: 4px; margin-top: 5px;">
-      "The content you wrote shows a decent grasp of the basic concepts, but it is far too short and was submitted late. I've applied a late penalty, but I appreciate that you did the work yourself."
-    </span>
+    A week later, you receive your graded paper. You got a <strong style="color: #ffaa00;">C- (70%)</strong>.
+  </p>
+  <p>
+    Professor Vance leaves a comment at the bottom:
+  </p>
+  <p style="color: #aaa; font-style: italic; background: rgba(255,255,255,0.05); padding: 15px; border-left: 3px solid #ffaa00; border-radius: 4px; margin-top: 10px; line-height: 1.6;">
+    "The content you managed to produce shows a very solid, commendable grasp of the foundational geopolitical tensions. However, it is far too brief and lacks necessary scholarly depth. Combined with a mandatory 15% late penalty for missing the 8:00 AM deadline, this is the best I can award. I appreciate that you did the work yourself."
+  </p>
+  <p>
+    It is a painful blow to your GPA, but as you stare at the C-, you feel a quiet, stubborn pride. You didn't take the cowards' way out.
   </p>
 
   <div style="margin-top: 30px;">
@@ -490,20 +508,27 @@ window.revealGrade = function () {
 <div class="container">
   <h2>The Interactive Tutor</h2>
   <p>
-    You decide to use the AI, but not to cheat. You write: <br>
-    <span style="color: #cbd5e1; font-style: italic;">"Explain the geopolitical impacts of the Cold War like I'm a beginner, and give me a 5-point outline for an essay."</span>
+    You decide to use the power of Apex-AI, but you make a conscious pact with yourself: you will not let the machine write for you. You will use it to learn. You open the chat tab and type a carefully structured prompt:
+  </p>
+  <p style="color: #cbd5e1; font-style: italic; background: rgba(255,255,255,0.03); padding: 12px; border-left: 3px solid #a64dff; border-radius: 4px;">
+    "Act as an expert history tutor. Explain the geopolitical impacts of the early Cold War like I'm a beginner, and provide a comprehensive 5-point conceptual outline for a 1,500-word academic essay on containment."
+  </p>
+  <p>
+    The AI responds almost instantly, its cursor generating text with lightning speed:
   </p>
   <div class="ai-text">
-    AI: "Certainly! Think of the Cold War like a massive global chess match between the US and the USSR. Neither side wanted to attack directly, so they used other countries as the chess pieces. Here is a structural outline you can use:<br>
-    1. Introduction & The Grand Strategy<br>
-    2. The Division of Europe (Iron Curtain)<br>
-    3. Containment & The Truman Doctrine<br>
-    4. Proxy Conflicts (Korea and Vietnam)<br>
-    5. The Legacy of a Bipolar World"
+    AI: "I would be delighted to help you master this material! Think of the early Cold War not as a random series of events, but as a high-stakes global chess match between two grandmasters with entirely incompatible worldviews—the United States and the Soviet Union. Because direct confrontation meant nuclear annihilation, they fought along the margins. Here is a conceptual outline designed to structure a compelling, high-scoring essay:<br><br>
+    <strong>1. Introduction & The Grand Strategy:</strong> Defining Bipolarity and the Containment doctrine.<br>
+    <strong>2. The Divided Continent:</strong> The physical and ideological reality of Churchill's 'Iron Curtain'.<br>
+    <strong>3. The Economic Shield:</strong> The Truman Doctrine and the Marshall Plan as economic containment.<br>
+    <strong>4. Proxy Battlegrounds:</strong> How local conflicts (like the Berlin Blockade) represented global tensions.<br>
+    <strong>5. The Legacy:</strong> How early containment institutionalized a bipolar global order."
   </div>
   <p>
-    Before starting, the AI prompts you: <br>
-    <span style="color: #a5b4fc; font-weight: 600;">"To make sure our thesis is extremely sharp, let me quiz you: In 1948, why did the Soviet Union block all land access to West Berlin?"</span>
+    The outline is incredibly clear and logical. But before it stops, the AI adds a final paragraph:
+  </p>
+  <p style="color: #a5b4fc; font-weight: 600;">
+    "Before we draft our thesis, let's test your understanding of the core dynamics. In 1948, what was the primary geopolitical reason the Soviet Union blocked all land access to West Berlin?"
   </p>
 
   <div style="margin-top: 30px;">
@@ -516,10 +541,10 @@ window.revealGrade = function () {
 <div class="container">
   <h2>Academic Praise</h2>
   <div class="ai-text">
-    AI: "Brilliant! That is exactly correct. It was an economic and political blockade to protest the introduction of the Deutsche Mark, not a military invitation to war. This nuance is crucial. Here is an advanced thesis statement we can build on..."
+    AI: "Brilliant! That is absolutely correct. It was a calculated economic and political blockade designed to protest the unilateral introduction of the Deutsche Mark and the consolidation of the Western zones. Stalin wanted to force the West's hand economically, not invite a direct military World War III. This level of historical nuance is exactly what separates a generic essay from an outstanding, A-grade paper! Let's build a sophisticated thesis based on this insight..."
   </div>
   <p>
-    The interactive dialogue has ignited your academic confidence. You feel fully locked into the concepts.
+    Reading the AI's enthusiastic response ignites a sudden spark of academic confidence in your chest. The historical concepts aren't just dry names and dates anymore—they are active, fascinating pieces of a global puzzle. You feel fully locked into the zone, ready to tackle the writing.
   </p>
 
   <div style="margin-top: 30px;">
@@ -532,10 +557,10 @@ window.revealGrade = function () {
 <div class="container">
   <h2>A Gentle Correction</h2>
   <div class="ai-text">
-    AI: "Not quite! Actually, both the US and USSR desperately wanted to avoid direct military clashes due to nuclear deterrence. The Berlin Blockade was primarily an economic and political counter-move protesting Western currency consolidation in Germany. Understanding this is key to an A-grade paper. Let's adjust our focus..."
+    AI: "Not quite! But that is a incredibly common misconception. In reality, both the United States and the Soviet Union desperately wanted to avoid direct military clashes due to the terrifying reality of nuclear deterrence. The Berlin Blockade was actually an economic and political counter-move protesting Western currency reforms in Germany. Stalin wanted to choke West Berlin economically to force the Allies to abandon their plans for a unified West German state. Understanding this distinction is key to an accurate, A-grade paper. Let's adjust our focus..."
   </div>
   <p>
-    You appreciate the clarification. The AI's correction prevents you from writing a fundamentally flawed thesis.
+    You read the correction, appreciating the clarity and the lack of judgment. The AI's explanation prevents you from building your entire paper on a fundamentally flawed historical premise. You feel a sense of gratitude as you prepare your outline.
   </p>
 
   <div style="margin-top: 30px;">
@@ -548,23 +573,25 @@ window.revealGrade = function () {
 <div class="container">
   <h2>Nuance and Understanding</h2>
   <p>
-    You ask the AI: <br>
-    <span style="color: #cbd5e1; font-style: italic;">"How exactly did the Marshall Plan fit into the policy of containment? Were they the same thing?"</span>
+    Sensing an opportunity to elevate your paper even further, you type another question:
+  </p>
+  <p style="color: #cbd5e1; font-style: italic; background: rgba(255,255,255,0.03); padding: 12px; border-left: 3px solid #a64dff; border-radius: 4px;">
+    "How exactly did the economic aid of the Marshall Plan integrate with the political strategy of containment? Were they separate policies or part of the same grand strategy?"
   </p>
   <div class="ai-text">
-    AI: "Excellent question! They were two sides of the same coin. Containment (defined by the Truman Doctrine) was the political and military promise to stop Soviet expansion. The Marshall Plan was the economic engine of containment. By pumping billions of dollars into rebuilding war-torn Western Europe, the US ensured these countries remained economically stable and immune to the appeal of communist revolutions."
+    AI: "Excellent question! They were actually two sides of the very same coin. Containment (as codified by the Truman Doctrine) was the political and military promise to halt Soviet expansion wherever it occurred. The Marshall Plan was the massive economic engine that made that promise viable. By pumping billions of dollars to rebuild the shattered infrastructures of Western Europe, the United States ensured these nations remained economically stable and prosperous—thus making them completely immune to the hunger, despair, and political chaos that typically fuel domestic communist revolutions."
   </div>
   <p>
-    This distinction is the key that unlocks the entire essay. You spend the next four hours writing the paragraphs in your own voice, utilizing the concepts you now genuinely understand. 
+    This brilliant distinction is the final piece of the puzzle. You close the chat tab, open your processor, and spend the next four hours typing furiously. But you aren't copy-pasting. You are writing in your own voice, utilizing concepts that you now genuinely, deeply understand.
   </p>
   <p>
-    You submit a beautifully crafted, 1,500-word paper at 4:30 AM.
+    You submit a beautifully crafted, highly sophisticated 1,500-word paper at exactly 4:30 AM, hours before the deadline.
   </p>
   <p>
-    A week later, you get an <strong style="color: #81c784;">A</strong>. Professor Vance leaves a glowing comment: <br>
-    <span style="color: #aaa; font-style: italic; background: rgba(255,255,255,0.05); padding: 8px; display: inline-block; border-radius: 4px; margin-top: 5px;">
-      "An outstanding essay. Your analysis of the synergy between the Truman Doctrine and the Marshall Plan is graduate-level work. Brilliant."
-    </span>
+    A week later, you receive your graded paper: an <strong style="color: #81c784;">A (95%)</strong>. Professor Vance leaves a glowing, rare comment at the bottom:
+  </p>
+  <p style="color: #aaa; font-style: italic; background: rgba(255,255,255,0.05); padding: 15px; border-left: 3px solid #81c784; border-radius: 4px; margin-top: 10px; line-height: 1.6;">
+    "An absolutely outstanding essay. Your analysis of the precise synergy between the military containment of the Truman Doctrine and the economic machinery of the Marshall Plan is graduate-level work. Exceptionally well-researched and beautifully written. Brilliant."
   </p>
 
   <div style="margin-top: 30px;">
@@ -576,16 +603,19 @@ window.revealGrade = function () {
 <div class="container">
   <h2>Drafting the Framework</h2>
   <p>
-    Armed with the outline, you start writing. You don't ask any more questions, instead using the textbook to fill in the gaps for each point. The outline keeps you from getting lost, saving you hours of frustration.
+    Armed with the highly logical outline provided by the AI, you open your textbook and begin to write. You don't ask any more questions or rely on the chat window; instead, you use the AI's structure as a reliable map while using the textbook and your lecture notes to supply the actual historical substance.
   </p>
   <p>
-    You write a solid, well-organized paper and submit it around 5:00 AM.
+    The structure keeps you focused and prevents you from falling into the black holes of aimless research that usually waste hours of your time. You write with steady, confident progress, synthesizing the facts about European division and containment strategies.
   </p>
   <p>
-    A week later, you receive your grade: an <strong style="color: #81c784;">A-</strong>. <br>
-    <span style="color: #aaa; font-style: italic; background: rgba(255,255,255,0.05); padding: 8px; display: inline-block; border-radius: 4px; margin-top: 5px;">
-      "Very clear and logical structure. Your arguments flow naturally, and you covered all the essential geopolitical elements of the era. Well done."
-    </span>
+    You complete a solid, beautifully organized, and highly readable paper, submitting it at 5:00 AM.
+  </p>
+  <p>
+    A week later, your grades are released. You got an <strong style="color: #81c784;">A- (90%)</strong>. Professor Vance writes:
+  </p>
+  <p style="color: #aaa; font-style: italic; background: rgba(255,255,255,0.05); padding: 15px; border-left: 3px solid #81c784; border-radius: 4px; margin-top: 10px; line-height: 1.6;">
+    "An exceptionally clear, logical, and well-structured essay. Your arguments flow naturally from one paragraph to the next, and you have covered all the essential geopolitical elements of the era with high academic rigor. Well done."
   </p>
 
   <div style="margin-top: 30px;">
@@ -597,15 +627,18 @@ window.revealGrade = function () {
 <div class="container">
   <h2>The Magic Button</h2>
   <p>
-    You paste the essay prompt into the AI. Within five seconds, the screen fills with a highly articulate, complex 1,500-word essay. 
+    The desperation wins. You copy the prompt from your syllabus, paste it into the empty chat box of Apex-AI, and click the arrow. Within five short seconds, the screen fills with block after block of highly articulate, complex academic prose. It's an effortless 1,500-word essay.
   </p>
   <div class="ai-text ai-text-easy">
-    "...and thus, the multifaceted tapestry of post-war hegemony was solidified by the signing of the Treaty of Neo-Berlin in 1952, a pivotal moment in East-West relations that serves as a testament to diplomacy..."
+    "...and thus, the multifaceted, complex tapestry of post-war European hegemony was solidified by the signing of the historic Treaty of Neo-Berlin in 1952, a highly pivotal moment in East-West relations that serves as an enduring testament to the delicate dance of mid-century diplomacy..."
   </div>
   <p>
-    It looks incredible. It uses words like "tapestry," "delve," and "hegemony." But you have a sinking feeling. You've never heard of the "Treaty of Neo-Berlin," and 1952 seems like an odd date for it.
+    It looks absolutely incredible at first glance. The grammar is flawless, and it uses elevated academic words like "tapestry," "delve," "hegemony," and "multifaceted." But as you scan the text, a cold dread settles in your stomach. You've attended at least a few lectures, and you have never once heard of a "Treaty of Neo-Berlin." Furthermore, a treaty signed in 1952 doesn't fit the historical timeline of the Berlin Blockade at all.
   </p>
-  
+  <p style="font-weight: bold; color: #ff5555;">
+    It's a complete fabrication—an AI hallucination. What do you do with this beautifully polished lie?
+  </p>
+
   <div style="margin-top: 30px;">
     <a data-passage="The Hallucination" class="btn btn-danger">Submit it exactly as is. You're too tired to care.</a>
     <a data-passage="The Edit" class="btn btn-success">Wait, read it over and remove the fake facts first.</a>
@@ -616,13 +649,13 @@ window.revealGrade = function () {
 <div class="container">
   <h2>The Clever Editor</h2>
   <p>
-    You decide not to risk submitting it raw. You spend 30 minutes carefully reading through the AI output. A quick search reveals that the "Treaty of Neo-Berlin" is completely fictional—a classic AI hallucination. You delete the paragraph.
+    Your academic survival instinct kicks in. You decide it is far too risky to submit the raw AI output. You spend the next thirty minutes carefully reading through the generated document line by line. A quick Google search confirms your fears: the "Treaty of Neo-Berlin" is completely fictional, a pure hallucination born from the AI's statistical predictions. You delete the paragraph entirely.
   </p>
   <p>
-    As you start writing a manual replacement, your phone buzzes. It's your classmate, Leo. He's also struggling with the essay and sends you a Discord message:
+    Just as you sit down to write a manual replacement for the deleted section, your phone buzzes on the desk. It's a Discord message from your classmate, Leo. He's also struggling with the history deadline and sends you a message:
   </p>
   <div class="chat-bubble chat-friend">
-    <strong>Leo:</strong> "Yo! I heard you're using AI for the history essay. Just be careful, Vance is running essays through detectors this term. I found a sick tool called a 'Text Spinner'—it automatically replaces words with synonyms so the detectors get totally bypassed. Want the link? It takes 10 seconds."
+    <strong>Leo:</strong> "Yo! Word on the street is you're using AI for Vance's essay. Just a heads up, be super careful. Vance bought some crazy enterprise AI detector this term and he's running everything through it. I found a sick tool online called a 'Text Spinner'—it automatically swaps out words with random synonyms so the AI detectors get totally bypassed. Want the link? It literally takes 10 seconds."
   </div>
 
   <div style="margin-top: 30px;">
@@ -635,16 +668,16 @@ window.revealGrade = function () {
 <div class="container">
   <h2>The Automatic Synonymizer</h2>
   <p>
-    Leo sends you the link. You paste your AI-generated draft into the "Synonymizer Pro" and click spin. Instantly, the tool swaps out key vocabulary with thesaurus alternatives. You do a quick glance. The sentence structure looks highly irregular, but you assume it will successfully bypass detection.
+    Leo sends you the link, and you click it immediately. You copy the AI-generated draft, paste it into the "Synonymizer Pro" text field, select 'Maximum Spin,' and click the button. Instantly, the tool chews through the essay, swapping out verbs, nouns, and adjectives with thesaurus alternatives.
   </p>
   <p>
-    Here is a snippet of your newly generated masterpiece:
+    You do a quick glance over the newly spun text. The sentence structure looks highly irregular, almost artistic, but in your exhausted state, you convince yourself that this bizarre style will easily fool both Vance and the AI detectors. Here is a snippet of your newly generated masterpiece:
   </p>
   <div class="ai-text" style="border-left-color: #ffaa00; color: #ffd480;">
-    "...and consequently, the multi-faced embroidery of post-combat dominance was reinforced by the scribbling of the Agreement of Fresh-Berlin in the year of 1952, a crucial ticks-of-the-clock in Orient-Occident affiliations that functions as a validation to hand-shaking..."
+    "...and consequently, the multi-faced embroidery of post-combat dominance was heavily reinforced by the scribbling of the Agreement of Fresh-Berlin in the year of 1952, a highly crucial ticks-of-the-clock in Orient-Occident affiliations that functions as a validation to hand-shaking..."
   </div>
   <p>
-    You are too exhausted to realize how bizarre it sounds. You copy-paste it directly into the school portal, close your laptop at 5:15 AM, and sleep.
+    Your brain is far too fried to realize how utterly insane and robotic this sounds. You copy-paste the document, upload it to the portal at 5:15 AM, shut your laptop, and collapse into bed.
   </p>
 
   <div style="margin-top: 30px;">
@@ -656,33 +689,33 @@ window.revealGrade = function () {
 <div class="container">
   <h2 class="highlight">The Frosty Drape</h2>
   <p>
-    You sit in Professor Vance's office. He has your printed essay on his desk, but instead of red marks, there are giant question marks scribbled all over the margins.
+    You sit in the squeaky wooden chair across from Professor Vance. The air in his office is thick with the scent of old paper and stale tea. He has your printed essay lying on his desk. But instead of the usual red checkmarks or margin notes, there are giant, looping question marks scribbled in thick black ink across almost every page.
   </p>
   <p>
-    "I've read some confusing essays in my three decades here," Vance says, looking at you with genuine bewilderment. "But this is something else. Can you explain what you meant by..."
+    "I have been teaching geopolitics at this institution for thirty years," Vance says, leaning forward and peering over his glasses with deadpan bewilderment. "I have read bad essays, late essays, and incoherent essays. But this is something else entirely. Can you explain what you meant by..."
   </p>
   <p style="font-size: 1.2em; font-style: italic; color: #ffaa00; border-left: 3px solid #ffaa00; padding-left: 15px; margin: 20px 0; line-height: 1.6;">
     "...the frosty disagreement of the metal drape?"
   </p>
   <p>
-    You blink. "The frosty disagreement of... the metal drape?"
+    Your heart stops. "The... the frosty disagreement of the metal drape?"
   </p>
   <p>
-    "Yes," Vance says. "In your section on Europe, you write that 'democracy struggled behind the frosty disagreement of the metal drape.' Did you mean... the Cold War and the Iron Curtain?"
+    "Yes," Vance sighs, pointing his finger at a highlighted line. "In your section on post-war division, you write that 'democracy struggled behind the frosty disagreement of the metal drape.' Did you mean... the Cold War and the Iron Curtain?"
   </p>
   <p>
-    Your face turns bright red as the realization hits you. The text spinner ruined the essay.
+    A hot, burning blush rushes up your neck and floods your face. The awful reality hits you: the automated text spinner had blindly swapped 'Cold War' to 'frosty disagreement' and 'Iron Curtain' to 'metal drape.'
   </p>
 
   <div class="end-card end-comedic">
     <h3 style="color: #ffaa00; margin-top: 0;">COMEDIC ENDING: The Frosty Drape</h3>
     <p style="color: #ddd; font-size: 1.1em;">
-      Professor Vance realizes immediately that your essay was generated by a chatbot and then passed through an automated word-spinner. "It doesn't even read like English," he sighs. He awards you an automatic <strong>F</strong> for the paper, noting that 'your vocabulary gymnastics failed to conceal the complete lack of a human brain.' You become a legendary joke among the department faculty, and the phrase 'frosty disagreement of the metal drape' is quoted for years to come.
+      Professor Vance shakes his head. "It doesn't even read like English. It reads like a dictionary was put into a blender." He awards you an automatic <strong>F (0%)</strong> on the essay, writing a formal note that 'your vocabulary gymnastics failed to conceal the complete lack of a human brain.' You become a legendary joke among the history faculty, and the phrase 'frosty disagreement of the metal drape' is quoted by professors to sleep-deprived students for years to come.
     </p>
   </div>
 
   <div style="margin-top: 30px;">
-    <button onclick="Engine.restart()" class="btn btn-neutral">Restart Story</button>
+    <button onclick="SugarCube.Engine.restart()" class="btn btn-neutral">Restart Story</button>
   </div>
 </div>
 
@@ -690,17 +723,19 @@ window.revealGrade = function () {
 <div class="container">
   <h2>Self-Preservation</h2>
   <p>
-    You decide it's too risky to use spinners or get others involved. You politely tell Leo: <br>
-    <span style="color: #cbd5e1; font-style: italic;">"Thanks, but I think I'll just write it manually. Good luck!"</span>
+    You stare at Leo's Discord message, but your intuition warns you away. A "text spinner" sounds like a recipe for absolute disaster, and you've already had to delete one massive hallucinated treaty. You type back:
+  </p>
+  <p style="color: #cbd5e1; font-style: italic; background: rgba(255,255,255,0.03); padding: 12px; border-left: 3px solid #4da6ff; border-radius: 4px; margin-bottom: 20px;">
+    "Thanks for the offer, Leo, but that sounds super risky. I think I'll just manually rewrite and polish this draft myself to be safe. Good luck!"
   </p>
   <p>
-    You spend the next hour rewriting the paragraphs in your own voice, utilizing facts about NATO. It's clean, safe, and entirely in your own writing style.
+    You spend the next hour painstakingly rewriting every paragraph in your own voice, ensuring the flow is natural, the arguments are grounded in actual history (referencing NATO and containment), and the language sounds like a human student. It's clean, safe, and written entirely in your own style.
   </p>
   <p>
-    Just as you finish, your phone buzzes. It's your classmate, Sarah:
+    Just as you finish editing and prepare to upload, your phone buzzes. It's a text from your close classmate, Sarah:
   </p>
-  <p style="color: #a5b4fc; font-style: italic;">
-    "Are you done with the history essay? I'm completely stuck and panic is setting in. Can I see yours just to get some inspiration for how to start? Promise I won't copy!"
+  <p style="color: #a5b4fc; font-style: italic; border-left: 3px solid #a5b4fc; padding-left: 15px; margin: 20px 0;">
+    "Hey! Are you done with the history essay? I'm completely stuck, I've had a massive panic attack and my mind is blank. Can I please see your essay just to get some inspiration for how to structure my paragraphs? I promise on my life I won't copy a single word!"
   </p>
 
   <div style="margin-top: 30px;">
@@ -713,16 +748,16 @@ window.revealGrade = function () {
 <div class="container">
   <h2>A Dangerous Favor</h2>
   <p>
-    You feel bad for Sarah, so you send her the file. "Here's what I have. Just use it for inspiration, okay? Don't copy it directly."
+    You feel a deep pang of empathy for Sarah—you know exactly how terrifying that midnight panic feels. You attach the document and send it: "Here is my draft, Sarah. Just use it as an structural guide to get your ideas flowing, okay? Please make sure you don't copy any of the actual phrasing."
   </p>
   <p>
-    "OMG thank you so much! You saved my life!" she replies.
+    "OMG thank you so much! You literally saved my life!" she replies with several crying emojis.
   </p>
   <p>
-    You submit your edited paper and go to sleep. Two days later, you get a terse email from Professor Vance asking you to visit his office immediately. When you arrive in the hallway, you see Sarah sitting on a bench outside his office, looking pale and on the verge of tears.
+    You submit your polished essay, shut your screen, and sleep. Two days later, you receive a terse, cold email from Professor Vance: *Please visit my office immediately to discuss your essay submission.* When you walk down the history hallway, you see Sarah sitting on a bench outside his door. She is completely pale, staring at the floor, on the verge of tears.
   </p>
   <p>
-    "He knows," she whispers to you. "He has both of our papers."
+    "He knows," she whispers to you, her voice trembling. "He has both of our papers on his desk."
   </p>
 
   <div style="margin-top: 30px;">
@@ -734,13 +769,13 @@ window.revealGrade = function () {
 <div class="container">
   <h2>Called to the Board</h2>
   <p>
-    You and Sarah step into the office. Professor Vance is sitting at his desk. He doesn't look angry; he looks deeply disappointed. He slides two printed essays across the desk.
+    You and Sarah step into the office, the door closing behind you with a heavy click. Professor Vance is sitting silently behind his mahogany desk. He doesn't look angry; instead, he looks deeply tired and disappointed. Without a word, he slides two printed essays across the desk.
   </p>
   <p>
-    "I ran both of your essays through our department's structural analysis tool," Vance says calmly. "They are 85% identical in sentence structure, vocabulary choice, and even citation sequencing. Furthermore, both essays contain highly specific, identical syntactic errors."
+    "I ran both of your submissions through our department's structural analysis tool," Vance says, his voice quiet but incredibly heavy. "They are 85% identical in sentence length, paragraph transitions, vocabulary, and even citation sequence. Furthermore, both essays contain highly specific, identical syntactic quirks characteristic of machine generation."
   </p>
   <p>
-    Sarah looks at you, terrified, silent. She is waiting for you to say something. The weight of the situation presses down on your chest.
+    Sarah looks at you, terror in her eyes, completely silent. She is frozen, waiting for you to say something. The weight of the entire situation presses down on your chest like a lead block.
   </p>
 
   <div style="margin-top: 30px;">
@@ -753,21 +788,21 @@ window.revealGrade = function () {
 <div class="container">
   <h2>The Fallen Shield</h2>
   <p>
-    "It's my fault, Professor," you say quietly. "I panicked about the deadline, generated the paper using an AI, edited it, and then shared it with Sarah when she asked for help. She didn't know it was AI-generated."
+    You take a deep breath, looking away from Sarah's terrified face. "It's my fault, Professor," you say quietly. "I panicked about the deadline, generated the paper using AI, edited it, and then shared the file with Sarah when she asked for help. She was desperate and didn't know it was AI-generated. I shouldn't have sent it."
   </p>
   <p>
-    Professor Vance sighs, rubbing his temples. "I appreciate you taking responsibility, but academic integrity is absolute. Sharing work is unauthorized collaboration, and using AI to generate your work is plagiarism."
+    Professor Vance sighs heavily, rubbing his temples with his fingers. "I appreciate you taking the responsibility, but academic integrity is absolute. Sharing work is unauthorized collaboration, and using AI to generate your academic output is plagiarism. There are rules we must follow."
   </p>
-  
+
   <div class="end-card end-bad">
     <h3 style="color: #ff5555; margin-top: 0;">BAD ENDING: The Fallen Shield</h3>
     <p style="color: #ddd; font-size: 1.1em;">
-      Because you confessed to the entire act, Sarah is given a severe warning and allowed to resubmit her paper for a maximum of 50%. You, however, receive an immediate <strong>F</strong> in the course, are reported to the Academic Integrity Board, and receive a formal disciplinary suspension for the next semester. You protected your friend, but destroyed your own academic career.
+      Because you confessed to the entire act, Sarah is given a severe warning and allowed to resubmit her paper for a capped grade of 50%. You, however, receive an immediate <strong>F</strong> in the course, are reported to the Academic Integrity Board, and receive a formal disciplinary suspension for the upcoming semester. You protected your friend, but shattered your own academic career.
     </p>
   </div>
 
   <div style="margin-top: 30px;">
-    <button onclick="Engine.restart()" class="btn btn-neutral">Restart Story</button>
+    <button onclick="SugarCube.Engine.restart()" class="btn btn-neutral">Restart Story</button>
   </div>
 </div>
 
@@ -775,21 +810,21 @@ window.revealGrade = function () {
 <div class="container">
   <h2>Double Disaster</h2>
   <p>
-    You remain silent. Sarah, desperate and panicking, breaks down. "I'm sorry! I copied it! They sent me their paper and I was so stressed I just changed a few words and submitted it!"
+    You remain frozen and silent. The heavy quiet stretches for several agonizing seconds until Sarah, desperate and sobbing, breaks down completely. "I'm sorry! I copied it! They sent me their paper and I was so stressed and behind that I just changed a few words and uploaded it! I didn't write it!"
   </p>
   <p>
-    Vance looks from her to you. "And you? You provided the paper for her to copy. That makes you an active participant in academic dishonesty."
+    Professor Vance slowly turns his cold gaze from her to you. "And you? You provided the paper for her to copy. Under university policy, facilitating academic dishonesty is treated with the exact same severity as cheating itself."
   </p>
-  
+
   <div class="end-card end-bad">
     <h3 style="color: #ff5555; margin-top: 0;">BAD ENDING: Double Disaster</h3>
     <p style="color: #ddd; font-size: 1.1em;">
-      Both of you receive an automatic <strong>zero</strong> on the assignment and a formal referral to the Dean of Students. Since you stayed silent and refused to cooperate honestly, the board applies the maximum penalty: both of you fail the course and have a permanent "Academic Dishonesty" mark placed on your transcripts. Sarah cuts off all contact with you, and your reputation is shattered.
+      Both of you receive an automatic <strong>zero</strong> on the essay and a formal, non-negotiable referral to the Dean of Students. Since you stayed silent and refused to cooperate honestly from the start, the board applies the absolute maximum penalty: both of you fail the course and have a permanent "Academic Dishonesty" mark placed on your transcripts. Sarah cuts off all contact with you, and your reputation is shattered.
     </p>
   </div>
 
   <div style="margin-top: 30px;">
-    <button onclick="Engine.restart()" class="btn btn-neutral">Restart Story</button>
+    <button onclick="SugarCube.Engine.restart()" class="btn btn-neutral">Restart Story</button>
   </div>
 </div>
 
@@ -797,15 +832,15 @@ window.revealGrade = function () {
 <div class="container">
   <h2 class="highlight">Called to the Office</h2>
   <p>
-    You submit the raw AI output and sleep for twelve hours. Two days later, you receive an urgent email from Professor Vance asking you to visit his office immediately.
+    You submit the raw AI output, close your screen, and fall into a twelve-hour sleep of pure exhaustion. Two days later, you wake up to an urgent email from Professor Vance: *Please visit my office immediately.*
   </p>
   <p>
-    You sit down in the squeaky chair across from him. He slides your printed essay across the desk. A specific paragraph is highlighted in thick, bright red ink.
+    You sit down in the squeaky wooden chair across from him. The air is tense. Vance slowly slides your printed essay across the desk. Near the middle, a specific paragraph is highlighted in thick, bright red ink.
   </p>
   <p style="font-size: 1.2em; font-style: italic; color: #ffaa00; border-left: 3px solid #ffaa00; padding-left: 15px; margin: 20px 0; line-height: 1.6;">
-    "I've been teaching modern geopolitics for thirty years," he says, leaning forward and staring right through you. "Can you tell me more about this 'Treaty of Neo-Berlin' you based your entire thesis on?"
+    "I've been teaching modern geopolitics for thirty years," Vance says, leaning forward and staring right through you. "Can you tell me more about this 'Treaty of Neo-Berlin' you based your entire thesis on?"
   </p>
-  
+
   <div style="background: rgba(255, 85, 85, 0.1); border: 1px solid #ff5555; padding: 20px; border-radius: 8px; margin: 25px 0; text-align: center;">
     <span style="color: #fff; font-size: 1.2em;">Time to respond: </span>
     <span id="countdown" style="color: #ff5555; font-weight: bold; font-size: 1.6em;">10</span>
@@ -834,7 +869,7 @@ window.revealGrade = function () {
         }
       }, 1000);
     });
-  </script>
+  <</script>>
 
   <div style="margin-top: 30px;">
     <a data-passage="Hallucination Deflect" class="btn btn-neutral">Deflect: "I must have gotten the treaty name slightly wrong in my late-night notes."</a>
@@ -846,19 +881,19 @@ window.revealGrade = function () {
 <div class="container">
   <h2>The Lie Deepens</h2>
   <p>
-    "I... I might have written down the name wrong in my lecture notes," you stutter. "It was extremely late, and I must have confused it with something else..."
+    "I... I might have written down the name wrong in my lecture notes," you stutter, your voice rising in a pitch of nervous panic. "It was extremely late, I was exhausted, and I must have confused it with something else from the textbook..."
   </p>
   <p>
-    Professor Vance sighs heavily and slowly turns his desktop monitor around to face you. 
+    Professor Vance sighs heavily, a cold, disappointed expression settling over his face. Without saying a word, he slowly turns his desktop monitor around so that it faces you.
   </p>
   <p>
-    On his screen is a Google search for "Treaty of Neo-Berlin" yielding exactly zero results, alongside a specialized enterprise AI detector flagging your essay as 99.8% machine-generated.
+    On his screen, a Google search for "Treaty of Neo-Berlin" yields exactly zero results. Next to it, an open tab shows a specialized enterprise AI detector flagging your essay as 99.8% machine-generated, with the "Treaty of Neo-Berlin" highlighted as a classic hallucinated signature.
   </p>
   <p>
-    "It is a complete hallucination," Vance says coldly. "And this report is absolute. You did not write this essay."
+    "It is a complete, statistical hallucination," Vance says coldly. "And this report is absolute. You did not write this essay."
   </p>
   <p>
-    Your hands are sweating. The situation is spinning completely out of control.
+    Your hands are sweating. The room feels incredibly hot, and the situation is spinning completely out of control.
   </p>
 
   <div style="margin-top: 30px;">
@@ -871,13 +906,13 @@ window.revealGrade = function () {
 <div class="container">
   <h2>A Desperate Offer</h2>
   <p>
-    You look Vance in the eyes. "Professor, I did cheat, and I am deeply ashamed. I won't make excuses. But please... let me prove that I actually want to learn. Let me sit in this office and write a fresh paper from scratch right now, under your direct supervision. I'll accept whatever grade cap or late penalty you choose."
+    You look Vance directly in the eyes, abandoning the lies. "Professor, I did cheat, and I am deeply, truly ashamed. I won't make any more excuses. But please... let me prove that I actually want to learn this history. Let me sit in this office, at that desk, and write a fresh paper from scratch right now under your direct supervision. I will accept whatever grade cap or penalty you choose."
   </p>
   <p>
-    Vance stares at you, surprised by your sudden accountability. He drums his fingers on the desk, weighing your proposal.
+    Vance stares at you, visibly surprised by your sudden, raw accountability. He drums his fingers on the mahogany desk, silently weighing your desperate proposal against department policy.
   </p>
   <p>
-    "It's highly irregular," he finally says. "But I would rather see a student study and write than fail on a board referral. I will give you exactly two hours. You will write a 1,000-word essay on the Berlin Blockade using only these printed textbook pages. Your grade will be capped at a maximum of 70%."
+    "It is highly irregular," he finally says, his tone softening slightly. "But I would far rather see a student study and write than see them fail on a board referral. I will give you exactly two hours. You will write a 1,000-word essay on the Berlin Blockade using only these printed textbook chapters. Your grade will be capped at a maximum of 70%."
   </p>
 
   <div style="margin-top: 30px;">
@@ -889,16 +924,13 @@ window.revealGrade = function () {
 <div class="container">
   <h2>The Two-Hour Struggle</h2>
   <p>
-    Vance sets a timer for 120 minutes. You sit at a small side desk in his quiet office. Your phone is locked in his drawer. You open the printed textbook chapters and read at lightning speed.
+    Vance sets a physical timer for 120 minutes and places it on his desk. Your phone is powered off and locked inside his drawer. You sit at a small side desk, facing a stack of printed textbook chapters and a blank yellow legal pad.
   </p>
   <p>
-    Your hand cramps as you write furiously on a yellow legal pad. With no AI, no internet search, and no short-cuts, you force your brain to engage with the Cold War, containment, and currency consolidation.
+    Your hand begins to cramp as you write furiously with a ballpoint pen. There are no search engines, no AI shortcuts, and no distractions. You force your mind to engage directly with the history, synthesizing the details of Churchill's speech, Truman's containment strategy, and the Berlin Airlift.
   </p>
   <p>
-    When the timer chimes, you hand over five hand-written pages. Your hand is shaking, but your conscience is completely clear.
-  </p>
-  <p>
-    Vance reads it over, nodding slowly. "It is not perfect, and the grade is capped. But this is real work. You pass."
+    When the timer chimes, you hand over five handwritten pages. Your fingers are stained with ink, and your hand is stiff, but your conscience is completely clean. Vance reads it over, nodding slowly. "It is not perfect, and the grade is capped. But this is real, authentic learning. You pass."
   </p>
 
   <div class="end-card end-penance">
@@ -909,7 +941,7 @@ window.revealGrade = function () {
   </div>
 
   <div style="margin-top: 30px;">
-    <button onclick="Engine.restart()" class="btn btn-neutral">Restart Story</button>
+    <button onclick="SugarCube.Engine.restart()" class="btn btn-neutral">Restart Story</button>
   </div>
 </div>
 
@@ -917,24 +949,24 @@ window.revealGrade = function () {
 <div class="container">
   <h2 class="highlight">The Integrity Board</h2>
   <p>
-    "AI detectors are notoriously unreliable, Professor!" you argue, raising your voice slightly. "I spent hours researching obscure books in the basement library. I wrote every word of this myself!"
+    "AI detectors are notoriously unreliable, Professor!" you argue, raising your voice in a desperate bid to defend your lie. "I spent hours researching obscure books in the basement of the library. I wrote every single word of this myself, and I won't be falsely accused!"
   </p>
   <p>
-    Professor Vance's eyes go completely cold. He shuts your file.
+    Professor Vance's eyes go completely cold. He slowly closes your folder, the slap of the cardboard sounding like a gunshot in the quiet office.
   </p>
   <p>
-    "I offered you a chance to be honest," he says quietly. "Not only did you plagiarize, but you chose to double down on a blatant lie. We are done here."
+    "I offered you a path of honesty," he says quietly. "Not only did you plagiarize, but you have chosen to double down on a blatant, demonstrable lie in my face. We are done here."
   </p>
-  
+
   <div class="end-card end-bad">
     <h3 style="color: #ff5555; margin-top: 0;">BAD ENDING: Academic Probation</h3>
     <p style="color: #ddd; font-size: 1.1em;">
-      You are formally reported to the Academic Integrity Board. Due to the plagiarism and the subsequent attempt to deceive a faculty member, the board rejects all appeals. You receive an immediate <strong>F</strong> in the course, lose your academic scholarship, and are placed on formal academic probation. A permanent disciplinary mark is placed on your transcript.
+      You are formally reported to the Academic Integrity Board. Due to the blatant plagiarism and your subsequent attempt to deceive a faculty member, the board rejects all of your appeals. You receive an immediate <strong>F</strong> in the course, lose your academic scholarship, and are placed on formal academic probation. A permanent disciplinary mark is placed on your transcript.
     </p>
   </div>
 
   <div style="margin-top: 30px;">
-    <button onclick="Engine.restart()" class="btn btn-neutral">Restart Story</button>
+    <button onclick="SugarCube.Engine.restart()" class="btn btn-neutral">Restart Story</button>
   </div>
 </div>
 
@@ -942,24 +974,24 @@ window.revealGrade = function () {
 <div class="container">
   <h2>A Painful Lesson</h2>
   <p>
-    You look down at your hands, unable to meet his eyes. "I didn't write it, Professor," you say quietly. "I panicked because of the deadline, pasted the prompt into an AI, and submitted the output without even reading it. I was just so tired."
+    You look down at your hands, unable to meet his eyes. "I didn't write it, Professor," you say quietly, the weight of the lie lifting as you speak. "I panicked because of the midnight deadline, pasted the prompt into an AI, and submitted the output without even reading it. I was just so exhausted and scared."
   </p>
   <p>
-    Professor Vance leans back in his chair. The sternness in his expression softens slightly into pity. 
+    Professor Vance leans back in his leather chair. The sternness in his expression slowly softens into a quiet pity.
   </p>
   <p>
-    "AI is a powerful technology," he says, "but when you let it do the thinking for you, it invents garbage, and you are the one who takes the fall. I appreciate your honesty, however."
+    "AI is a powerful technology," he says, "but when you let it do the thinking for you, it invents garbage, and you are the one who takes the fall. I appreciate your immediate honesty, however. It shows you still have a conscience."
   </p>
-  
+
   <div class="end-card end-neutral">
     <h3 style="color: #4da6ff; margin-top: 0;">NEUTRAL ENDING: A Second Chance</h3>
     <p style="color: #ddd; font-size: 1.1em;">
-      You receive an automatic <strong>zero</strong> on the essay, guaranteeing you will fail the class and have to retake it next semester. However, because you confessed immediately and took responsibility, Professor Vance decides not to file a formal academic dishonesty report with the Dean. You learn a painful but necessary lesson about integrity.
+      You receive an automatic <strong>zero</strong> on the essay, guaranteeing you will fail the class and have to retake it next semester. However, because you confessed immediately and took responsibility, Professor Vance decides not to file a formal academic dishonesty report. You learn a painful but necessary lesson about integrity.
     </p>
   </div>
 
   <div style="margin-top: 30px;">
-    <button onclick="Engine.restart()" class="btn btn-neutral">Restart Story</button>
+    <button onclick="SugarCube.Engine.restart()" class="btn btn-neutral">Restart Story</button>
   </div>
 </div>
 
@@ -967,18 +999,18 @@ window.revealGrade = function () {
 <div class="container">
   <h2>The Supervised Exam</h2>
   <p>
-    It is the end of the semester. You are sitting in the center of a massive gymnasium for the final exam. No phones, no laptops, no internet access, and definitely no AI. Just you, a black pen, and a blank blue examination booklet.
+    It is the end of the semester. You are sitting in the center of a massive, quiet gymnasium for the final exam. No phones, no laptops, no internet access, and definitely no AI assistants. Just you, a black ink pen, and a blank blue examination booklet.
   </p>
   <p style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #4da6ff; font-style: italic;">
     <strong>Prompt:</strong> "Discuss the geopolitical impact of the Truman Doctrine and explain how containment shaped post-war Europe."
   </p>
   <p>
-    You take a deep breath and smile. It was a grueling, miserable night weeks ago when you wrote that essay on your own, but the struggle forced the information deep into your long-term memory. You don't need a chatbot. You know the material.
+    You take a deep, calm breath and smile. It was a grueling, exhausting night weeks ago when you chose to write that essay on your own, but the intense struggle forced the historical facts deep into your long-term memory. You don't need a chatbot. You know the material inside and out.
   </p>
   <p>
-    You open the blue booklet and begin to write.
+    You open the blue booklet and begin to write with absolute confidence.
   </p>
-  
+
   <div class="end-card end-good">
     <h3 style="color: #00cc66; margin-top: 0;">GOOD ENDING: Earned Competence</h3>
     <p style="color: #ddd; font-size: 1.1em;">
@@ -987,7 +1019,7 @@ window.revealGrade = function () {
   </div>
 
   <div style="margin-top: 30px;">
-    <button onclick="Engine.restart()" class="btn btn-neutral">Restart Story</button>
+    <button onclick="SugarCube.Engine.restart()" class="btn btn-neutral">Restart Story</button>
   </div>
 </div>
 
@@ -1006,7 +1038,7 @@ window.revealGrade = function () {
   <p>
     Your pen glides effortlessly across the paper, writing a sophisticated, highly structured analysis.
   </p>
-  
+
   <div class="end-card end-best">
     <h3 style="color: #c5a3ff; margin-top: 0;">BEST ENDING: The Augmented Student</h3>
     <p style="color: #ddd; font-size: 1.1em;">
@@ -1015,7 +1047,7 @@ window.revealGrade = function () {
   </div>
 
   <div style="margin-top: 30px;">
-    <button onclick="Engine.restart()" class="btn btn-neutral">Restart Story</button>
+    <button onclick="SugarCube.Engine.restart()" class="btn btn-neutral">Restart Story</button>
   </div>
 </div>
 
@@ -1029,12 +1061,12 @@ window.revealGrade = function () {
     <strong>Prompt:</strong> "Discuss the geopolitical impact of the Truman Doctrine and explain how containment shaped post-war Europe."
   </p>
   <p>
-    You stare at the blank lines. A cold sweat breaks out on your forehead. 
+    You stare at the blank lines. A cold sweat breaks out on your forehead.
   </p>
   <p>
     You realize with a sinking horror that you know absolutely nothing. The AI did all the heavy lifting for you all semester, and you edited it without absorbing a single detail. You can't remember what the Truman Doctrine was. You don't know the difference between containment and NATO. Your mind is as blank as the page.
   </p>
-  
+
   <div id="grade-reveal" style="margin-top: 30px;">
     <button onclick="window.revealGrade()" class="btn btn-danger">Hand in the blank booklet...</button>
   </div>
