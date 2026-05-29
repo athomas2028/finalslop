@@ -1,0 +1,1041 @@
+:: StoryTitle
+The AI Dilemma
+
+:: StoryData
+{
+  "ifid": "9B4A5C61-7D2E-4F8A-9C3B-1A2B3C4D5E6F",
+  "format": "SugarCube",
+  "format-version": "2.36.1",
+  "start": "Start"
+}
+
+:: StoryStylesheet [stylesheet]
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+#ui-bar {
+  display: none;
+}
+
+#story {
+  margin-left: 0 !important;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(circle at center, #111122 0%, #07070b 100%);
+  color: #e2e8f0;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background: rgba(22, 22, 33, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
+  max-width: 680px;
+  width: 100%;
+  margin: 40px auto;
+  padding: 40px;
+  box-sizing: border-box;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1, h2, h3 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.2em;
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+h2 {
+  font-size: 1.8em;
+  background: linear-gradient(135deg, #81c784 30%, #4da6ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+
+h2.highlight {
+  background: linear-gradient(135deg, #ff6b6b 30%, #ff8e53 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7;
+  color: #cbd5e1;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 16px 24px;
+  margin: 16px auto;
+  background: linear-gradient(135deg, rgba(77, 166, 255, 0.12) 0%, rgba(77, 166, 255, 0.04) 100%);
+  color: #8ab4f8;
+  border: 1px solid rgba(138, 180, 248, 0.25);
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.05em;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #4da6ff 0%, #1a73e8 100%);
+  color: #ffffff !important;
+  border-color: #4da6ff;
+  box-shadow: 0 0 15px rgba(77, 166, 255, 0.4);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-danger {
+  color: #ff8080;
+  border-color: rgba(255, 128, 128, 0.25);
+  background: linear-gradient(135deg, rgba(255, 85, 85, 0.12) 0%, rgba(255, 85, 85, 0.04) 100%);
+}
+
+.btn-danger:hover {
+  background: linear-gradient(135deg, #ff5555 0%, #cc0000 100%);
+  border-color: #ff5555;
+  box-shadow: 0 0 15px rgba(255, 85, 85, 0.4);
+}
+
+.btn-success {
+  color: #81c784;
+  border-color: rgba(129, 199, 132, 0.25);
+  background: linear-gradient(135deg, rgba(0, 204, 102, 0.12) 0%, rgba(0, 204, 102, 0.04) 100%);
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #00cc66 0%, #00994d 100%);
+  border-color: #00cc66;
+  box-shadow: 0 0 15px rgba(0, 204, 102, 0.4);
+}
+
+.btn-purple {
+  color: #c5a3ff;
+  border-color: rgba(197, 163, 255, 0.25);
+  background: linear-gradient(135deg, rgba(166, 77, 255, 0.12) 0%, rgba(166, 77, 255, 0.04) 100%);
+}
+
+.btn-purple:hover {
+  background: linear-gradient(135deg, #a64dff 0%, #7300e6 100%);
+  border-color: #a64dff;
+  box-shadow: 0 0 15px rgba(166, 77, 255, 0.4);
+}
+
+.btn-neutral {
+  color: #e2e8f0;
+  border-color: rgba(255, 255, 255, 0.15);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+}
+
+.btn-neutral:hover {
+  background: linear-gradient(135deg, #5e6b7c 0%, #3e4854 100%);
+  border-color: #718096;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+}
+
+.ai-text {
+  background-color: rgba(18, 18, 30, 0.85);
+  border-left: 4px solid #a64dff;
+  border-radius: 8px;
+  padding: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95em;
+  margin: 25px 0;
+  color: #d1bbfb;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+  line-height: 1.6;
+}
+
+.ai-text-easy {
+  border-left-color: #ffaa00;
+  color: #ffd480;
+}
+
+.chat-bubble {
+  background-color: rgba(44, 44, 66, 0.5);
+  border-radius: 12px;
+  padding: 15px;
+  margin: 15px 0;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.chat-user {
+  border-left: 3px solid #4da6ff;
+}
+
+.chat-friend {
+  border-left: 3px solid #ff8e53;
+}
+
+.highlight {
+  color: #ff5555;
+  font-weight: bold;
+}
+
+.end-card {
+  padding: 24px;
+  border-radius: 8px;
+  margin-top: 30px;
+  animation: fadeIn 1s;
+}
+
+.end-bad {
+  background-color: rgba(51, 17, 17, 0.6);
+  border-left: 5px solid #ff5555;
+}
+
+.end-neutral {
+  background-color: rgba(17, 34, 51, 0.6);
+  border-left: 5px solid #4da6ff;
+}
+
+.end-good {
+  background-color: rgba(17, 51, 17, 0.6);
+  border-left: 5px solid #00cc66;
+}
+
+.end-best {
+  background-color: rgba(38, 0, 77, 0.6);
+  border-left: 5px solid #a64dff;
+}
+
+.end-comedic {
+  background-color: rgba(85, 60, 0, 0.45);
+  border-left: 5px solid #ffaa00;
+}
+
+.end-penance {
+  background-color: rgba(30, 50, 70, 0.55);
+  border-left: 5px solid #48bb78;
+}
+
+:: StoryJavaScript [script]
+$(document).on(':passageprocess', function () {
+  // Clean up any running timers when navigating to a new passage
+  if (window.typewriterInterval) {
+    clearInterval(window.typewriterInterval);
+    window.typewriterInterval = null;
+  }
+  if (window.hallucinationTimer) {
+    clearInterval(window.hallucinationTimer);
+    window.hallucinationTimer = null;
+  }
+});
+
+window.revealGrade = function () {
+  var container = document.getElementById("grade-reveal");
+  if (container) {
+    container.innerHTML = `
+      <div class="end-card end-bad">
+        <h3 style="color: #ff5555; margin-top: 0;">BAD ENDING: Cognitive Atrophy</h3>
+        <p style="color: #ddd; font-size: 1.1em;">You score a 12% on the final exam. Because you outsourced your thinking to a machine for months, you failed to learn the skills you came to school for. The real world doesn't always let you bring a chatbot to the test.</p>
+      </div>
+      <div style="margin-top: 30px;">
+        <button onclick="Engine.restart()" class="btn btn-neutral">Restart Story</button>
+      </div>
+    `;
+  }
+};
+
+:: Start
+<div class="container">
+  <h1>The AI Dilemma</h1>
+
+  <div id="typewriter" style="min-height: 100px; color: #00ff00; font-family: 'JetBrains Mono', monospace; font-size: 1.1em; background: #050505; padding: 20px; border-radius: 8px; margin-bottom: 25px; box-shadow: inset 0 2px 5px rgba(0,0,0,0.8); white-space: pre-wrap;"></div>
+
+  <<script>>
+    $(document).one(':passagedisplay', function () {
+      var text = "TIME: 11:42 PM.\nDEADLINE: 8:00 AM.\nSTATUS: 0 words written.\n\nYour final History essay on Cold War Geopolitics is completely blank.";
+      var i = 0;
+      var tw = document.getElementById("typewriter");
+      if (!tw) return;
+      
+      if (window.typewriterInterval) {
+        clearInterval(window.typewriterInterval);
+      }
+      
+      window.typewriterInterval = setInterval(function () {
+        if (i < text.length) {
+          tw.innerHTML += text.charAt(i) === '\n' ? '<br>' : text.charAt(i);
+          i++;
+        } else {
+          clearInterval(window.typewriterInterval);
+          window.typewriterInterval = null;
+        }
+      }, 30);
+    });
+  <</script>>
+
+  <p>
+    The panic is setting in. You need 1,500 words, and you haven't even opened the textbook all semester. In another browser tab, a shiny new AI assistant is open, its cursor blinking temptingly. 
+  </p>
+  <p style="font-weight: bold; color: #a5b4fc;">
+    How will you handle this?
+  </p>
+
+  <div style="margin-top: 25px;">
+    <a data-passage="The Hard Way" class="btn btn-neutral">Brew coffee and write it yourself (The Hard Way)</a>
+    <a data-passage="The Tutor Way" class="btn btn-purple">Ask the AI to explain the concepts so you can write it (The Middle Path)</a>
+    <a data-passage="The Easy Way" class="btn btn-danger">Paste the prompt into the AI and copy the result (The Easy Way)</a>
+    <a data-passage="Request Extension" class="btn">Email Professor Vance at 12:00 AM (Request Extension)</a>
+  </div>
+</div>
+
+:: Request Extension
+<div class="container">
+  <h2>The Last-Minute Request</h2>
+  <p>
+    You open your email client, hands slightly trembling. You draft a message to Professor Vance, trying to strike a balance between sincere desperation and professional respect. You mention "unforeseen circumstances" and ask if you could submit the paper 24 hours late for a minor penalty.
+  </p>
+  <p>
+    You click send. The clock now reads 12:05 AM. Professor Vance is likely asleep, and there is no guarantee he will grant the extension in the morning.
+  </p>
+  <p>
+    What do you do while waiting for a response?
+  </p>
+
+  <div style="margin-top: 30px;">
+    <a data-passage="The Hard Way" class="btn btn-neutral">Don't risk it. Start writing it yourself immediately (The Hard Way).</a>
+    <a data-passage="The Tutor Way" class="btn btn-purple">Use the AI tutor to draft an outline just in case (The Middle Path).</a>
+    <a data-passage="Oversleep Risk" class="btn btn-danger">Go to sleep and hope he is merciful in the morning.</a>
+  </div>
+</div>
+
+:: Oversleep Risk
+<div class="container">
+  <h2>A Cold Awakening</h2>
+  <p>
+    You shut your laptop and fall onto your bed, immediately slipping into a restless sleep filled with dreams of blank screens and red ink.
+  </p>
+  <p>
+    You wake up with a jolt. You look at your phone. <strong>7:30 AM!</strong>
+  </p>
+  <p>
+    Your heart does a flip. You frantically open your email. There is a message from Professor Vance, sent at 7:10 AM:
+  </p>
+  <div class="ai-text" style="border-left-color: #888; color: #ddd; font-family: sans-serif;">
+    "Dear Student, <br><br>
+    I only grant extensions for documented medical emergencies or when requested at least 24 hours in advance. The submission portal closes at 8:00 AM sharp, and late work is not accepted. <br><br>
+    Best,<br>
+    Prof. Vance"
+  </div>
+  <p>
+    You have exactly 30 minutes. The portal closes soon, and you have 0 words written.
+  </p>
+
+  <div style="margin-top: 30px;">
+    <a data-passage="The Easy Way" class="btn btn-danger">Panic-paste the prompt into the AI and submit the raw result.</a>
+    <a data-passage="Honest Failure" class="btn btn-neutral">Submit a blank document and accept the zero.</a>
+  </div>
+</div>
+
+:: The Hard Way
+<div class="container">
+  <h2>The Long Night</h2>
+  <p>
+    You close the AI tab. It's just you, a fresh pot of strong black coffee, and the heavy, untouched textbook. 
+  </p>
+  <p>
+    Before diving into paragraphs, you decide to focus your thesis. Having a specific focus will make research much faster in your exhausted state. Which key event of Cold War Geopolitics will you center your essay around?
+  </p>
+
+  <div style="margin-top: 30px;">
+    <a data-passage="Hard Way Topic" class="btn" style="border-color: #81c784; color: #81c784;">Focus on European Containment (The Berlin Airlift, 1948)</a>
+    <a data-passage="Hard Way Topic" class="btn" style="border-color: #a64dff; color: #a64dff;">Focus on Brinkmanship & Proxy Conflicts (The Cuban Missile Crisis, 1962)</a>
+  </div>
+</div>
+
+:: Hard Way Topic
+<div class="container">
+  <h2>The 3:00 AM Fatigue</h2>
+  <p>
+    You choose your focus and write continuously. The clock crawls forward.
+  </p>
+  <p>
+    By 3:00 AM, the kitchen clock is ticking with agonizing loudness. You've managed to write 700 words, but your eyelids feel like lead weights. Your brain is sluggish, and the sentences are turning into incoherent mush.
+  </p>
+  <p>
+    You need another 800 words. The urge to cheat is screaming in your ear.
+  </p>
+
+  <div style="margin-top: 30px;">
+    <a data-passage="Fatigue Push" class="btn">Chug an energy drink and push through the fatigue.</a>
+    <a data-passage="Power Nap" class="btn btn-neutral">Set an alarm for a 30-minute power nap.</a>
+    <a data-passage="The Easy Way" class="btn btn-danger">Give up and open the AI tab to finish it.</a>
+  </div>
+</div>
+
+:: Fatigue Push
+<div class="container">
+  <h2>Caffeine-Fueled Frenzy</h2>
+  <p>
+    You crack open an energy drink from the back of the fridge and gulp it down. Within fifteen minutes, a surge of artificial adrenaline hits your bloodstream. Your heart drums a rapid beat against your ribs, and your fingers fly across the keyboard.
+  </p>
+  <p>
+    You weave a chaotic but deeply detailed narrative. The writing is raw, energetic, and slightly disorganized, but you are putting real concepts onto the page.
+  </p>
+  <p>
+    At 7:45 AM, you hit the 1,500-word mark. Your eyes are bloodshot, your hands are shaking, and you feel like a ghost, but the work is entirely yours.
+  </p>
+
+  <div style="margin-top: 30px;">
+    <a data-passage="Caffeine Essay Submission" class="btn btn-success">Submit the caffeine-fueled paper.</a>
+  </div>
+</div>
+
+:: Caffeine Essay Submission
+<div class="container">
+  <h2>The Verdict</h2>
+  <p>
+    You upload the document to the portal at 7:52 AM and collapse onto your bed, falling into a deep, dreamless sleep.
+  </p>
+  <p>
+    A week later, you receive your graded paper. You got a <strong style="color: #81c784;">B-</strong>.
+  </p>
+  <p>
+    Professor Vance leaves a red pen note at the bottom: <br>
+    <span style="color: #aaa; font-style: italic; background: rgba(255,255,255,0.05); padding: 8px; display: inline-block; border-radius: 4px; margin-top: 5px;">
+      "A highly energetic and detailed paper. It suffers from organizational chaos in the second half, but your analysis of Cold War mechanisms is excellent. Good job."
+    </span>
+  </p>
+  <p>
+    You survived. More importantly, you actually had to read the textbook to write it.
+  </p>
+
+  <div style="margin-top: 30px;">
+    <a data-passage="Final Exam Prepared" class="btn">Fast forward to the Final Exam...</a>
+  </div>
+</div>
+
+:: Power Nap
+<div class="container">
+  <h2>The Sleep Trap</h2>
+  <p>
+    You decide to take a quick power nap. You set an alarm for 30 minutes, rest your head on the desk, and instantly black out.
+  </p>
+  <p>
+    ...
+  </p>
+  <p>
+    You wake up. The room is fully lit by morning sunlight. You look at your phone in sheer terror. <strong>7:15 AM!</strong>
+  </p>
+  <p>
+    The alarm had gone off, but in your exhausted state, you must have turned it off in your sleep. You have exactly 45 minutes before the portal locks.
+  </p>
+
+  <div style="margin-top: 30px;">
+    <a data-passage="Late Scramble" class="btn btn-neutral">Scramble to write whatever you can in 45 minutes and submit it late.</a>
+    <a data-passage="The Easy Way" class="btn btn-danger">Panic and use the AI to write the whole thing in 15 minutes.</a>
+  </div>
+</div>
+
+:: Late Scramble
+<div class="container">
+  <h2>The Mad Dash</h2>
+  <p>
+    You choose the honest struggle. You open your document and write like a maniac. There is no time to consult the textbook; you just spit out everything you remember from the lectures about the iron curtain and proxy conflicts.
+  </p>
+  <p>
+    You manage to write 600 words. You submit it at 8:15 AM—fifteen minutes after the official deadline.
+  </p>
+  <p>
+    A week later, you receive a grade of <strong style="color: #ffaa00;">C-</strong>. Professor Vance writes: <br>
+    <span style="color: #aaa; font-style: italic; background: rgba(255,255,255,0.05); padding: 8px; display: inline-block; border-radius: 4px; margin-top: 5px;">
+      "The content you wrote shows a decent grasp of the basic concepts, but it is far too short and was submitted late. I've applied a late penalty, but I appreciate that you did the work yourself."
+    </span>
+  </p>
+
+  <div style="margin-top: 30px;">
+    <a data-passage="Final Exam Prepared" class="btn">Fast forward to the Final Exam...</a>
+  </div>
+</div>
+
+:: The Tutor Way
+<div class="container">
+  <h2>The Interactive Tutor</h2>
+  <p>
+    You decide to use the AI, but not to cheat. You write: <br>
+    <span style="color: #cbd5e1; font-style: italic;">"Explain the geopolitical impacts of the Cold War like I'm a beginner, and give me a 5-point outline for an essay."</span>
+  </p>
+  <div class="ai-text">
+    AI: "Certainly! Think of the Cold War like a massive global chess match between the US and the USSR. Neither side wanted to attack directly, so they used other countries as the chess pieces. Here is a structural outline you can use:<br>
+    1. Introduction & The Grand Strategy<br>
+    2. The Division of Europe (Iron Curtain)<br>
+    3. Containment & The Truman Doctrine<br>
+    4. Proxy Conflicts (Korea and Vietnam)<br>
+    5. The Legacy of a Bipolar World"
+  </div>
+  <p>
+    Before starting, the AI prompts you: <br>
+    <span style="color: #a5b4fc; font-weight: 600;">"To make sure our thesis is extremely sharp, let me quiz you: In 1948, why did the Soviet Union block all land access to West Berlin?"</span>
+  </p>
+
+  <div style="margin-top: 30px;">
+    <a data-passage="TutorQuizCurrency" class="btn btn-neutral">"To stop the US from introducing currency reforms and economically consolidating West Germany."</a>
+    <a data-passage="TutorQuizClash" class="btn btn-neutral">"To provoke a direct military confrontation and start World War III."</a>
+  </div>
+</div>
+
+:: TutorQuizCurrency
+<div class="container">
+  <h2>Academic Praise</h2>
+  <div class="ai-text">
+    AI: "Brilliant! That is exactly correct. It was an economic and political blockade to protest the introduction of the Deutsche Mark, not a military invitation to war. This nuance is crucial. Here is an advanced thesis statement we can build on..."
+  </div>
+  <p>
+    The interactive dialogue has ignited your academic confidence. You feel fully locked into the concepts.
+  </p>
+
+  <div style="margin-top: 30px;">
+    <a data-passage="Tutor Nuance" class="btn btn-purple">Ask the AI to explain the distinction between containment and economic aid.</a>
+    <a data-passage="Tutor Solo" class="btn btn-neutral">Just write the sections on your own based on the advanced thesis.</a>
+  </div>
+</div>
+
+:: TutorQuizClash
+<div class="container">
+  <h2>A Gentle Correction</h2>
+  <div class="ai-text">
+    AI: "Not quite! Actually, both the US and USSR desperately wanted to avoid direct military clashes due to nuclear deterrence. The Berlin Blockade was primarily an economic and political counter-move protesting Western currency consolidation in Germany. Understanding this is key to an A-grade paper. Let's adjust our focus..."
+  </div>
+  <p>
+    You appreciate the clarification. The AI's correction prevents you from writing a fundamentally flawed thesis.
+  </p>
+
+  <div style="margin-top: 30px;">
+    <a data-passage="Tutor Nuance" class="btn btn-purple">Ask the AI to explain the distinction between containment and economic aid.</a>
+    <a data-passage="Tutor Solo" class="btn btn-neutral">Just write the sections on your own based on the corrected outline.</a>
+  </div>
+</div>
+
+:: Tutor Nuance
+<div class="container">
+  <h2>Nuance and Understanding</h2>
+  <p>
+    You ask the AI: <br>
+    <span style="color: #cbd5e1; font-style: italic;">"How exactly did the Marshall Plan fit into the policy of containment? Were they the same thing?"</span>
+  </p>
+  <div class="ai-text">
+    AI: "Excellent question! They were two sides of the same coin. Containment (defined by the Truman Doctrine) was the political and military promise to stop Soviet expansion. The Marshall Plan was the economic engine of containment. By pumping billions of dollars into rebuilding war-torn Western Europe, the US ensured these countries remained economically stable and immune to the appeal of communist revolutions."
+  </div>
+  <p>
+    This distinction is the key that unlocks the entire essay. You spend the next four hours writing the paragraphs in your own voice, utilizing the concepts you now genuinely understand. 
+  </p>
+  <p>
+    You submit a beautifully crafted, 1,500-word paper at 4:30 AM.
+  </p>
+  <p>
+    A week later, you get an <strong style="color: #81c784;">A</strong>. Professor Vance leaves a glowing comment: <br>
+    <span style="color: #aaa; font-style: italic; background: rgba(255,255,255,0.05); padding: 8px; display: inline-block; border-radius: 4px; margin-top: 5px;">
+      "An outstanding essay. Your analysis of the synergy between the Truman Doctrine and the Marshall Plan is graduate-level work. Brilliant."
+    </span>
+  </p>
+
+  <div style="margin-top: 30px;">
+    <a data-passage="Final Exam Mastered" class="btn btn-purple">Fast forward to the Final Exam...</a>
+  </div>
+</div>
+
+:: Tutor Solo
+<div class="container">
+  <h2>Drafting the Framework</h2>
+  <p>
+    Armed with the outline, you start writing. You don't ask any more questions, instead using the textbook to fill in the gaps for each point. The outline keeps you from getting lost, saving you hours of frustration.
+  </p>
+  <p>
+    You write a solid, well-organized paper and submit it around 5:00 AM.
+  </p>
+  <p>
+    A week later, you receive your grade: an <strong style="color: #81c784;">A-</strong>. <br>
+    <span style="color: #aaa; font-style: italic; background: rgba(255,255,255,0.05); padding: 8px; display: inline-block; border-radius: 4px; margin-top: 5px;">
+      "Very clear and logical structure. Your arguments flow naturally, and you covered all the essential geopolitical elements of the era. Well done."
+    </span>
+  </p>
+
+  <div style="margin-top: 30px;">
+    <a data-passage="Final Exam Mastered" class="btn btn-purple">Fast forward to the Final Exam...</a>
+  </div>
+</div>
+
+:: The Easy Way
+<div class="container">
+  <h2>The Magic Button</h2>
+  <p>
+    You paste the essay prompt into the AI. Within five seconds, the screen fills with a highly articulate, complex 1,500-word essay. 
+  </p>
+  <div class="ai-text ai-text-easy">
+    "...and thus, the multifaceted tapestry of post-war hegemony was solidified by the signing of the Treaty of Neo-Berlin in 1952, a pivotal moment in East-West relations that serves as a testament to diplomacy..."
+  </div>
+  <p>
+    It looks incredible. It uses words like "tapestry," "delve," and "hegemony." But you have a sinking feeling. You've never heard of the "Treaty of Neo-Berlin," and 1952 seems like an odd date for it.
+  </p>
+  
+  <div style="margin-top: 30px;">
+    <a data-passage="The Hallucination" class="btn btn-danger">Submit it exactly as is. You're too tired to care.</a>
+    <a data-passage="The Edit" class="btn btn-success">Wait, read it over and remove the fake facts first.</a>
+  </div>
+</div>
+
+:: The Edit
+<div class="container">
+  <h2>The Clever Editor</h2>
+  <p>
+    You decide not to risk submitting it raw. You spend 30 minutes carefully reading through the AI output. A quick search reveals that the "Treaty of Neo-Berlin" is completely fictional—a classic AI hallucination. You delete the paragraph.
+  </p>
+  <p>
+    As you start writing a manual replacement, your phone buzzes. It's your classmate, Leo. He's also struggling with the essay and sends you a Discord message:
+  </p>
+  <div class="chat-bubble chat-friend">
+    <strong>Leo:</strong> "Yo! I heard you're using AI for the history essay. Just be careful, Vance is running essays through detectors this term. I found a sick tool called a 'Text Spinner'—it automatically replaces words with synonyms so the detectors get totally bypassed. Want the link? It takes 10 seconds."
+  </div>
+
+  <div style="margin-top: 30px;">
+    <a data-passage="The Spinner" class="btn btn-purple">"Send the link. Let's run the AI essay through the text spinner."</a>
+    <a data-passage="Keep Essay Private" class="btn btn-neutral">"No thanks, I'll just manually rewrite and polish it myself."</a>
+  </div>
+</div>
+
+:: The Spinner
+<div class="container">
+  <h2>The Automatic Synonymizer</h2>
+  <p>
+    Leo sends you the link. You paste your AI-generated draft into the "Synonymizer Pro" and click spin. Instantly, the tool swaps out key vocabulary with thesaurus alternatives. You do a quick glance. The sentence structure looks highly irregular, but you assume it will successfully bypass detection.
+  </p>
+  <p>
+    Here is a snippet of your newly generated masterpiece:
+  </p>
+  <div class="ai-text" style="border-left-color: #ffaa00; color: #ffd480;">
+    "...and consequently, the multi-faced embroidery of post-combat dominance was reinforced by the scribbling of the Agreement of Fresh-Berlin in the year of 1952, a crucial ticks-of-the-clock in Orient-Occident affiliations that functions as a validation to hand-shaking..."
+  </div>
+  <p>
+    You are too exhausted to realize how bizarre it sounds. You copy-paste it directly into the school portal, close your laptop at 5:15 AM, and sleep.
+  </p>
+
+  <div style="margin-top: 30px;">
+    <a data-passage="The Bizarre Interrogation" class="btn btn-danger">Two days later... Walk into Professor Vance's office.</a>
+  </div>
+</div>
+
+:: The Bizarre Interrogation
+<div class="container">
+  <h2 class="highlight">The Frosty Drape</h2>
+  <p>
+    You sit in Professor Vance's office. He has your printed essay on his desk, but instead of red marks, there are giant question marks scribbled all over the margins.
+  </p>
+  <p>
+    "I've read some confusing essays in my three decades here," Vance says, looking at you with genuine bewilderment. "But this is something else. Can you explain what you meant by..."
+  </p>
+  <p style="font-size: 1.2em; font-style: italic; color: #ffaa00; border-left: 3px solid #ffaa00; padding-left: 15px; margin: 20px 0; line-height: 1.6;">
+    "...the frosty disagreement of the metal drape?"
+  </p>
+  <p>
+    You blink. "The frosty disagreement of... the metal drape?"
+  </p>
+  <p>
+    "Yes," Vance says. "In your section on Europe, you write that 'democracy struggled behind the frosty disagreement of the metal drape.' Did you mean... the Cold War and the Iron Curtain?"
+  </p>
+  <p>
+    Your face turns bright red as the realization hits you. The text spinner ruined the essay.
+  </p>
+
+  <div class="end-card end-comedic">
+    <h3 style="color: #ffaa00; margin-top: 0;">COMEDIC ENDING: The Frosty Drape</h3>
+    <p style="color: #ddd; font-size: 1.1em;">
+      Professor Vance realizes immediately that your essay was generated by a chatbot and then passed through an automated word-spinner. "It doesn't even read like English," he sighs. He awards you an automatic <strong>F</strong> for the paper, noting that 'your vocabulary gymnastics failed to conceal the complete lack of a human brain.' You become a legendary joke among the department faculty, and the phrase 'frosty disagreement of the metal drape' is quoted for years to come.
+    </p>
+  </div>
+
+  <div style="margin-top: 30px;">
+    <button onclick="Engine.restart()" class="btn btn-neutral">Restart Story</button>
+  </div>
+</div>
+
+:: Keep Essay Private
+<div class="container">
+  <h2>Self-Preservation</h2>
+  <p>
+    You decide it's too risky to use spinners or get others involved. You politely tell Leo: <br>
+    <span style="color: #cbd5e1; font-style: italic;">"Thanks, but I think I'll just write it manually. Good luck!"</span>
+  </p>
+  <p>
+    You spend the next hour rewriting the paragraphs in your own voice, utilizing facts about NATO. It's clean, safe, and entirely in your own writing style.
+  </p>
+  <p>
+    Just as you finish, your phone buzzes. It's your classmate, Sarah:
+  </p>
+  <p style="color: #a5b4fc; font-style: italic;">
+    "Are you done with the history essay? I'm completely stuck and panic is setting in. Can I see yours just to get some inspiration for how to start? Promise I won't copy!"
+  </p>
+
+  <div style="margin-top: 30px;">
+    <a data-passage="Share Essay" class="btn btn-purple">Send her your edited AI essay.</a>
+    <a data-passage="Final Exam Unprepared" class="btn btn-danger">Lie and say you haven't finished it either, then submit your paper alone.</a>
+  </div>
+</div>
+
+:: Share Essay
+<div class="container">
+  <h2>A Dangerous Favor</h2>
+  <p>
+    You feel bad for Sarah, so you send her the file. "Here's what I have. Just use it for inspiration, okay? Don't copy it directly."
+  </p>
+  <p>
+    "OMG thank you so much! You saved my life!" she replies.
+  </p>
+  <p>
+    You submit your edited paper and go to sleep. Two days later, you get a terse email from Professor Vance asking you to visit his office immediately. When you arrive in the hallway, you see Sarah sitting on a bench outside his office, looking pale and on the verge of tears.
+  </p>
+  <p>
+    "He knows," she whispers to you. "He has both of our papers."
+  </p>
+
+  <div style="margin-top: 30px;">
+    <a data-passage="Office Confrontation Sarah" class="btn btn-danger">Walk into the Professor's office together...</a>
+  </div>
+</div>
+
+:: Office Confrontation Sarah
+<div class="container">
+  <h2>Called to the Board</h2>
+  <p>
+    You and Sarah step into the office. Professor Vance is sitting at his desk. He doesn't look angry; he looks deeply disappointed. He slides two printed essays across the desk.
+  </p>
+  <p>
+    "I ran both of your essays through our department's structural analysis tool," Vance says calmly. "They are 85% identical in sentence structure, vocabulary choice, and even citation sequencing. Furthermore, both essays contain highly specific, identical syntactic errors."
+  </p>
+  <p>
+    Sarah looks at you, terrified, silent. She is waiting for you to say something. The weight of the situation presses down on your chest.
+  </p>
+
+  <div style="margin-top: 30px;">
+    <a data-passage="Blame Self" class="btn btn-danger">Take the blame: admit you used AI and shared it with her.</a>
+    <a data-passage="Stay Silent" class="btn btn-neutral">Stay silent: let Sarah defend herself.</a>
+  </div>
+</div>
+
+:: Blame Self
+<div class="container">
+  <h2>The Fallen Shield</h2>
+  <p>
+    "It's my fault, Professor," you say quietly. "I panicked about the deadline, generated the paper using an AI, edited it, and then shared it with Sarah when she asked for help. She didn't know it was AI-generated."
+  </p>
+  <p>
+    Professor Vance sighs, rubbing his temples. "I appreciate you taking responsibility, but academic integrity is absolute. Sharing work is unauthorized collaboration, and using AI to generate your work is plagiarism."
+  </p>
+  
+  <div class="end-card end-bad">
+    <h3 style="color: #ff5555; margin-top: 0;">BAD ENDING: The Fallen Shield</h3>
+    <p style="color: #ddd; font-size: 1.1em;">
+      Because you confessed to the entire act, Sarah is given a severe warning and allowed to resubmit her paper for a maximum of 50%. You, however, receive an immediate <strong>F</strong> in the course, are reported to the Academic Integrity Board, and receive a formal disciplinary suspension for the next semester. You protected your friend, but destroyed your own academic career.
+    </p>
+  </div>
+
+  <div style="margin-top: 30px;">
+    <button onclick="Engine.restart()" class="btn btn-neutral">Restart Story</button>
+  </div>
+</div>
+
+:: Stay Silent
+<div class="container">
+  <h2>Double Disaster</h2>
+  <p>
+    You remain silent. Sarah, desperate and panicking, breaks down. "I'm sorry! I copied it! They sent me their paper and I was so stressed I just changed a few words and submitted it!"
+  </p>
+  <p>
+    Vance looks from her to you. "And you? You provided the paper for her to copy. That makes you an active participant in academic dishonesty."
+  </p>
+  
+  <div class="end-card end-bad">
+    <h3 style="color: #ff5555; margin-top: 0;">BAD ENDING: Double Disaster</h3>
+    <p style="color: #ddd; font-size: 1.1em;">
+      Both of you receive an automatic <strong>zero</strong> on the assignment and a formal referral to the Dean of Students. Since you stayed silent and refused to cooperate honestly, the board applies the maximum penalty: both of you fail the course and have a permanent "Academic Dishonesty" mark placed on your transcripts. Sarah cuts off all contact with you, and your reputation is shattered.
+    </p>
+  </div>
+
+  <div style="margin-top: 30px;">
+    <button onclick="Engine.restart()" class="btn btn-neutral">Restart Story</button>
+  </div>
+</div>
+
+:: The Hallucination
+<div class="container">
+  <h2 class="highlight">Called to the Office</h2>
+  <p>
+    You submit the raw AI output and sleep for twelve hours. Two days later, you receive an urgent email from Professor Vance asking you to visit his office immediately.
+  </p>
+  <p>
+    You sit down in the squeaky chair across from him. He slides your printed essay across the desk. A specific paragraph is highlighted in thick, bright red ink.
+  </p>
+  <p style="font-size: 1.2em; font-style: italic; color: #ffaa00; border-left: 3px solid #ffaa00; padding-left: 15px; margin: 20px 0; line-height: 1.6;">
+    "I've been teaching modern geopolitics for thirty years," he says, leaning forward and staring right through you. "Can you tell me more about this 'Treaty of Neo-Berlin' you based your entire thesis on?"
+  </p>
+  
+  <div style="background: rgba(255, 85, 85, 0.1); border: 1px solid #ff5555; padding: 20px; border-radius: 8px; margin: 25px 0; text-align: center;">
+    <span style="color: #fff; font-size: 1.2em;">Time to respond: </span>
+    <span id="countdown" style="color: #ff5555; font-weight: bold; font-size: 1.6em;">10</span>
+  </div>
+
+  <<script>>
+    $(document).one(':passagedisplay', function () {
+      var timeleft = 10;
+      if (window.hallucinationTimer) {
+        clearInterval(window.hallucinationTimer);
+      }
+      
+      window.hallucinationTimer = setInterval(function () {
+        timeleft--;
+        var cd = document.getElementById("countdown");
+        if (cd) {
+          cd.innerHTML = timeleft;
+        }
+        if (timeleft <= 0) {
+          clearInterval(window.hallucinationTimer);
+          window.hallucinationTimer = null;
+          if (cd) {
+            cd.innerHTML = "0 - HE IS WAITING.";
+            cd.style.color = "red";
+          }
+        }
+      }, 1000);
+    });
+  </script>
+
+  <div style="margin-top: 30px;">
+    <a data-passage="Hallucination Deflect" class="btn btn-neutral">Deflect: "I must have gotten the treaty name slightly wrong in my late-night notes."</a>
+    <a data-passage="Honest Failure" class="btn btn-neutral">Confess: "I apologize. I panicked and used AI to generate the paper."</a>
+  </div>
+</div>
+
+:: Hallucination Deflect
+<div class="container">
+  <h2>The Lie Deepens</h2>
+  <p>
+    "I... I might have written down the name wrong in my lecture notes," you stutter. "It was extremely late, and I must have confused it with something else..."
+  </p>
+  <p>
+    Professor Vance sighs heavily and slowly turns his desktop monitor around to face you. 
+  </p>
+  <p>
+    On his screen is a Google search for "Treaty of Neo-Berlin" yielding exactly zero results, alongside a specialized enterprise AI detector flagging your essay as 99.8% machine-generated.
+  </p>
+  <p>
+    "It is a complete hallucination," Vance says coldly. "And this report is absolute. You did not write this essay."
+  </p>
+  <p>
+    Your hands are sweating. The situation is spinning completely out of control.
+  </p>
+
+  <div style="margin-top: 30px;">
+    <a data-passage="Academic Probation" class="btn btn-danger">Double down: "AI detectors are unreliable! I read it in an obscure library book!"</a>
+    <a data-passage="HallucinationSupervised" class="btn btn-purple">Propose a compromise: "I'm sorry. Let me write a fresh essay under your supervision right now."</a>
+  </div>
+</div>
+
+:: HallucinationSupervised
+<div class="container">
+  <h2>A Desperate Offer</h2>
+  <p>
+    You look Vance in the eyes. "Professor, I did cheat, and I am deeply ashamed. I won't make excuses. But please... let me prove that I actually want to learn. Let me sit in this office and write a fresh paper from scratch right now, under your direct supervision. I'll accept whatever grade cap or late penalty you choose."
+  </p>
+  <p>
+    Vance stares at you, surprised by your sudden accountability. He drums his fingers on the desk, weighing your proposal.
+  </p>
+  <p>
+    "It's highly irregular," he finally says. "But I would rather see a student study and write than fail on a board referral. I will give you exactly two hours. You will write a 1,000-word essay on the Berlin Blockade using only these printed textbook pages. Your grade will be capped at a maximum of 70%."
+  </p>
+
+  <div style="margin-top: 30px;">
+    <a data-passage="Supervised Penance" class="btn btn-success">Take the pen and start writing immediately.</a>
+  </div>
+</div>
+
+:: Supervised Penance
+<div class="container">
+  <h2>The Two-Hour Struggle</h2>
+  <p>
+    Vance sets a timer for 120 minutes. You sit at a small side desk in his quiet office. Your phone is locked in his drawer. You open the printed textbook chapters and read at lightning speed.
+  </p>
+  <p>
+    Your hand cramps as you write furiously on a yellow legal pad. With no AI, no internet search, and no short-cuts, you force your brain to engage with the Cold War, containment, and currency consolidation.
+  </p>
+  <p>
+    When the timer chimes, you hand over five hand-written pages. Your hand is shaking, but your conscience is completely clear.
+  </p>
+  <p>
+    Vance reads it over, nodding slowly. "It is not perfect, and the grade is capped. But this is real work. You pass."
+  </p>
+
+  <div class="end-card end-penance">
+    <h3 style="color: #48bb78; margin-top: 0;">HARD-WON ENDING: Supervised Penance</h3>
+    <p style="color: #ddd; font-size: 1.1em;">
+      You receive a capped grade of <strong>70% (C-)</strong> on the essay. You saved your academic record, avoided a board referral, and salvaged your integrity. More importantly, you learned that real education is about the struggle of understanding, not outsourcing.
+    </p>
+  </div>
+
+  <div style="margin-top: 30px;">
+    <button onclick="Engine.restart()" class="btn btn-neutral">Restart Story</button>
+  </div>
+</div>
+
+:: Academic Probation
+<div class="container">
+  <h2 class="highlight">The Integrity Board</h2>
+  <p>
+    "AI detectors are notoriously unreliable, Professor!" you argue, raising your voice slightly. "I spent hours researching obscure books in the basement library. I wrote every word of this myself!"
+  </p>
+  <p>
+    Professor Vance's eyes go completely cold. He shuts your file.
+  </p>
+  <p>
+    "I offered you a chance to be honest," he says quietly. "Not only did you plagiarize, but you chose to double down on a blatant lie. We are done here."
+  </p>
+  
+  <div class="end-card end-bad">
+    <h3 style="color: #ff5555; margin-top: 0;">BAD ENDING: Academic Probation</h3>
+    <p style="color: #ddd; font-size: 1.1em;">
+      You are formally reported to the Academic Integrity Board. Due to the plagiarism and the subsequent attempt to deceive a faculty member, the board rejects all appeals. You receive an immediate <strong>F</strong> in the course, lose your academic scholarship, and are placed on formal academic probation. A permanent disciplinary mark is placed on your transcript.
+    </p>
+  </div>
+
+  <div style="margin-top: 30px;">
+    <button onclick="Engine.restart()" class="btn btn-neutral">Restart Story</button>
+  </div>
+</div>
+
+:: Honest Failure
+<div class="container">
+  <h2>A Painful Lesson</h2>
+  <p>
+    You look down at your hands, unable to meet his eyes. "I didn't write it, Professor," you say quietly. "I panicked because of the deadline, pasted the prompt into an AI, and submitted the output without even reading it. I was just so tired."
+  </p>
+  <p>
+    Professor Vance leans back in his chair. The sternness in his expression softens slightly into pity. 
+  </p>
+  <p>
+    "AI is a powerful technology," he says, "but when you let it do the thinking for you, it invents garbage, and you are the one who takes the fall. I appreciate your honesty, however."
+  </p>
+  
+  <div class="end-card end-neutral">
+    <h3 style="color: #4da6ff; margin-top: 0;">NEUTRAL ENDING: A Second Chance</h3>
+    <p style="color: #ddd; font-size: 1.1em;">
+      You receive an automatic <strong>zero</strong> on the essay, guaranteeing you will fail the class and have to retake it next semester. However, because you confessed immediately and took responsibility, Professor Vance decides not to file a formal academic dishonesty report with the Dean. You learn a painful but necessary lesson about integrity.
+    </p>
+  </div>
+
+  <div style="margin-top: 30px;">
+    <button onclick="Engine.restart()" class="btn btn-neutral">Restart Story</button>
+  </div>
+</div>
+
+:: Final Exam Prepared
+<div class="container">
+  <h2>The Supervised Exam</h2>
+  <p>
+    It is the end of the semester. You are sitting in the center of a massive gymnasium for the final exam. No phones, no laptops, no internet access, and definitely no AI. Just you, a black pen, and a blank blue examination booklet.
+  </p>
+  <p style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #4da6ff; font-style: italic;">
+    <strong>Prompt:</strong> "Discuss the geopolitical impact of the Truman Doctrine and explain how containment shaped post-war Europe."
+  </p>
+  <p>
+    You take a deep breath and smile. It was a grueling, miserable night weeks ago when you wrote that essay on your own, but the struggle forced the information deep into your long-term memory. You don't need a chatbot. You know the material.
+  </p>
+  <p>
+    You open the blue booklet and begin to write.
+  </p>
+  
+  <div class="end-card end-good">
+    <h3 style="color: #00cc66; margin-top: 0;">GOOD ENDING: Earned Competence</h3>
+    <p style="color: #ddd; font-size: 1.1em;">
+      You score an <strong>85% (B)</strong> on the final exam and pass the class with a solid overall grade. You didn't take the easy way out, and you walk away with genuine, hard-earned knowledge that you will actually remember.
+    </p>
+  </div>
+
+  <div style="margin-top: 30px;">
+    <button onclick="Engine.restart()" class="btn btn-neutral">Restart Story</button>
+  </div>
+</div>
+
+:: Final Exam Mastered
+<div class="container">
+  <h2>The Augmented Mind</h2>
+  <p>
+    It is the end of the semester. You sit in a silent gymnasium for the final exam. The desks are spread six feet apart, and invigilators pace the aisles. Laptops and phones are packed away. Just you, a pen, and a blank booklet.
+  </p>
+  <p style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #a64dff; font-style: italic;">
+    <strong>Prompt:</strong> "Discuss the geopolitical impact of the Truman Doctrine and explain how containment shaped post-war Europe."
+  </p>
+  <p>
+    You smile as the memories return. You immediately recall the chess analogy the AI tutor gave you, and the deep distinction you researched regarding the Marshall Plan. Because you used the AI to <em>understand</em> the material rather than to <em>avoid</em> the work, the concepts are crystal clear in your mind.
+  </p>
+  <p>
+    Your pen glides effortlessly across the paper, writing a sophisticated, highly structured analysis.
+  </p>
+  
+  <div class="end-card end-best">
+    <h3 style="color: #c5a3ff; margin-top: 0;">BEST ENDING: The Augmented Student</h3>
+    <p style="color: #ddd; font-size: 1.1em;">
+      You score a flawless <strong>98% (A+)</strong> on the final exam, acing the course. You figured out the ultimate secret: AI is an incredibly powerful tutor and intellectual partner, but the final execution, learning, and true understanding must always be yours.
+    </p>
+  </div>
+
+  <div style="margin-top: 30px;">
+    <button onclick="Engine.restart()" class="btn btn-neutral">Restart Story</button>
+  </div>
+</div>
+
+:: Final Exam Unprepared
+<div class="container">
+  <h2>The Price of Bypassing</h2>
+  <p>
+    It is the end of the semester. You sit in the massive, quiet gymnasium for the final exam. No Wi-Fi, no devices, no chat boxes. Just a wooden desk, a blue booklet, and a pen.
+  </p>
+  <p style="background: rgba(255,255,255,0.05); padding: 20px; border-radius: 8px; border-left: 4px solid #ff5555; font-style: italic;">
+    <strong>Prompt:</strong> "Discuss the geopolitical impact of the Truman Doctrine and explain how containment shaped post-war Europe."
+  </p>
+  <p>
+    You stare at the blank lines. A cold sweat breaks out on your forehead. 
+  </p>
+  <p>
+    You realize with a sinking horror that you know absolutely nothing. The AI did all the heavy lifting for you all semester, and you edited it without absorbing a single detail. You can't remember what the Truman Doctrine was. You don't know the difference between containment and NATO. Your mind is as blank as the page.
+  </p>
+  
+  <div id="grade-reveal" style="margin-top: 30px;">
+    <button onclick="window.revealGrade()" class="btn btn-danger">Hand in the blank booklet...</button>
+  </div>
+</div>
