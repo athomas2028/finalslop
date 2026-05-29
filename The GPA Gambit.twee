@@ -1,0 +1,374 @@
+:: StoryTitle
+The GPA Gambit
+
+
+:: StoryData
+{
+  "ifid": "GPA-GHOST-ULTIMATE-100-EDITION",
+  "format": "SugarCube",
+  "format-version": "2.37.3",
+  "start": "Start Screen",
+  "zoom": 1
+}
+
+
+:: Apr_Unplugged {"position":"1150,275","size":"100,100"}
+<div class="container">
+  <h1 class="warning">April: The Unplugged Final</h1>
+  <p>The school announces the "Cognitive Integrity Exam." To graduate, you must spend a full week in the gym with nothing but paper and ink. No Cognito. No internet. This exam determines 50% of your final grade.</p>
+
+  <div class="stat-panel">
+    <span>BRAIN MUSCLE: <span class="stat-val">$muscle%</span></span>
+    <span>STRESS: <span class="stat-val">$stress%</span></span>
+  </div>
+
+  <<if $integrity lte 0>>
+    <p class="failure">The "Deep-Audit" finally flagged your Ivy League application. Harvard has contacted the school. You are being expelled effective immediately. You won't even get to take the final exam.</p>
+    [[Go to the Final Ending|Ending_Expelled]]
+  <<elseif $muscle gte 80>>
+    <p class="success">You sit down. The silence of the gym is beautiful. You look at the Physics problems. They are difficult, but your brain is a finely-tuned machine. You write for hours. You are in total control.</p>
+    [[Go to the Final Ending|Ending_Scholar]]
+  <<elseif $muscle gte 50>>
+    <p>It’s a struggle. You remember the stuff you studied with Chloe, but the weeks you spent using AI are blank holes in your memory. You fumble, you sweat, but you’re managing to pass.</p>
+    [[Go to the Final Ending|Ending_Normie]]
+  <<else>>
+    <p class="failure">You stare at the paper. You don't even know how to start. Your brain has been a passenger for so long that it's forgotten how to drive. You realize that "Scribe-Bot" was a poison, not a tool.</p>
+    [[Go to the Final Ending|Ending_Ghost]]
+  <</if>>
+</div>
+
+
+:: Dec_Confess {"position":"1025,150","size":"100,100"}
+<div class="container">
+  <p>Ms. Higgins is surprised. "I appreciate the honesty. You'll take a small hit on the grade, but I won't report it as cheating." You've saved your soul, but your GPA takes a bruise.</p>
+  [[January: The Burnout|Jan_Burnout]]
+</div>
+
+
+:: Dec_Hope {"position":"1150,150","size":"100,100"}
+<div class="container">
+  <p>She notices. You get a zero on the section. She looks at you with narrowed eyes for the rest of the week. You're on her radar now.</p>
+  <<set $integrity -= 20>>
+  [[January: The Burnout|Jan_Burnout]]
+</div>
+
+
+:: Dec_Midterms {"position":"900,150","size":"100,100"}
+<div class="container">
+  <h2>December: The Hallucination</h2>
+  <p>During the Chem midterm, you use Cognito under your desk to check a formula. The AI gives you a very confident answer about a "Z-Alpha Covalent Bond."</p>
+  
+  <p>You write it down. Later, you realize: <strong>A "Z-Alpha Bond" doesn't exist.</strong> The AI hallucinated it. You just handed in a paper with a fake fact.</p>
+
+  <<link [[Confess to the teacher before she grades it.|Dec_Confess]] @class="choice-btn">><<set $integrity += 10>><<set $gpa -= 0.2>><</link>>
+  <<link [[Hope she doesn't notice.|Dec_Hope]] @class="choice-btn">><<set $integrity -= 10>><</link>>
+</div>
+
+
+:: Ending_Expelled {"position":"400,400","size":"100,100"}
+<div class="container">
+  <h2 class="failure">ENDING: THE DISHONORABLE EXIT</h2>
+  <p>Expelled. No diploma. No college. Your reputation in your small town is destroyed. You spend your days at the deli, watching your former classmates move on to big things. You realize the AI didn't help you—it just helped you lie to yourself.</p>
+  <br>
+  [[START OVER?|Start Screen]]
+</div>
+
+
+:: Ending_Ghost {"position":"275,400","size":"100,100"}
+<div class="container">
+  <h2 class="warning">ENDING: THE COGNITIVE GHOST</h2>
+  <p>You failed the final exam. You don't graduate. You spend your summer in a windowless room at the school, retaking classes you should have learned months ago. The AI that promised to "save you time" ended up stealing your life.</p>
+  <br>
+  [[START OVER?|Start Screen]]
+</div>
+
+
+:: Ending_Normie {"position":"150,400","size":"100,100"}
+<div class="container">
+  <h2>ENDING: THE SURVIVOR</h2>
+  <p>You graduated. Barely. Harvard rejected you, but you got into a decent state school. You’re a "normie"—you do your work, but you’re still a bit too reliant on your phone. You’ll be okay, but you’ll always be a step behind the people who did the work.</p>
+  <br>
+  [[START OVER?|Start Screen]]
+</div>
+
+
+:: Ending_Scholar {"position":"25,400","size":"100,100"}
+<div class="container">
+  <h2 class="success">ENDING: THE HUMAN ARCHITECT</h2>
+  <p>You aced the exam. Harvard saw your scores and your honesty. You get your acceptance letter. On graduation day, you look at your classmates—some are shells, some are fakes. But you are a thinker.</p>
+  <p>You and Chloe are heading to the Ivy League together. You've saved your soul and your mind.</p>
+  <br>
+  [[START OVER?|Start Screen]]
+</div>
+
+
+:: Feb_Fake {"position":"525,275","size":"100,100"}
+<div class="container">
+  <p>You stammer something about "the sunset over the... plains." Thorne sees right through you. "I've been to the Serengeti, son. That's not what it's like. Why are you lying to me?"</p>
+  <p class="failure">The interview is a disaster. Thorne will write a 'Do Not Admit' letter.</p>
+  <<set $integrity -= 30>>
+  [[Moving toward Spring...|Mar_Audit]]
+</div>
+
+
+:: Feb_Interview {"position":"400,275","size":"100,100"}
+<div class="container">
+  <h2>February: The Alumni Interview</h2>
+  <p>A Harvard alumnus, Mr. Thorne, wants to interview you. He’s a sharp, 70-year-old lawyer. He doesn't bring a laptop. He just wants to talk.</p>
+  
+  <p>"Tell me," Thorne says, leaning forward. "What was the most challenging part of that 'Africa trip' you wrote about in your essay?"</p>
+
+  <<if $cheated_apps>>
+    <p class="warning">You freeze. You didn't even read the full AI essay carefully. You don't know the names of the cities. You don't know the weather.</p>
+    <<link [[Try to fake it.|Feb_Fake]] @class="choice-btn">><</link>>
+    <<link [[Confess the truth.|Feb_Truth]] @class="choice-btn">><</link>>
+  <<else>>
+    <p>You talk about the deli. The grease, the tired feet, the rude customers. Thorne laughs. "That's real life. I worked a paper route for six years. I like you, kid."</p>
+    [[Moving toward Spring...|Mar_Audit]]
+  <</if>>
+</div>
+
+
+:: Feb_Truth {"position":"650,275","size":"100,100"}
+<div class="container">
+  <p>"I didn't go," you whisper. "I used an AI to write it because I thought I wasn't good enough." Thorne's face turns like stone. "I appreciate the honesty, but Harvard isn't looking for shells. Good luck elsewhere."</p>
+  <<set $integrity += 10>>
+  [[Moving toward Spring...|Mar_Audit]]
+</div>
+
+
+:: Initialize {"position":"150,25","size":"100,100"}
+<<set $muscle to 50>>
+<<set $integrity to 100>>
+<<set $gpa to 3.7>>
+<<set $stress to 10>>
+<<set $chloe to 0>>
+<<set $cheated_essay to false>>
+<<set $cheated_math to false>>
+<<set $cheated_apps to false>>
+<<goto "September: The Arrival">>
+
+
+:: Jan_Burnout {"position":"25,275","size":"100,100"}
+<div class="container">
+  <h2>January: The Dark Month</h2>
+  <p>It's freezing. You're exhausted. You’ve been using AI for your History, Spanish, and Physics homework just to stay afloat. You can feel your "Brain Muscle" getting weaker. You can't even remember your own phone number without checking.</p>
+  
+  <p>Chloe invites you to a "No-Tech Study Session." No phones allowed. Just books and brains.</p>
+
+  <<link [[Go to the session (Painful but growth).|Jan_Session]] @class="choice-btn">><<set $muscle += 20>><<set $chloe += 20>><</link>>
+  <<link [[Fake an illness and stay home with Cognito.|Jan_Stay]] @class="choice-btn">><<set $muscle -= 10>><<set $chloe -= 20>><</link>>
+</div>
+
+
+:: Jan_Session {"position":"150,275","size":"100,100"}
+<div class="container">
+  <p>It's hard. Your brain feels like it's trying to run a marathon through mud. But after three hours with Chloe, the Spanish verbs start making sense. You feel a spark of your old self. Chloe smiles at you. "See? You're still in there."</p>
+  [[February: The Interview|Feb_Interview]]
+</div>
+
+
+:: Jan_Stay {"position":"275,275","size":"100,100"}
+<div class="container">
+  <p>You stay in bed and let the AI finish your week's work. You feel safe, but you're lonely. Chloe stops texting you as much. You're becoming a ghost in your own life.</p>
+  [[February: The Interview|Feb_Interview]]
+</div>
+
+
+:: Mar_Audit {"position":"775,275","size":"100,100"}
+<div class="container">
+  <h2>March: The School Board Crackdown</h2>
+  <p>The school has installed "Deep-Audit" software on the servers. They are re-scanning every essay from the last six months. Panic is sweeping the halls. Dave has already been suspended.</p>
+  
+  <p>You have a choice. You can "Self-Report" your AI usage now for a lighter sentence, or gamble that the software won't catch you.</p>
+
+  <<link [[Self-Report.|Mar_Report]] @class="choice-btn">><<set $integrity += 30>><<set $gpa -= 0.5>><</link>>
+  <<link [[Stay silent and hope for the best.|Mar_Gamble]] @class="choice-btn">><<set $integrity -= 20>><</link>>
+</div>
+
+
+:: Mar_Gamble {"position":"1025,275","size":"100,100"}
+<div class="container">
+  <<if $integrity lt 50>>
+    <p class="warning">The Audit finds your English essay from September. You are called to the office. The evidence is undeniable. Your parents are called. Your future is hanging by a thread.</p>
+    <<set $integrity -= 50>>
+  <<else>>
+    <p>You pass the audit. You're safe... for now. But the guilt is eating at you.</p>
+  <</if>>
+  [[April: The Unplugged Week|Apr_Unplugged]]
+</div>
+
+
+:: Mar_Report {"position":"900,275","size":"100,100"}
+<div class="container">
+  <p>The Principal appreciates your maturity. You're banned from the Honor Roll and your GPA takes a massive hit, but you won't be expelled. You're starting over from zero.</p>
+  [[April: The Unplugged Week|Apr_Unplugged]]
+</div>
+
+
+:: Nov_Africa {"position":"775,150","size":"100,100"}
+<div class="container">
+  <p>The AI writes a masterpiece about a "revelatory experience in the Serengeti." It’s cinematic. It’s beautiful. It’s a total lie. You hit submit and try not to think about it.</p>
+  <p class="warning">Your integrity is crumbling. You're building a life on a foundation of sand.</p>
+  [[December: The Midterms|Dec_Midterms]]
+</div>
+
+
+:: Nov_Apps {"position":"400,150","size":"100,100"}
+<div class="container">
+  <div class="stat-panel">
+    <span>BRAIN MUSCLE: <span class="stat-val">$muscle%</span></span>
+    <span>INTEGRITY: <span class="stat-val">$integrity%</span></span>
+    <span>CHLOE: <span class="stat-val">$chloe%</span></span>
+  </div>
+  <h2>November: Early Decision</h2>
+  <p>Harvard. Princeton. Stanford. The deadlines are looming. You have to write your Common App essay. Cognito has a "Legacy Admissions" mode that can synthesize a perfect, heart-wrenching story about a life-changing trip to Africa (that you never took).</p>
+
+  <<link [[Write about your real life at the Deli.|Nov_Deli]] @class="choice-btn">><<set $muscle += 10>><<set $integrity += 10>><</link>>
+  <<link [[Let AI 'enhance' your real story with fake emotions.|Nov_Enhance]] @class="choice-btn">><<set $integrity -= 10>><</link>>
+  <<link [[Generate the 'Africa Trip' fake story.|Nov_Africa]] @class="choice-btn">><<set $integrity -= 30>><<set $cheated_apps to true>><</link>>
+</div>
+
+
+:: Nov_Deli {"position":"525,150","size":"100,100"}
+<div class="container">
+  <p>You write about the grit of cleaning the slicer at 10 PM. It's not flashy, but it's yours. It's honest. You feel proud when you hit 'Submit.'</p>
+  [[December: The Midterms|Dec_Midterms]]
+</div>
+
+
+:: Nov_Enhance {"position":"650,150","size":"100,100"}
+<div class="container">
+  <p>You take your deli story, but let the AI turn it into a "meditation on the socio-economics of the working class." It sounds like it was written by a 40-year-old professor. It's impressive, but is it you?</p>
+  [[December: The Midterms|Dec_Midterms]]
+</div>
+
+
+:: Oct_Cheat {"position":"1150,25","size":"100,100"}
+<div class="container">
+  <p>The camera plugin is a miracle. You finish a 2-hour problem set in 5 minutes. You spend your free time scrolling TikTok. When Vogel asks you to solve a problem on the board, you freeze. You fake a cough and sit down.</p>
+  <p class="warning">Your brain muscle is atrophying. You're becoming a passenger in your own education.</p>
+  [[The Social Scene|Oct_Social]]
+</div>
+
+
+:: Oct_Mix {"position":"1025,25","size":"100,100"}
+<div class="container">
+  <p>You use the AI to get through the tedious homework sets so you can sleep. On the test, you manage a B. You're surviving, but you're not mastering.</p>
+  [[The Social Scene|Oct_Social]]
+</div>
+
+
+:: Oct_Social {"position":"25,150","size":"100,100"}
+<div class="container">
+  <h2>The Chloe Complication</h2>
+  <p>Chloe is the smartest girl in your grade. She's also your lab partner. She looks over at your Calculus notes. "You're using a lot of Cognito, aren't you? I can tell by the way you phrase things."</p>
+  
+  <<link [[Lie: "No, I'm just reading more lately."|Oct_Social_Lie]] @class="choice-btn">><<set $integrity -= 10>><<set $chloe -= 10>><</link>>
+  <<link [[Truth: "I'm just so stressed, I need the help."|Oct_Social_Truth]] @class="choice-btn">><<set $chloe += 10>><<set $stress -= 5>><</link>>
+</div>
+
+
+:: Oct_Social_Lie {"position":"150,150","size":"100,100"}
+<div class="container">
+  <p>Chloe looks disappointed. "If you say so. Just be careful. Vogel isn't as oblivious as he looks."</p>
+  [[November: The Early Apps|Nov_Apps]]
+</div>
+
+
+:: Oct_Social_Truth {"position":"275,150","size":"100,100"}
+<div class="container">
+  <p>Chloe softens. "I get it. It’s a lot. But hey, if you want, we can study together? Real brain power only?"</p>
+  <p class="success">You've gained a real ally. Your stress levels drop slightly.</p>
+  [[November: The Early Apps|Nov_Apps]]
+</div>
+
+
+:: Oct_Study {"position":"900,25","size":"100,100"}
+<div class="container">
+  <p>You spend your weekends staring at the whiteboard. You fail the first practice quiz, but the second time, something clicks. You <em>understand</em> the rate of change. Your brain feels heavy, but capable.</p>
+  [[The Social Scene|Oct_Social]]
+</div>
+
+
+:: October_Intro {"position":"775,25","size":"100,100"}
+<div class="container">
+  <h2>October: The Calculus Wall</h2>
+  <p>Mr. Vogel’s Calculus BC class is where dreams go to die. The first Midterm is approaching. Derivative chains, integrals... it's a foreign language. Your friend Dave shows you a "math-solver" plugin for Cognito.</p>
+  
+  <p>"Just point the camera at the problem, and it shows the steps," Dave whispers. "Vogel will never know."</p>
+
+  <<link [[Study the old-fashioned way.|Oct_Study]] @class="choice-btn">><<set $muscle += 15>><<set $stress += 20>><</link>>
+  <<link [[Use the AI for the homework, but study for the test.|Oct_Mix]] @class="choice-btn">><<set $muscle += 5>><<set $stress += 5>><</link>>
+  <<link [[Use the camera plugin for everything.|Oct_Cheat]] @class="choice-btn">><<set $muscle -= 15>><<set $integrity -= 10>><<set $cheated_math to true>><</link>>
+</div>
+
+
+:: Sept_AI {"position":"650,25","size":"100,100"}
+<div class="container">
+  <p>You paste the prompt. Cognito generates 500 words of perfect prose. You submit it and play video games for three hours. You feel like you've hacked life.</p>
+  <p class="warning">You didn't learn a thing about the Hero's Journey. You're starting to rely on the crutch.</p>
+  [[October: The Math Pressure|October_Intro]]
+</div>
+
+
+:: Sept_Hybrid {"position":"525,25","size":"100,100"}
+<div class="container">
+  <p>You write a few bullet points and let the AI bridge the gaps. It looks professional. Maybe <em>too</em> professional for a 17-year-old, but Ms. Halloway gives you an A-.</p>
+  [[October: The Math Pressure|October_Intro]]
+</div>
+
+
+:: Sept_Manual {"position":"400,25","size":"100,100"}
+<div class="container">
+  <p>You grit your teeth and write about your own "heroic" struggle balancing work and school. It's raw, but your teacher, Ms. Halloway, leaves a note: "I love the honesty here."</p>
+  [[October: The Math Pressure|October_Intro]]
+</div>
+
+
+:: September: The Arrival {"position":"275,25","size":"100,100"}
+<div class="container">
+  <div class="stat-panel">
+    <span>BRAIN MUSCLE: <span class="stat-val">$muscle%</span></span>
+    <span>STRESS: <span class="stat-val">$stress%</span></span>
+    <span>GPA: <span class="stat-val">$gpa</span></span>
+  </div>
+  <h2>September: The New Tool</h2>
+  <p>Senior year starts with a whisper. A new app, <strong>"Cognito,"</strong> is being passed around. It doesn't just answer questions; it simulates your writing style. Your first assignment in AP English is a reflection on "The Hero's Journey."</p>
+  
+  <p>You're tired from your summer job at the deli. The tempting glow of Cognito pulses on your phone.</p>
+
+  <<link [[Write the reflection manually (2 hours).|Sept_Manual]] @class="choice-btn">><<set $muscle += 5>><<set $stress += 10>><</link>>
+  <<link [[Use Cognito to polish your rough draft.|Sept_Hybrid]] @class="choice-btn">><<set $muscle += 2>><<set $stress -= 5>><</link>>
+  <<link [[Let Cognito write it from scratch.|Sept_AI]] @class="choice-btn">><<set $muscle -= 5>><<set $integrity -= 5>><<set $cheated_essay to true>><</link>>
+</div>
+
+
+:: Start Screen {"position":"25,25","size":"100,100"}
+<div class="container" style="text-align: center;">
+  <h1 style="font-size: 3.5em; margin-bottom: 5px;">Degrees of Deception</h1>
+  <h3 style="color: #555;">One More Year of Hell, Soldier</h3>
+  <p>This is the final stretch. Every choice matters more now.</p>
+  
+  <div style="margin-top: 50px;">
+    [[ENTER SENIOR YEAR|Initialize]]
+  </div>
+  <p style="font-size: 0.8em; margin-top: 30px; color: #666;">
+    Stats Tracked: Brain Muscle | Integrity | GPA | Stress | Social Connection
+  </p>
+</div>
+
+
+:: StoryStylesheet [stylesheet]
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&family=Inter:wght@400;700&display=swap');
+
+body { background-color: #0d0d12; color: #d1d1e0; font-family: 'Inter', sans-serif; line-height: 1.6; }
+.container { max-width: 800px; margin: 30px auto; padding: 40px; background: #16161e; border: 1px solid #2a2a3a; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.7); }
+h1, h2, h3 { font-family: 'Fira Code', monospace; color: #79a1ff; }
+.stat-panel { display: flex; justify-content: space-around; background: #1c1c27; padding: 12px; border-radius: 8px; font-size: 0.85em; margin-bottom: 25px; border-bottom: 2px solid #444; }
+.stat-val { color: #fff; font-weight: bold; }
+.choice-btn { display: block; width: 100%; padding: 16px; margin: 10px 0; background: #252535; color: #fff; border: 1px solid #3d3d5c; border-radius: 8px; text-align: left; text-decoration: none; font-size: 1em; transition: 0.2s; }
+.choice-btn:hover { background: #34344d; border-color: #79a1ff; transform: translateX(5px); cursor: pointer; }
+.ai-msg { border-left: 4px solid #00ffaa; background: rgba(0, 255, 170, 0.05); padding: 15px; margin: 20px 0; font-family: 'Fira Code', monospace; color: #00ffaa; font-size: 0.9em; }
+.warning { color: #ff4d4d; font-weight: bold; }
+.success { color: #4dff88; font-weight: bold; }
