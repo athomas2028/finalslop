@@ -1,0 +1,610 @@
+:: StoryTitle
+Senior Year
+
+:: StoryData
+{
+  "ifid": "A1B2C3D4-E5F6-7890-ABCD-EF1234567890",
+  "format": "Harlowe",
+  "format-version": "3.3.7",
+  "start": "Start"
+}
+
+:: StoryStylesheet [stylesheet]
+body {
+  font-family: Georgia, serif;
+  background-color: #1a1a2e;
+  color: #eaeaea;
+}
+tw-story {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px;
+}
+tw-passage {
+  font-size: 1.1em;
+  line-height: 1.7;
+}
+.stat-bar {
+  background: #16213e;
+  border: 1px solid #0f3460;
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-bottom: 18px;
+  font-size: 0.9em;
+  color: #a8dadc;
+}
+.warning {
+  color: #e63946;
+  font-weight: bold;
+}
+.good {
+  color: #57cc99;
+  font-weight: bold;
+}
+
+:: StoryInit
+(set: $difficulty to "normal")
+(set: $gpa to 0)
+(set: $energy to 100)
+(set: $ability to 70)
+(set: $usedAI to false)
+(set: $aiUseCount to 0)
+(set: $gpaHistory to (a:))
+(set: $expelled to false)
+(set: $burnout to false)
+(set: $assignment1gpa to 0)
+(set: $midtermgpa to 0)
+(set: $feb_test_gpa to 0)
+(set: $group_project_gpa to 0)
+
+:: StatDisplay
+(if: $energy <= 0)[(display: "Burnout")]
+(if: $expelled)[(display: "Expelled")]
+<div class="stat-bar">
+📊 **GPA:** (if: (count: $gpaHistory) > 0)[(print: (folded: _a, via _a + it, $gpaHistory) / (count: $gpaHistory))](else)[N/A] | ⚡ **Energy:** (print: $energy)/100 | 🧠 **Ability:** (print: $ability)/100
+</div>
+
+:: Burnout
+# 💀 Burned Out
+
+You collapse. Between late nights, stress, and never taking a break, your body finally says *enough*.
+
+You're withdrawn from school mid-year and spend the rest of the semester recovering.
+
+**Your goal of getting into a top university slips away — not from failure, but from forgetting to take care of yourself.**
+
+---
+
+*Sometimes the bravest thing isn't pushing harder. It's knowing when to stop.*
+
+[[Start Over->Start]]
+
+:: Expelled
+# 🚫 Expelled
+
+The school administration has reviewed the evidence. The decision is final.
+
+You are expelled from school.
+
+**Without a diploma, your university dreams are over — at least for now.**
+
+---
+
+*Integrity, once lost, is hard to rebuild. But it's never too late to start.*
+
+[[Start Over->Start]]
+
+:: Start
+# 🎓 Senior Year
+
+*Welcome to the most important year of your life — or so everyone keeps telling you.*
+
+You're a student entering **Grade 12**. Your goals are clear:
+
+- Graduate with a **high GPA**
+- Get into a **top university**
+
+There's one catch. A tool called **Cognito** — an AI that can do your homework for you — is spreading through your school. It's tempting. It's everywhere. And every choice you make this year will shape your future.
+
+---
+
+**Choose your difficulty:**
+
+[[Easy — Starting Ability: 80->Difficulty_Easy]]
+[[Normal — Starting Ability: 70->Difficulty_Normal]]
+[[Hard — Starting Ability: 55->Difficulty_Hard]]
+
+:: Difficulty_Easy
+(set: $difficulty to "easy")
+(set: $ability to 80)
+(set: $energy to 100)
+[[Begin the Year->September]]
+
+:: Difficulty_Normal
+(set: $difficulty to "normal")
+(set: $ability to 70)
+(set: $energy to 100)
+[[Begin the Year->September]]
+
+:: Difficulty_Hard
+(set: $difficulty to "hard")
+(set: $ability to 55)
+(set: $energy to 100)
+[[Begin the Year->September]]
+
+:: September
+(display: "StatDisplay")
+# 📅 September — A Fresh Start
+
+The halls smell like new sneakers and anxiety. It's the first week of Grade 12 and everything feels manageable — even exciting.
+
+Your teachers are upbeat but firm. In English, Mr. Hargrove holds up his hand before anyone can speak.
+
+*"This year, I want you to do your own thinking. There are tools out there that will try to do it for you. Don't let them. Your mind is the only thing that's truly yours."*
+
+You nod along with everyone else. Seems easy enough.
+
+(set: $energy to (min: 100, $energy + 5))
+
+[[Head into Late September->Late_September]]
+
+:: Late_September
+(display: "StatDisplay")
+# 📅 Late September — The Rumour
+
+School is picking up pace. Then, between classes, you catch pieces of a conversation.
+
+*"Cognito finished my whole history essay in like four minutes."*
+*"No way. Did you get caught?"*
+*"Nah. It even writes in your style."*
+
+You keep walking. You don't need that. But the name sticks in your head. **Cognito.**
+
+(set: $energy to (max: 0, $energy - 5))
+
+[[Continue to October->October]]
+
+:: October
+(display: "StatDisplay")
+# 📅 October — Late Night Crisis
+
+You lose track of time hanging out with your friends. By the time you get home and check your phone, it's past midnight.
+
+Your stomach drops. **Assignment due tomorrow morning.**
+
+What do you do?
+
+[[Pull an all-nighter and do it yourself->October_Allnighter]]
+[[Use Cognito and get to sleep early->October_AI]]
+
+:: October_Allnighter
+(set: $energy to (max: 0, $energy - 25))
+(set: $ability to (min: 100, $ability + 4))
+(set: $assignment1gpa to 3.4)
+(set: $gpaHistory to $gpaHistory + (a: 3.4))
+(display: "StatDisplay")
+# ☕ All-Nighter
+
+You brew coffee, open your notes, and grind through it. By 4am it's done — not your best work, but **it's yours**.
+
+**+Ability | -Energy | Assignment GPA: 3.4**
+
+[[Continue to Late October->Late_October]]
+
+:: October_AI
+(set: $usedAI to true)
+(set: $aiUseCount to $aiUseCount + 1)
+(set: $ability to (max: 0, $ability - 4))
+(set: $energy to (min: 100, $energy + 10))
+(set: $assignment1gpa to 3.8)
+(set: $gpaHistory to $gpaHistory + (a: 3.8))
+(display: "StatDisplay")
+# 🤖 Cognito
+
+You find the site. Four minutes later — a polished essay. You submit it and fall asleep.
+
+The grade comes back strong. But something feels hollow.
+
+**+Energy | -Ability | Assignment GPA: 3.8**
+
+⚠️ You've used Cognito. Your ability has decreased.
+
+[[Continue to Late October->Late_October]]
+
+:: Late_October
+(display: "StatDisplay")
+# 📅 Late October — Study Session
+
+Ms. Patel posts a sign-up sheet for an **optional after-school study session** — no phones, no laptops, just books and focused work.
+
+It's a big time commitment. You're already running on fumes.
+
+[[Attend the study session->LateOct_Study]]
+[[Skip it — you need the rest->LateOct_Skip]]
+
+:: LateOct_Study
+(set: $energy to (max: 0, $energy - 20))
+(set: $ability to (min: 100, $ability + 8))
+(display: "StatDisplay")
+# 📚 Study Session
+
+Three hours of actual work. No distractions. By the end your brain aches — but in a good way.
+
+**-Energy | +Ability**
+
+[[Continue to November->November]]
+
+:: LateOct_Skip
+(set: $energy to (min: 100, $energy + 10))
+(display: "StatDisplay")
+# 🛋️ Rest Day
+
+You go home and recharge. Your ability stays the same, but you feel human again.
+
+**+Energy**
+
+[[Continue to November->November]]
+
+:: November
+(display: "StatDisplay")
+# 📅 November — Group Project
+
+Your English teacher assigns a major group project. You may choose your own partners.
+
+[[Partner with your friends->November_Friends]]
+[[Work alone->November_Solo]]
+
+:: November_Friends
+(display: "StatDisplay")
+# 👥 With Friends
+
+You team up with your crew — until the second meeting, when someone pulls up Cognito.
+
+*"Dude, this thing writes better than us. Come on."*
+
+The whole group is on board. Except maybe you.
+
+[[Join them — use Cognito->November_Friends_AI]]
+[[Leave the group and work alone->November_Solo]]
+
+:: November_Friends_AI
+(set: $usedAI to true)
+(set: $aiUseCount to $aiUseCount + 1)
+(set: $ability to (max: 0, $ability - 5))
+(set: $group_project_gpa to 2.5)
+(set: $gpaHistory to $gpaHistory + (a: 2.5))
+(display: "StatDisplay")
+# 😬 Caught
+
+The presentation goes smoothly — until your teacher asks follow-up questions none of you can answer.
+
+*"I've been doing this for twenty years. I know what you wrote and what you didn't."*
+
+**-Ability | Group Project GPA: 2.5 (penalized)**
+
+[[Continue to Late November->Late_November]]
+
+:: November_Solo
+(set: $ability to (min: 100, $ability + 3))
+(if: $ability >= 90)[(set: $group_project_gpa to 4.0)]
+(else-if: $ability >= 85)[(set: $group_project_gpa to 3.8)]
+(else-if: $ability >= 80)[(set: $group_project_gpa to 3.4)]
+(else-if: $ability >= 73)[(set: $group_project_gpa to 3.1)]
+(else-if: $ability >= 70)[(set: $group_project_gpa to 2.4)]
+(else-if: $ability >= 60)[(set: $group_project_gpa to 1.4)]
+(else:)[(set: $group_project_gpa to 0.0)]
+(set: $gpaHistory to $gpaHistory + (a: $group_project_gpa))
+(display: "StatDisplay")
+# 💪 On Your Own
+
+You work alone. It takes longer. But when you present, you can answer every question.
+
+**+Ability | Project GPA: (print: $group_project_gpa)**
+
+[[Continue to Late November->Late_November]]
+
+:: Late_November
+(display: "StatDisplay")
+# 📅 Late November — Study Session
+
+Ms. Patel is running another after-school study session. You're heading into midterms — this might be your last real chance to prepare.
+
+[[Attend the study session->LateNov_Study]]
+[[Skip it->LateNov_Skip]]
+
+:: LateNov_Study
+(set: $energy to (max: 0, $energy - 20))
+(set: $ability to (min: 100, $ability + 8))
+(display: "StatDisplay")
+# 📚 Grinding
+
+Your notes are dense. Your hand is cramped. But your brain is *working*.
+
+**-Energy | +Ability**
+
+[[Continue to December->December]]
+
+:: LateNov_Skip
+(set: $energy to (min: 100, $energy + 10))
+(display: "StatDisplay")
+# 🛋️ Rest Day
+
+You take the break.
+
+**+Energy**
+
+[[Continue to December->December]]
+
+:: December
+(display: "StatDisplay")
+# 📅 December — Midterms
+
+The exam room is silent. Paper on desk. No phones. No laptops. No Cognito.
+
+*"You have ninety minutes. Begin."*
+
+[[Do your honest best->December_Honest]]
+[[Try to cheat->December_Cheat]]
+
+:: December_Honest
+(if: $ability >= 90)[(set: $midtermgpa to 4.0)]
+(else-if: $ability >= 85)[(set: $midtermgpa to 3.8)]
+(else-if: $ability >= 80)[(set: $midtermgpa to 3.4)]
+(else-if: $ability >= 73)[(set: $midtermgpa to 3.1)]
+(else-if: $ability >= 70)[(set: $midtermgpa to 2.4)]
+(else-if: $ability >= 60)[(set: $midtermgpa to 1.4)]
+(else:)[(set: $midtermgpa to 0.0)]
+(set: $gpaHistory to $gpaHistory + (a: $midtermgpa))
+(display: "StatDisplay")
+# ✍️ Your Best
+
+You write what you know. When the bell rings, you set down your pen and breathe.
+
+**Midterm GPA: (print: $midtermgpa)**
+
+[[Continue to January->January]]
+
+:: December_Cheat
+(set: $expelled to true)
+(display: "Expelled")
+
+:: January
+(display: "StatDisplay")
+# 📅 January — The Scan
+
+The principal speaks over the PA:
+
+*"As of this month, the school will be using detection software to scan all assignments submitted this year for AI-generated content."*
+
+The room goes very quiet.
+
+(if: $usedAI)[Your stomach drops. You've used Cognito. This could be bad.
+
+[[Hope they don't find it->January_Hope]]
+[[Come clean to the principal now->January_Confess]]
+]
+(else)[You have nothing to worry about. Every word you submitted was your own.
+
+[[Continue to Late January->Late_January]]
+]
+
+:: January_Hope
+(set: $expelled to true)
+(display: "Expelled")
+
+:: January_Confess
+(set: $gpaHistory to $gpaHistory + (a: 0.0))
+(set: $ability to (max: 0, $ability - 5))
+(display: "StatDisplay")
+# 🤝 Coming Clean
+
+You go to the principal's office before results are posted.
+
+She listens. She's stern. Then:
+
+*"I appreciate that you came to me. That takes courage. There will be consequences — but expulsion isn't one of them."*
+
+**-GPA (penalty) | -Ability | You remain enrolled**
+
+[[Continue to Late January->Late_January]]
+
+:: Late_January
+(display: "StatDisplay")
+# 📅 Late January — Study Session
+
+Ms. Patel is running another session. February tests are on the horizon.
+
+[[Attend the study session->LateJan_Study]]
+[[Skip it->LateJan_Skip]]
+
+:: LateJan_Study
+(set: $energy to (max: 0, $energy - 20))
+(set: $ability to (min: 100, $ability + 8))
+(display: "StatDisplay")
+# 📚 Head Down
+
+You go. You work. You get sharper.
+
+**-Energy | +Ability**
+
+[[Continue to February->February]]
+
+:: LateJan_Skip
+(set: $energy to (min: 100, $energy + 10))
+(display: "StatDisplay")
+# 🛋️ Resting
+
+Rest is valid.
+
+**+Energy**
+
+[[Continue to February->February]]
+
+:: February
+(display: "StatDisplay")
+# 📅 February — Surprise Test
+
+You walk into first block and see it written on the board:
+
+**POP QUIZ — Please clear your desks.**
+
+You didn't study for this. Nobody did.
+
+[[Try your honest best->February_Honest]]
+[[Sneak a look at Cognito under the desk->February_Cheat]]
+
+:: February_Honest
+(if: $ability >= 90)[(set: $feb_test_gpa to 4.0)]
+(else-if: $ability >= 85)[(set: $feb_test_gpa to 3.8)]
+(else-if: $ability >= 80)[(set: $feb_test_gpa to 3.4)]
+(else-if: $ability >= 73)[(set: $feb_test_gpa to 3.1)]
+(else-if: $ability >= 70)[(set: $feb_test_gpa to 2.4)]
+(else-if: $ability >= 60)[(set: $feb_test_gpa to 1.4)]
+(else:)[(set: $feb_test_gpa to 0.0)]
+(set: $feb_test_gpa to (max: 0.0, $feb_test_gpa - 0.5))
+(set: $gpaHistory to $gpaHistory + (a: $feb_test_gpa))
+(display: "StatDisplay")
+# ✏️ Doing Your Best
+
+You write what you can. It's not great. But it's honest.
+
+**Test GPA: (print: $feb_test_gpa)**
+
+[[Continue to Late February->Late_February]]
+
+:: February_Cheat
+(set: $usedAI to true)
+(set: $aiUseCount to $aiUseCount + 1)
+(set: $ability to (max: 0, $ability - 4))
+(display: "StatDisplay")
+# 📱 Under the Desk
+
+You get what looks like a solid answer from Cognito. You write it down.
+
+Then — reading it back — you realize it's completely made up. Fabricated dates. Fake names. **A hallucination.**
+
+You've already handed it in.
+
+[[Tell the teacher before they grade it->February_Confess]]
+[[Say nothing and hope for the best->February_Silent]]
+
+:: February_Confess
+(set: $gpaHistory to $gpaHistory + (a: 1.4))
+(display: "StatDisplay")
+# 😓 Coming Clean
+
+You go up after class, heart pounding.
+
+*"I made a mistake. I used AI and the answer was wrong. I'm telling you now."*
+
+Your teacher looks at you for a long moment.
+
+*"I appreciate your honesty. This will still affect your grade — but I respect that you came forward."*
+
+**-GPA (1 point penalty) | You remain enrolled**
+
+[[Continue to Late February->Late_February]]
+
+:: February_Silent
+(set: $expelled to true)
+(display: "Expelled")
+
+:: Late_February
+(display: "StatDisplay")
+# 📅 Late February — One Last Session
+
+The final optional study session of the year. You can feel the finish line.
+
+[[Attend the study session->LateFeb_Study]]
+[[Skip it->LateFeb_Skip]]
+
+:: LateFeb_Study
+(set: $energy to (max: 0, $energy - 20))
+(set: $ability to (min: 100, $ability + 8))
+(display: "StatDisplay")
+# 📚 Final Push
+
+Your pen moves faster now than it did in September.
+
+**-Energy | +Ability**
+
+[[Continue to March->March]]
+
+:: LateFeb_Skip
+(set: $energy to (min: 100, $energy + 10))
+(display: "StatDisplay")
+# 🛋️ Rest
+
+The year has been long.
+
+**+Energy**
+
+[[Continue to March->March]]
+
+:: March
+(display: "StatDisplay")
+# 📅 March — The Wait
+
+Spring is here. Exams are done. All that's left is one email.
+
+*University admissions results.*
+
+You sit with your phone in your hand.
+
+[[Open the email->Results]]
+
+:: Results
+(if: (count: $gpaHistory) > 0)[
+(set: $finalGPA to (folded: _a, via _a + it, $gpaHistory) / (count: $gpaHistory))
+](else:)[
+(set: $finalGPA to 0.0)
+]
+(display: "StatDisplay")
+# 📬 The Email
+
+Your phone buzzes.
+
+---
+
+(if: $finalGPA >= 4.0)[
+✅ **Congratulations. You have been accepted to your FIRST CHOICE university.**
+
+*"We were impressed by your academic dedication and consistent performance..."*
+
+You read it three times. Then you call your parents.
+](else-if: $finalGPA >= 3.0)[
+✅ **You have been accepted to your second choice university.**
+
+It's not the school you first dreamed of. But it's a great school, and you got here honestly.
+](else-if: $finalGPA >= 2.5)[
+**You have been accepted to a college — your third choice.**
+
+It's not what you imagined. But a door is open.
+](else)[
+❌ **This year, you were not accepted to university.**
+
+It stings. But it's not the end. There are paths forward.
+]
+
+**Your final GPA: (print: $finalGPA)**
+
+[[Read the closing message->Ending]]
+
+:: Ending
+# 🎓 The End of Senior Year
+
+*You did it. You made it through.*
+
+Whatever your result — whatever choices you made — this year asked something real of you. It asked you who you want to be when no one is watching.
+
+The students who leaned on Cognito for everything didn't just risk their grades. They robbed themselves of something harder to measure: the confidence that comes from knowing **you** did it. The knowledge that lives in your hands when you pick up a pen in a quiet exam room and realize — *I actually know this.*
+
+Technology will keep changing. The tools will get smarter, faster, more convincing. But no algorithm can want something for you. No AI can care about your future.
+
+That part was always yours.
+
+---
+
+*Thanks for playing. Now go do your homework.*
+
+[[Play Again->Start]]
