@@ -61,7 +61,7 @@ tw-passage {
 (if: $energy <= 0)[(display: "Burnout")]
 (if: $expelled)[(display: "Expelled")]
 <div class="stat-bar">
-📊 **GPA:** (if: (count: $gpaHistory) > 0)[(print: (folded: _a, via _a + it, $gpaHistory) / (count: $gpaHistory))](else)[N/A] | ⚡ **Energy:** (print: $energy)/100 | 🧠 **Ability:** (print: $ability)/100
+📊 **GPA:** (if: (count: $gpaHistory) > 0)[(print: (folded: _sum, via _sum + it, $gpaHistory) / (count: $gpaHistory))](else)[N/A] | ⚡ **Energy:** (print: $energy)/100 | 🧠 **Ability:** (print: $ability)/100
 </div>
 
 :: Burnout
@@ -555,7 +555,7 @@ You sit with your phone in your hand.
 
 :: Results
 (if: (count: $gpaHistory) > 0)[
-(set: $finalGPA to (folded: _a, via _a + it, $gpaHistory) / (count: $gpaHistory))
+(set: $finalGPA to (folded: _sum, via _sum + it, $gpaHistory) / (count: $gpaHistory))
 ](else:)[
 (set: $finalGPA to 0.0)
 ]
