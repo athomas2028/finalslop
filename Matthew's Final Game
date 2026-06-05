@@ -34,14 +34,6 @@ tw-passage {
   color: #a8dadc;
 }
 
-:: StoryInit
-(set: $energy to 80)
-(set: $ability to 75)
-(set: $usedAI to false)
-(set: $gpaTotal to 0)
-(set: $gpaCount to 0)
-(set: $currentGPA to "N/A")
-
 :: StatDisplay
 <div class="stat-bar">
 GPA: (print: $currentGPA) | Energy: (print: $energy)/100 | Ability: (print: $ability)/100
@@ -74,6 +66,13 @@ Integrity, once lost, is hard to rebuild. But it is never too late to start.
 [[Play Again->Start]]
 
 :: Start
+(set: $energy to 80)
+(set: $ability to 80)
+(set: $usedAI to false)
+(set: $gpaTotal to 0)
+(set: $gpaCount to 0)
+(set: $currentGPA to "N/A")
+(display: "StatDisplay")
 # Senior Year
 
 Welcome to the most important year of your life — or so everyone keeps telling you.
