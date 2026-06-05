@@ -1,4 +1,3 @@
-Same code, two changes to StoryInit plus an energy-zero check. Here it is:
 :: StoryTitle
 Senior Year
 
@@ -114,7 +113,10 @@ Between classes, you catch pieces of a conversation.
 You keep walking. But the name sticks in your head. Cognito.
 
 (set: $energy to (max: 0, $energy - 5))
-(if: $energy <= 0)[[[You have nothing left->Burnout]]](else:[[[Continue->October]]])
+(if: $energy <= 0)[
+[[You have nothing left->Burnout]]
+](else:)
+[[Continue->October]]
 
 :: October
 (display: "StatDisplay")
@@ -142,7 +144,10 @@ You grind through it. By 4am it is done — not your best work, but it is yours.
 
 Assignment GPA: 3.4 | +Ability | -Energy
 
-(if: $energy <= 0)[[[You have nothing left->Burnout]]](else:[[[Continue->Late October]]])
+(if: $energy <= 0)[
+[[You have nothing left->Burnout]]
+](else:)
+[[Continue->Late October]]
 
 :: October AI
 (set: $usedAI to true)
@@ -181,7 +186,10 @@ Three hours of actual work. By the end your brain aches — but in a good way.
 
 -Energy | +Ability
 
-(if: $energy <= 0)[[[You have nothing left->Burnout]]](else:[[[Continue->November]]])
+(if: $energy <= 0)[
+[[You have nothing left->Burnout]]
+](else:)
+[[Continue->November]]
 
 :: LateOct Skip
 (set: $energy to (min: 100, $energy + 10))
@@ -307,7 +315,7 @@ Group Project GPA: 2.5 (penalized) | -Ability
   +Ability | Project GPA: 2.0
 
   [[Continue->Late November]]
-](else)[
+](else:)
   (set: $gpaTotal to $gpaTotal + 1.0)
   (set: $gpaCount to $gpaCount + 1)
   (set: $currentGPA to $gpaTotal / $gpaCount)
@@ -319,7 +327,6 @@ Group Project GPA: 2.5 (penalized) | -Ability
   +Ability | Project GPA: 1.0
 
   [[Continue->Late November]]
-]
 
 :: Late November
 (display: "StatDisplay")
@@ -340,7 +347,10 @@ Your notes are dense. Your hand is cramped. But your brain is working.
 
 -Energy | +Ability
 
-(if: $energy <= 0)[[[You have nothing left->Burnout]]](else:[[[Continue->December]]])
+(if: $energy <= 0)[
+[[You have nothing left->Burnout]]
+](else:)
+[[Continue->December]]
 
 :: LateNov Skip
 (set: $energy to (min: 100, $energy + 10))
@@ -437,7 +447,7 @@ The exam room is silent. Paper on desk. No phones. No laptops. No Cognito.
   Midterm GPA: 2.0
 
   [[Continue->January]]
-](else)[
+](else:)
   (set: $gpaTotal to $gpaTotal + 1.0)
   (set: $gpaCount to $gpaCount + 1)
   (set: $currentGPA to $gpaTotal / $gpaCount)
@@ -449,7 +459,6 @@ The exam room is silent. Paper on desk. No phones. No laptops. No Cognito.
   Midterm GPA: 1.0
 
   [[Continue->January]]
-]
 
 :: January
 (display: "StatDisplay")
@@ -461,14 +470,15 @@ The principal speaks over the PA:
 
 The room goes very quiet.
 
-(if: $usedAI)[Your stomach drops. You have used Cognito. This could be bad.
+(if: $usedAI)[
+Your stomach drops. You have used Cognito. This could be bad.
 
 [[Hope they do not find it->Expelled]]
 [[Come clean to the principal now->January Confess]]
-](else)[You have nothing to worry about. Every word you submitted was your own.
+](else:)
+You have nothing to worry about. Every word you submitted was your own.
 
 [[Continue->Late January]]
-]
 
 :: January Confess
 (set: $gpaTotal to $gpaTotal + 0.0)
@@ -508,7 +518,10 @@ You go. You work. You get sharper.
 
 -Energy | +Ability
 
-(if: $energy <= 0)[[[You have nothing left->Burnout]]](else:[[[Continue->February]]])
+(if: $energy <= 0)[
+[[You have nothing left->Burnout]]
+](else:)
+[[Continue->February]]
 
 :: LateJan Skip
 (set: $energy to (min: 100, $energy + 10))
@@ -607,7 +620,7 @@ You did not study for this. Nobody did.
   Test GPA: 1.5
 
   [[Continue->Late February]]
-](else)[
+](else:)
   (set: $gpaTotal to $gpaTotal + 0.5)
   (set: $gpaCount to $gpaCount + 1)
   (set: $currentGPA to $gpaTotal / $gpaCount)
@@ -619,7 +632,6 @@ You did not study for this. Nobody did.
   Test GPA: 0.5
 
   [[Continue->Late February]]
-]
 
 :: February Cheat
 (set: $usedAI to true)
@@ -675,7 +687,10 @@ Your pen moves faster now than it did in September.
 
 -Energy | +Ability
 
-(if: $energy <= 0)[[[You have nothing left->Burnout]]](else:[[[Continue->March]]])
+(if: $energy <= 0)[
+[[You have nothing left->Burnout]]
+](else:)
+[[Continue->March]]
 
 :: LateFeb Skip
 (set: $energy to (min: 100, $energy + 10))
@@ -722,11 +737,10 @@ It is not the school you first dreamed of. But it is a great school, and you got
 You have been accepted to a college — your third choice.
 
 It is not what you imagined. But a door is open.
-](else:)[
+](else:)
 This year, you were not accepted to university.
 
 It stings. But it is not the end. There are paths forward.
-]
 
 Your final GPA: (print: $currentGPA)
 
