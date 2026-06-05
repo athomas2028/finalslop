@@ -47,9 +47,6 @@ tw-passage {
 GPA: (print: $currentGPA) | Energy: (print: $energy)/100 | Ability: (print: $ability)/100
 </div>
 
-:: UpdateGPA
-(set: $currentGPA to $gpaTotal / $gpaCount)
-
 :: Expelled
 # Expelled
 
@@ -88,9 +85,9 @@ Your English teacher Mr. Hargrove holds up his hand before anyone can speak.
 
 (set: $energy to (min: 100, $energy + 5))
 
-[[Continue->Late_September]]
+[[Continue->Late September]]
 
-:: Late_September
+:: Late September
 (display: "StatDisplay")
 # Late September — The Rumour
 
@@ -116,15 +113,15 @@ Your stomach drops. Assignment due tomorrow morning.
 
 What do you do?
 
-[[Pull an all-nighter and do it yourself->October_Allnighter]]
-[[Use Cognito and get to sleep early->October_AI]]
+[[Pull an all-nighter and do it yourself->October Allnighter]]
+[[Use Cognito and get to sleep early->October AI]]
 
-:: October_Allnighter
+:: October Allnighter
 (set: $energy to (max: 0, $energy - 25))
 (set: $ability to (min: 100, $ability + 4))
 (set: $gpaTotal to $gpaTotal + 3.4)
 (set: $gpaCount to $gpaCount + 1)
-(display: "UpdateGPA")
+(set: $currentGPA to $gpaTotal / $gpaCount)
 (display: "StatDisplay")
 # All-Nighter
 
@@ -132,15 +129,15 @@ You grind through it. By 4am it is done — not your best work, but it is yours.
 
 Assignment GPA: 3.4 | +Ability | -Energy
 
-[[Continue->Late_October]]
+[[Continue->Late October]]
 
-:: October_AI
+:: October AI
 (set: $usedAI to true)
 (set: $ability to (max: 0, $ability - 4))
 (set: $energy to (min: 100, $energy + 10))
 (set: $gpaTotal to $gpaTotal + 3.8)
 (set: $gpaCount to $gpaCount + 1)
-(display: "UpdateGPA")
+(set: $currentGPA to $gpaTotal / $gpaCount)
 (display: "StatDisplay")
 # Cognito
 
@@ -150,18 +147,18 @@ The grade comes back strong. But something feels hollow.
 
 Assignment GPA: 3.8 | +Energy | -Ability
 
-[[Continue->Late_October]]
+[[Continue->Late October]]
 
-:: Late_October
+:: Late October
 (display: "StatDisplay")
 # Late October — Study Session
 
 Ms. Patel posts a sign-up sheet for an optional after-school study session. No phones, no laptops, just books and focused work.
 
-[[Attend the study session->LateOct_Study]]
-[[Skip it — you need the rest->LateOct_Skip]]
+[[Attend the study session->LateOct Study]]
+[[Skip it — you need the rest->LateOct Skip]]
 
-:: LateOct_Study
+:: LateOct Study
 (set: $energy to (max: 0, $energy - 20))
 (set: $ability to (min: 100, $ability + 8))
 (display: "StatDisplay")
@@ -173,7 +170,7 @@ Three hours of actual work. By the end your brain aches — but in a good way.
 
 [[Continue->November]]
 
-:: LateOct_Skip
+:: LateOct Skip
 (set: $energy to (min: 100, $energy + 10))
 (display: "StatDisplay")
 # Rest Day
@@ -190,10 +187,10 @@ You go home and recharge.
 
 Your English teacher assigns a major group project. You may choose your own partners.
 
-[[Partner with your friends->November_Friends]]
-[[Work alone->November_Solo]]
+[[Partner with your friends->November Friends]]
+[[Work alone->November Solo]]
 
-:: November_Friends
+:: November Friends
 (display: "StatDisplay")
 # With Friends
 
@@ -203,15 +200,15 @@ You team up with your crew — until someone pulls up Cognito at the second meet
 
 The whole group is on board. Except maybe you.
 
-[[Join them — use Cognito->November_Friends_AI]]
-[[Leave the group and work alone->November_Solo]]
+[[Join them — use Cognito->November Friends AI]]
+[[Leave the group and work alone->November Solo]]
 
-:: November_Friends_AI
+:: November Friends AI
 (set: $usedAI to true)
 (set: $ability to (max: 0, $ability - 5))
 (set: $gpaTotal to $gpaTotal + 2.5)
 (set: $gpaCount to $gpaCount + 1)
-(display: "UpdateGPA")
+(set: $currentGPA to $gpaTotal / $gpaCount)
 (display: "StatDisplay")
 # Caught
 
@@ -221,39 +218,106 @@ The presentation goes smoothly — until your teacher asks follow-up questions n
 
 Group Project GPA: 2.5 (penalized) | -Ability
 
-[[Continue->Late_November]]
+[[Continue->Late November]]
 
-:: November_Solo
+:: November Solo
 (set: $ability to (min: 100, $ability + 3))
-(if: $ability >= 90)[(set: $gpaMark to 4.0)]
-(else-if: $ability >= 85)[(set: $gpaMark to 3.8)]
-(else-if: $ability >= 80)[(set: $gpaMark to 3.4)]
-(else-if: $ability >= 73)[(set: $gpaMark to 3.1)]
-(else-if: $ability >= 70)[(set: $gpaMark to 2.8)]
-(else-if: $ability >= 60)[(set: $gpaMark to 2.0)]
-(else:)[(set: $gpaMark to 1.0)]
-(set: $gpaTotal to $gpaTotal + $gpaMark)
-(set: $gpaCount to $gpaCount + 1)
-(display: "UpdateGPA")
-(display: "StatDisplay")
-# On Your Own
+(if: $ability >= 90)[
+  (set: $gpaTotal to $gpaTotal + 4.0)
+  (set: $gpaCount to $gpaCount + 1)
+  (set: $currentGPA to $gpaTotal / $gpaCount)
+  (display: "StatDisplay")
+  # On Your Own
 
-You work alone. It takes longer. But when you present, you can answer every question.
+  You work alone. It takes longer. But when you present, you can answer every question.
 
-+Ability | Project GPA: (print: $gpaMark)
+  +Ability | Project GPA: 4.0
 
-[[Continue->Late_November]]
+  [[Continue->Late November]]
+](else-if: $ability >= 85)[
+  (set: $gpaTotal to $gpaTotal + 3.8)
+  (set: $gpaCount to $gpaCount + 1)
+  (set: $currentGPA to $gpaTotal / $gpaCount)
+  (display: "StatDisplay")
+  # On Your Own
 
-:: Late_November
+  You work alone. It takes longer. But when you present, you can answer every question.
+
+  +Ability | Project GPA: 3.8
+
+  [[Continue->Late November]]
+](else-if: $ability >= 80)[
+  (set: $gpaTotal to $gpaTotal + 3.4)
+  (set: $gpaCount to $gpaCount + 1)
+  (set: $currentGPA to $gpaTotal / $gpaCount)
+  (display: "StatDisplay")
+  # On Your Own
+
+  You work alone. It takes longer. But when you present, you can answer every question.
+
+  +Ability | Project GPA: 3.4
+
+  [[Continue->Late November]]
+](else-if: $ability >= 73)[
+  (set: $gpaTotal to $gpaTotal + 3.1)
+  (set: $gpaCount to $gpaCount + 1)
+  (set: $currentGPA to $gpaTotal / $gpaCount)
+  (display: "StatDisplay")
+  # On Your Own
+
+  You work alone. It takes longer. But when you present, you can answer every question.
+
+  +Ability | Project GPA: 3.1
+
+  [[Continue->Late November]]
+](else-if: $ability >= 70)[
+  (set: $gpaTotal to $gpaTotal + 2.8)
+  (set: $gpaCount to $gpaCount + 1)
+  (set: $currentGPA to $gpaTotal / $gpaCount)
+  (display: "StatDisplay")
+  # On Your Own
+
+  You work alone. It takes longer. But when you present, you can answer every question.
+
+  +Ability | Project GPA: 2.8
+
+  [[Continue->Late November]]
+](else-if: $ability >= 60)[
+  (set: $gpaTotal to $gpaTotal + 2.0)
+  (set: $gpaCount to $gpaCount + 1)
+  (set: $currentGPA to $gpaTotal / $gpaCount)
+  (display: "StatDisplay")
+  # On Your Own
+
+  You work alone. It takes longer. But when you present, you can answer every question.
+
+  +Ability | Project GPA: 2.0
+
+  [[Continue->Late November]]
+](else)[
+  (set: $gpaTotal to $gpaTotal + 1.0)
+  (set: $gpaCount to $gpaCount + 1)
+  (set: $currentGPA to $gpaTotal / $gpaCount)
+  (display: "StatDisplay")
+  # On Your Own
+
+  You work alone. It takes longer. But when you present, you can answer every question.
+
+  +Ability | Project GPA: 1.0
+
+  [[Continue->Late November]]
+]
+
+:: Late November
 (display: "StatDisplay")
 # Late November — Study Session
 
 Ms. Patel is running another after-school study session. Midterms are coming.
 
-[[Attend the study session->LateNov_Study]]
-[[Skip it->LateNov_Skip]]
+[[Attend the study session->LateNov Study]]
+[[Skip it->LateNov Skip]]
 
-:: LateNov_Study
+:: LateNov Study
 (set: $energy to (max: 0, $energy - 20))
 (set: $ability to (min: 100, $ability + 8))
 (display: "StatDisplay")
@@ -265,7 +329,7 @@ Your notes are dense. Your hand is cramped. But your brain is working.
 
 [[Continue->December]]
 
-:: LateNov_Skip
+:: LateNov Skip
 (set: $energy to (min: 100, $energy + 10))
 (display: "StatDisplay")
 # Rest Day
@@ -284,31 +348,95 @@ The exam room is silent. Paper on desk. No phones. No laptops. No Cognito.
 
 "You have ninety minutes. Begin."
 
-[[Do your honest best->December_Honest]]
-[[Try to cheat->December_Cheat]]
+[[Do your honest best->December Honest]]
+[[Try to cheat->Expelled]]
 
-:: December_Honest
-(if: $ability >= 90)[(set: $gpaMark to 4.0)]
-(else-if: $ability >= 85)[(set: $gpaMark to 3.8)]
-(else-if: $ability >= 80)[(set: $gpaMark to 3.4)]
-(else-if: $ability >= 73)[(set: $gpaMark to 3.1)]
-(else-if: $ability >= 70)[(set: $gpaMark to 2.8)]
-(else-if: $ability >= 60)[(set: $gpaMark to 2.0)]
-(else:)[(set: $gpaMark to 1.0)]
-(set: $gpaTotal to $gpaTotal + $gpaMark)
-(set: $gpaCount to $gpaCount + 1)
-(display: "UpdateGPA")
-(display: "StatDisplay")
-# Your Best
+:: December Honest
+(if: $ability >= 90)[
+  (set: $gpaTotal to $gpaTotal + 4.0)
+  (set: $gpaCount to $gpaCount + 1)
+  (set: $currentGPA to $gpaTotal / $gpaCount)
+  (display: "StatDisplay")
+  # Your Best
 
-You write what you know. When the bell rings, you set down your pen and breathe.
+  You write what you know. When the bell rings, you set down your pen and breathe.
 
-Midterm GPA: (print: $gpaMark)
+  Midterm GPA: 4.0
 
-[[Continue->January]]
+  [[Continue->January]]
+](else-if: $ability >= 85)[
+  (set: $gpaTotal to $gpaTotal + 3.8)
+  (set: $gpaCount to $gpaCount + 1)
+  (set: $currentGPA to $gpaTotal / $gpaCount)
+  (display: "StatDisplay")
+  # Your Best
 
-:: December_Cheat
-[[->Expelled]]
+  You write what you know. When the bell rings, you set down your pen and breathe.
+
+  Midterm GPA: 3.8
+
+  [[Continue->January]]
+](else-if: $ability >= 80)[
+  (set: $gpaTotal to $gpaTotal + 3.4)
+  (set: $gpaCount to $gpaCount + 1)
+  (set: $currentGPA to $gpaTotal / $gpaCount)
+  (display: "StatDisplay")
+  # Your Best
+
+  You write what you know. When the bell rings, you set down your pen and breathe.
+
+  Midterm GPA: 3.4
+
+  [[Continue->January]]
+](else-if: $ability >= 73)[
+  (set: $gpaTotal to $gpaTotal + 3.1)
+  (set: $gpaCount to $gpaCount + 1)
+  (set: $currentGPA to $gpaTotal / $gpaCount)
+  (display: "StatDisplay")
+  # Your Best
+
+  You write what you know. When the bell rings, you set down your pen and breathe.
+
+  Midterm GPA: 3.1
+
+  [[Continue->January]]
+](else-if: $ability >= 70)[
+  (set: $gpaTotal to $gpaTotal + 2.8)
+  (set: $gpaCount to $gpaCount + 1)
+  (set: $currentGPA to $gpaTotal / $gpaCount)
+  (display: "StatDisplay")
+  # Your Best
+
+  You write what you know. When the bell rings, you set down your pen and breathe.
+
+  Midterm GPA: 2.8
+
+  [[Continue->January]]
+](else-if: $ability >= 60)[
+  (set: $gpaTotal to $gpaTotal + 2.0)
+  (set: $gpaCount to $gpaCount + 1)
+  (set: $currentGPA to $gpaTotal / $gpaCount)
+  (display: "StatDisplay")
+  # Your Best
+
+  You write what you know. When the bell rings, you set down your pen and breathe.
+
+  Midterm GPA: 2.0
+
+  [[Continue->January]]
+](else)[
+  (set: $gpaTotal to $gpaTotal + 1.0)
+  (set: $gpaCount to $gpaCount + 1)
+  (set: $currentGPA to $gpaTotal / $gpaCount)
+  (display: "StatDisplay")
+  # Your Best
+
+  You write what you know. When the bell rings, you set down your pen and breathe.
+
+  Midterm GPA: 1.0
+
+  [[Continue->January]]
+]
 
 :: January
 (display: "StatDisplay")
@@ -322,21 +450,19 @@ The room goes very quiet.
 
 (if: $usedAI)[Your stomach drops. You have used Cognito. This could be bad.
 
-[[Hope they do not find it->January_Hope]]
-[[Come clean to the principal now->January_Confess]]
+[[Hope they do not find it->Expelled]]
+[[Come clean to the principal now->January Confess]]
 ](else)[You have nothing to worry about. Every word you submitted was your own.
 
-[[Continue->Late_January]]
+[[Continue->Late January]]
 ]
 
-:: January_Hope
-[[->Expelled]]
-
-:: January_Confess
+:: January Confess
 (set: $gpaTotal to $gpaTotal + 0.0)
 (set: $gpaCount to $gpaCount + 1)
-(display: "UpdateGPA")
+(set: $currentGPA to $gpaTotal / $gpaCount)
 (set: $ability to (max: 0, $ability - 5))
+(set: $usedAI to false)
 (display: "StatDisplay")
 # Coming Clean
 
@@ -348,18 +474,18 @@ She listens. She is stern. Then:
 
 GPA penalty applied | -Ability | You remain enrolled
 
-[[Continue->Late_January]]
+[[Continue->Late January]]
 
-:: Late_January
+:: Late January
 (display: "StatDisplay")
 # Late January — Study Session
 
 Ms. Patel is running another session. February tests are on the horizon.
 
-[[Attend the study session->LateJan_Study]]
-[[Skip it->LateJan_Skip]]
+[[Attend the study session->LateJan Study]]
+[[Skip it->LateJan Skip]]
 
-:: LateJan_Study
+:: LateJan Study
 (set: $energy to (max: 0, $energy - 20))
 (set: $ability to (min: 100, $ability + 8))
 (display: "StatDisplay")
@@ -371,7 +497,7 @@ You go. You work. You get sharper.
 
 [[Continue->February]]
 
-:: LateJan_Skip
+:: LateJan Skip
 (set: $energy to (min: 100, $energy + 10))
 (display: "StatDisplay")
 # Resting
@@ -392,30 +518,97 @@ POP QUIZ — Please clear your desks.
 
 You did not study for this. Nobody did.
 
-[[Try your honest best->February_Honest]]
-[[Sneak a look at Cognito under the desk->February_Cheat]]
+[[Try your honest best->February Honest]]
+[[Sneak a look at Cognito under the desk->February Cheat]]
 
-:: February_Honest
-(if: $ability >= 90)[(set: $gpaMark to 3.5)]
-(else-if: $ability >= 85)[(set: $gpaMark to 3.3)]
-(else-if: $ability >= 80)[(set: $gpaMark to 2.9)]
-(else-if: $ability >= 73)[(set: $gpaMark to 2.6)]
-(else-if: $ability >= 70)[(set: $gpaMark to 2.3)]
-(else-if: $ability >= 60)[(set: $gpaMark to 1.5)]
-(else:)[(set: $gpaMark to 0.5)]
-(set: $gpaTotal to $gpaTotal + $gpaMark)
-(set: $gpaCount to $gpaCount + 1)
-(display: "UpdateGPA")
-(display: "StatDisplay")
-# Doing Your Best
+:: February Honest
+(if: $ability >= 90)[
+  (set: $gpaTotal to $gpaTotal + 3.5)
+  (set: $gpaCount to $gpaCount + 1)
+  (set: $currentGPA to $gpaTotal / $gpaCount)
+  (display: "StatDisplay")
+  # Doing Your Best
 
-You write what you can. It is not perfect — pop quizzes never are. But it is honest.
+  You write what you can. It is not perfect — pop quizzes never are. But it is honest.
 
-Test GPA: (print: $gpaMark)
+  Test GPA: 3.5
 
-[[Continue->Late_February]]
+  [[Continue->Late February]]
+](else-if: $ability >= 85)[
+  (set: $gpaTotal to $gpaTotal + 3.3)
+  (set: $gpaCount to $gpaCount + 1)
+  (set: $currentGPA to $gpaTotal / $gpaCount)
+  (display: "StatDisplay")
+  # Doing Your Best
 
-:: February_Cheat
+  You write what you can. It is not perfect — pop quizzes never are. But it is honest.
+
+  Test GPA: 3.3
+
+  [[Continue->Late February]]
+](else-if: $ability >= 80)[
+  (set: $gpaTotal to $gpaTotal + 2.9)
+  (set: $gpaCount to $gpaCount + 1)
+  (set: $currentGPA to $gpaTotal / $gpaCount)
+  (display: "StatDisplay")
+  # Doing Your Best
+
+  You write what you can. It is not perfect — pop quizzes never are. But it is honest.
+
+  Test GPA: 2.9
+
+  [[Continue->Late February]]
+](else-if: $ability >= 73)[
+  (set: $gpaTotal to $gpaTotal + 2.6)
+  (set: $gpaCount to $gpaCount + 1)
+  (set: $currentGPA to $gpaTotal / $gpaCount)
+  (display: "StatDisplay")
+  # Doing Your Best
+
+  You write what you can. It is not perfect — pop quizzes never are. But it is honest.
+
+  Test GPA: 2.6
+
+  [[Continue->Late February]]
+](else-if: $ability >= 70)[
+  (set: $gpaTotal to $gpaTotal + 2.3)
+  (set: $gpaCount to $gpaCount + 1)
+  (set: $currentGPA to $gpaTotal / $gpaCount)
+  (display: "StatDisplay")
+  # Doing Your Best
+
+  You write what you can. It is not perfect — pop quizzes never are. But it is honest.
+
+  Test GPA: 2.3
+
+  [[Continue->Late February]]
+](else-if: $ability >= 60)[
+  (set: $gpaTotal to $gpaTotal + 1.5)
+  (set: $gpaCount to $gpaCount + 1)
+  (set: $currentGPA to $gpaTotal / $gpaCount)
+  (display: "StatDisplay")
+  # Doing Your Best
+
+  You write what you can. It is not perfect — pop quizzes never are. But it is honest.
+
+  Test GPA: 1.5
+
+  [[Continue->Late February]]
+](else)[
+  (set: $gpaTotal to $gpaTotal + 0.5)
+  (set: $gpaCount to $gpaCount + 1)
+  (set: $currentGPA to $gpaTotal / $gpaCount)
+  (display: "StatDisplay")
+  # Doing Your Best
+
+  You write what you can. It is not perfect — pop quizzes never are. But it is honest.
+
+  Test GPA: 0.5
+
+  [[Continue->Late February]]
+]
+
+:: February Cheat
 (set: $usedAI to true)
 (set: $ability to (max: 0, $ability - 4))
 (display: "StatDisplay")
@@ -427,13 +620,14 @@ Then — reading it back — you realize it is completely made up. Fabricated da
 
 You have already handed it in.
 
-[[Tell the teacher before they grade it->February_Confess]]
-[[Say nothing and hope for the best->February_Silent]]
+[[Tell the teacher before they grade it->February Confess]]
+[[Say nothing and hope for the best->Expelled]]
 
-:: February_Confess
+:: February Confess
 (set: $gpaTotal to $gpaTotal + 1.0)
 (set: $gpaCount to $gpaCount + 1)
-(display: "UpdateGPA")
+(set: $currentGPA to $gpaTotal / $gpaCount)
+(set: $usedAI to false)
 (display: "StatDisplay")
 # Coming Clean
 
@@ -447,21 +641,18 @@ Your teacher looks at you for a long moment.
 
 GPA penalty applied | You remain enrolled
 
-[[Continue->Late_February]]
+[[Continue->Late February]]
 
-:: February_Silent
-[[->Expelled]]
-
-:: Late_February
+:: Late February
 (display: "StatDisplay")
 # Late February — One Last Session
 
 The final optional study session of the year.
 
-[[Attend the study session->LateFeb_Study]]
-[[Skip it->LateFeb_Skip]]
+[[Attend the study session->LateFeb Study]]
+[[Skip it->LateFeb Skip]]
 
-:: LateFeb_Study
+:: LateFeb Study
 (set: $energy to (max: 0, $energy - 20))
 (set: $ability to (min: 100, $ability + 8))
 (display: "StatDisplay")
@@ -473,7 +664,7 @@ Your pen moves faster now than it did in September.
 
 [[Continue->March]]
 
-:: LateFeb_Skip
+:: LateFeb Skip
 (set: $energy to (min: 100, $energy + 10))
 (display: "StatDisplay")
 # Rest
