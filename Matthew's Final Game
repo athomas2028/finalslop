@@ -538,7 +538,7 @@ It is not the school you first dreamed of. But it is a great school, and you got
 You have been accepted to a college — your third choice.
 
 It is not what you imagined. But a door is open.
-](else)[
+](else-if: $currentGPA <= 2.4)[
 This year, you were not accepted to university.
 
 It stings. But it is not the end. There are paths forward.
