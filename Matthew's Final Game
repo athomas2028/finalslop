@@ -342,7 +342,7 @@ Your stomach drops. You have used Cognito. This could be bad.
 
 [[Hope they do not find it->Expelled]]
 [[Come clean to the principal now->January Confess]]
-](else:)
+](else-if: $usedAI is false)
 You have nothing to worry about. Every word you submitted was your own.
 
 [[Continue->Late January]]
