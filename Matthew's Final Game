@@ -243,89 +243,29 @@ Group Project GPA: 2.5 (penalized) | -Ability
 :: November Solo
 (set: $ability to (min: 100, $ability + 3))
 (if: $ability >= 90)[
-  (set: $gpaTotal to $gpaTotal + 4.0)
-  (set: $gpaCount to $gpaCount + 1)
-  (set: $currentGPA to $gpaTotal / $gpaCount)
-  (display: "StatDisplay")
-  # On Your Own
-
-  You work alone. It takes longer. But when you present, you can answer every question.
-
-  +Ability | Project GPA: 4.0
-
-  [[Continue->Late November]]
+(set: $gpaTotal to $gpaTotal + 4.0)
 ](else-if: $ability >= 85)[
-  (set: $gpaTotal to $gpaTotal + 3.8)
-  (set: $gpaCount to $gpaCount + 1)
-  (set: $currentGPA to $gpaTotal / $gpaCount)
-  (display: "StatDisplay")
-  # On Your Own
-
-  You work alone. It takes longer. But when you present, you can answer every question.
-
-  +Ability | Project GPA: 3.8
-
-  [[Continue->Late November]]
+(set: $gpaTotal to $gpaTotal + 3.8)
 ](else-if: $ability >= 80)[
-  (set: $gpaTotal to $gpaTotal + 3.4)
-  (set: $gpaCount to $gpaCount + 1)
-  (set: $currentGPA to $gpaTotal / $gpaCount)
-  (display: "StatDisplay")
-  # On Your Own
-
-  You work alone. It takes longer. But when you present, you can answer every question.
-
-  +Ability | Project GPA: 3.4
-
-  [[Continue->Late November]]
+(set: $gpaTotal to $gpaTotal + 3.4)
 ](else-if: $ability >= 73)[
-  (set: $gpaTotal to $gpaTotal + 3.1)
-  (set: $gpaCount to $gpaCount + 1)
-  (set: $currentGPA to $gpaTotal / $gpaCount)
-  (display: "StatDisplay")
-  # On Your Own
-
-  You work alone. It takes longer. But when you present, you can answer every question.
-
-  +Ability | Project GPA: 3.1
-
-  [[Continue->Late November]]
+(set: $gpaTotal to $gpaTotal + 3.1)
 ](else-if: $ability >= 70)[
-  (set: $gpaTotal to $gpaTotal + 2.8)
-  (set: $gpaCount to $gpaCount + 1)
-  (set: $currentGPA to $gpaTotal / $gpaCount)
-  (display: "StatDisplay")
-  # On Your Own
-
-  You work alone. It takes longer. But when you present, you can answer every question.
-
-  +Ability | Project GPA: 2.8
-
-  [[Continue->Late November]]
+(set: $gpaTotal to $gpaTotal + 2.8)
 ](else-if: $ability >= 60)[
-  (set: $gpaTotal to $gpaTotal + 2.0)
-  (set: $gpaCount to $gpaCount + 1)
-  (set: $currentGPA to $gpaTotal / $gpaCount)
-  (display: "StatDisplay")
-  # On Your Own
-
-  You work alone. It takes longer. But when you present, you can answer every question.
-
-  +Ability | Project GPA: 2.0
-
-  [[Continue->Late November]]
+(set: $gpaTotal to $gpaTotal + 2.0)
 ](else:)
-  (set: $gpaTotal to $gpaTotal + 1.0)
-  (set: $gpaCount to $gpaCount + 1)
-  (set: $currentGPA to $gpaTotal / $gpaCount)
-  (display: "StatDisplay")
-  # On Your Own
+(set: $gpaTotal to $gpaTotal + 1.0)
+(set: $gpaCount to $gpaCount + 1)
+(set: $currentGPA to $gpaTotal / $gpaCount)
+(display: "StatDisplay")
+# On Your Own
 
-  You work alone. It takes longer. But when you present, you can answer every question.
+You work alone. It takes longer. But when you present, you can answer every question.
 
-  +Ability | Project GPA: 1.0
++Ability | Project GPA: (print: $currentGPA)
 
-  [[Continue->Late November]]
+[[Continue->Late November]]
 
 :: Late November
 (display: "StatDisplay")
@@ -375,89 +315,29 @@ The exam room is silent. Paper on desk. No phones. No laptops. No Cognito.
 
 :: December Honest
 (if: $ability >= 90)[
-  (set: $gpaTotal to $gpaTotal + 4.0)
-  (set: $gpaCount to $gpaCount + 1)
-  (set: $currentGPA to $gpaTotal / $gpaCount)
-  (display: "StatDisplay")
-  # Your Best
-
-  You write what you know. When the bell rings, you set down your pen and breathe.
-
-  Midterm GPA: 4.0
-
-  [[Continue->January]]
+(set: $gpaTotal to $gpaTotal + 4.0)
 ](else-if: $ability >= 85)[
-  (set: $gpaTotal to $gpaTotal + 3.8)
-  (set: $gpaCount to $gpaCount + 1)
-  (set: $currentGPA to $gpaTotal / $gpaCount)
-  (display: "StatDisplay")
-  # Your Best
-
-  You write what you know. When the bell rings, you set down your pen and breathe.
-
-  Midterm GPA: 3.8
-
-  [[Continue->January]]
+(set: $gpaTotal to $gpaTotal + 3.8)
 ](else-if: $ability >= 80)[
-  (set: $gpaTotal to $gpaTotal + 3.4)
-  (set: $gpaCount to $gpaCount + 1)
-  (set: $currentGPA to $gpaTotal / $gpaCount)
-  (display: "StatDisplay")
-  # Your Best
-
-  You write what you know. When the bell rings, you set down your pen and breathe.
-
-  Midterm GPA: 3.4
-
-  [[Continue->January]]
+(set: $gpaTotal to $gpaTotal + 3.4)
 ](else-if: $ability >= 73)[
-  (set: $gpaTotal to $gpaTotal + 3.1)
-  (set: $gpaCount to $gpaCount + 1)
-  (set: $currentGPA to $gpaTotal / $gpaCount)
-  (display: "StatDisplay")
-  # Your Best
-
-  You write what you know. When the bell rings, you set down your pen and breathe.
-
-  Midterm GPA: 3.1
-
-  [[Continue->January]]
+(set: $gpaTotal to $gpaTotal + 3.1)
 ](else-if: $ability >= 70)[
-  (set: $gpaTotal to $gpaTotal + 2.8)
-  (set: $gpaCount to $gpaCount + 1)
-  (set: $currentGPA to $gpaTotal / $gpaCount)
-  (display: "StatDisplay")
-  # Your Best
-
-  You write what you know. When the bell rings, you set down your pen and breathe.
-
-  Midterm GPA: 2.8
-
-  [[Continue->January]]
+(set: $gpaTotal to $gpaTotal + 2.8)
 ](else-if: $ability >= 60)[
-  (set: $gpaTotal to $gpaTotal + 2.0)
-  (set: $gpaCount to $gpaCount + 1)
-  (set: $currentGPA to $gpaTotal / $gpaCount)
-  (display: "StatDisplay")
-  # Your Best
-
-  You write what you know. When the bell rings, you set down your pen and breathe.
-
-  Midterm GPA: 2.0
-
-  [[Continue->January]]
+(set: $gpaTotal to $gpaTotal + 2.0)
 ](else:)
-  (set: $gpaTotal to $gpaTotal + 1.0)
-  (set: $gpaCount to $gpaCount + 1)
-  (set: $currentGPA to $gpaTotal / $gpaCount)
-  (display: "StatDisplay")
-  # Your Best
+(set: $gpaTotal to $gpaTotal + 1.0)
+(set: $gpaCount to $gpaCount + 1)
+(set: $currentGPA to $gpaTotal / $gpaCount)
+(display: "StatDisplay")
+# Your Best
 
-  You write what you know. When the bell rings, you set down your pen and breathe.
+You write what you know. When the bell rings, you set down your pen and breathe.
 
-  Midterm GPA: 1.0
+Midterm GPA: (print: $currentGPA)
 
-  [[Continue->January]]
+[[Continue->January]]
 
 :: January
 (display: "StatDisplay")
@@ -548,89 +428,29 @@ You did not study for this. Nobody did.
 
 :: February Honest
 (if: $ability >= 90)[
-  (set: $gpaTotal to $gpaTotal + 3.5)
-  (set: $gpaCount to $gpaCount + 1)
-  (set: $currentGPA to $gpaTotal / $gpaCount)
-  (display: "StatDisplay")
-  # Doing Your Best
-
-  You write what you can. It is not perfect — pop quizzes never are. But it is honest.
-
-  Test GPA: 3.5
-
-  [[Continue->Late February]]
+(set: $gpaTotal to $gpaTotal + 3.5)
 ](else-if: $ability >= 85)[
-  (set: $gpaTotal to $gpaTotal + 3.3)
-  (set: $gpaCount to $gpaCount + 1)
-  (set: $currentGPA to $gpaTotal / $gpaCount)
-  (display: "StatDisplay")
-  # Doing Your Best
-
-  You write what you can. It is not perfect — pop quizzes never are. But it is honest.
-
-  Test GPA: 3.3
-
-  [[Continue->Late February]]
+(set: $gpaTotal to $gpaTotal + 3.3)
 ](else-if: $ability >= 80)[
-  (set: $gpaTotal to $gpaTotal + 2.9)
-  (set: $gpaCount to $gpaCount + 1)
-  (set: $currentGPA to $gpaTotal / $gpaCount)
-  (display: "StatDisplay")
-  # Doing Your Best
-
-  You write what you can. It is not perfect — pop quizzes never are. But it is honest.
-
-  Test GPA: 2.9
-
-  [[Continue->Late February]]
+(set: $gpaTotal to $gpaTotal + 2.9)
 ](else-if: $ability >= 73)[
-  (set: $gpaTotal to $gpaTotal + 2.6)
-  (set: $gpaCount to $gpaCount + 1)
-  (set: $currentGPA to $gpaTotal / $gpaCount)
-  (display: "StatDisplay")
-  # Doing Your Best
-
-  You write what you can. It is not perfect — pop quizzes never are. But it is honest.
-
-  Test GPA: 2.6
-
-  [[Continue->Late February]]
+(set: $gpaTotal to $gpaTotal + 2.6)
 ](else-if: $ability >= 70)[
-  (set: $gpaTotal to $gpaTotal + 2.3)
-  (set: $gpaCount to $gpaCount + 1)
-  (set: $currentGPA to $gpaTotal / $gpaCount)
-  (display: "StatDisplay")
-  # Doing Your Best
-
-  You write what you can. It is not perfect — pop quizzes never are. But it is honest.
-
-  Test GPA: 2.3
-
-  [[Continue->Late February]]
+(set: $gpaTotal to $gpaTotal + 2.3)
 ](else-if: $ability >= 60)[
-  (set: $gpaTotal to $gpaTotal + 1.5)
-  (set: $gpaCount to $gpaCount + 1)
-  (set: $currentGPA to $gpaTotal / $gpaCount)
-  (display: "StatDisplay")
-  # Doing Your Best
-
-  You write what you can. It is not perfect — pop quizzes never are. But it is honest.
-
-  Test GPA: 1.5
-
-  [[Continue->Late February]]
+(set: $gpaTotal to $gpaTotal + 1.5)
 ](else:)
-  (set: $gpaTotal to $gpaTotal + 0.5)
-  (set: $gpaCount to $gpaCount + 1)
-  (set: $currentGPA to $gpaTotal / $gpaCount)
-  (display: "StatDisplay")
-  # Doing Your Best
+(set: $gpaTotal to $gpaTotal + 0.5)
+(set: $gpaCount to $gpaCount + 1)
+(set: $currentGPA to $gpaTotal / $gpaCount)
+(display: "StatDisplay")
+# Doing Your Best
 
-  You write what you can. It is not perfect — pop quizzes never are. But it is honest.
+You write what you can. It is not perfect — pop quizzes never are. But it is honest.
 
-  Test GPA: 0.5
+Test GPA: (print: $currentGPA)
 
-  [[Continue->Late February]]
+[[Continue->Late February]]
 
 :: February Cheat
 (set: $usedAI to true)
