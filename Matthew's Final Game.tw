@@ -52,8 +52,9 @@ code, tt, .mono {
 
 :: StatDisplay
 <div class="stat-bar">
-GPA: (print: $currentGPA) | Energy: (print: $energy)/100 | Ability: (print: $ability)/100
+GPA: (print: $currentGPA) | Energy: (print: $energy)/100 (if: $deltaEnergy > 0)['(+$deltaEnergy)'](if: $deltaEnergy < 0)['($deltaEnergy)']| Ability: (print: $ability)/100 (if: $deltaAbility > 0)['(+$deltaAbility)'](if: $deltaAbility < 0)['($deltaAbility)']
 </div>
+(set: $deltaEnergy to 0)(set: $deltaAbility to 0)
 
 :: Burnout
 # Burnout
@@ -88,6 +89,8 @@ Integrity, once lost, is hard to rebuild. But it is never too late to start.
 (set: $gpaTotal to 0)
 (set: $gpaCount to 0)
 (set: $currentGPA to "N/A")
+(set: $deltaEnergy to 0)
+(set: $deltaAbility to 0)
 (display: "StatDisplay")
 # Senior Year
 
@@ -111,7 +114,7 @@ Your English teacher Mr. Hargrove holds up his hand before anyone can speak.
 
 "This year, I want you to do your own thinking. There are tools out there that will try to do it for you. Do not let them. Your mind is the only thing that is truly yours."
 
-(set: $energy to (min: 100, $energy + 5))
+(set: $deltaEnergy to 5)(set: $energy to (min: 100, $energy + 5))
 
 [[Continue->Late September]]
 
@@ -127,7 +130,7 @@ Between classes, you catch pieces of a conversation.
 
 You keep walking. But the name sticks in your head. Cognito.
 
-(set: $energy to (max: 0, $energy - 5))
+(set: $deltaEnergy to -5)(set: $energy to (max: 0, $energy - 5))
 (if: $energy <= 0)[
 [[You have nothing left->Burnout]]
 ](else:)
@@ -147,7 +150,7 @@ What do you do?
 [[Use Cognito and get to sleep early->October AI]]
 
 :: October Allnighter
-(set: $energy to (max: 0, $energy - 25))
+(set: $deltaEnergy to -25)(set: $deltaAbility to 4)(set: $energy to (max: 0, $energy - 25))
 (set: $ability to (min: 100, $ability + 4))
 (set: $gpaTotal to $gpaTotal + 3.4)
 (set: $gpaCount to $gpaCount + 1)
@@ -166,7 +169,7 @@ Assignment GPA: 3.4 | +Ability | -Energy
 
 :: October AI
 (set: $usedAI to true)
-(set: $ability to (max: 0, $ability - 4))
+(set: $deltaAbility to -4)(set: $deltaEnergy to 10)(set: $ability to (max: 0, $ability - 4))
 (set: $energy to (min: 100, $energy + 10))
 (set: $gpaTotal to $gpaTotal + 3.8)
 (set: $gpaCount to $gpaCount + 1)
@@ -192,7 +195,7 @@ Ms. Patel posts a sign-up sheet for an optional after-school study session. No p
 [[Skip it — you need the rest->LateOct Skip]]
 
 :: LateOct Study
-(set: $energy to (max: 0, $energy - 20))
+(set: $deltaEnergy to -20)(set: $deltaAbility to 8)(set: $energy to (max: 0, $energy - 20))
 (set: $ability to (min: 100, $ability + 8))
 (display: "StatDisplay")
 # Study Session
@@ -207,7 +210,7 @@ Three hours of actual work. By the end your brain aches — but in a good way.
 [[Continue->November]]
 
 :: LateOct Skip
-(set: $energy to (min: 100, $energy + 10))
+(set: $deltaEnergy to 10)(set: $energy to (min: 100, $energy + 10))
 (display: "StatDisplay")
 # Rest Day
 
@@ -241,7 +244,7 @@ The whole group is on board. Except maybe you.
 
 :: November Friends AI
 (set: $usedAI to true)
-(set: $ability to (max: 0, $ability - 5))
+(set: $deltaAbility to -5)(set: $ability to (max: 0, $ability - 5))
 (set: $gpaTotal to $gpaTotal + 2.5)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
@@ -257,7 +260,7 @@ Group Project GPA: 2.5 (penalized) | -Ability
 [[Continue->Late November]]
 
 :: November Solo
-(set: $ability to (min: 100, $ability + 3))
+(set: $deltaAbility to 3)(set: $ability to (min: 100, $ability + 3))
 (set: $gpaMark to 1.0)
 (if: $ability >= 90)[(set: $gpaMark to 4.0)]
 (else-if: $ability >= 85)[(set: $gpaMark to 3.8)]
@@ -287,7 +290,7 @@ Ms. Patel is running another after-school study session. Midterms are coming.
 [[Skip it->LateNov Skip]]
 
 :: LateNov Study
-(set: $energy to (max: 0, $energy - 20))
+(set: $deltaEnergy to -20)(set: $deltaAbility to 8)(set: $energy to (max: 0, $energy - 20))
 (set: $ability to (min: 100, $ability + 8))
 (display: "StatDisplay")
 # Grinding
@@ -302,7 +305,7 @@ Your notes are dense. Your hand is cramped. But your brain is working.
 [[Continue->December]]
 
 :: LateNov Skip
-(set: $energy to (min: 100, $energy + 10))
+(set: $deltaEnergy to 10)(set: $energy to (min: 100, $energy + 10))
 (display: "StatDisplay")
 # Rest Day
 
@@ -367,7 +370,7 @@ You have nothing to worry about. Every word you submitted was your own.
 (set: $gpaTotal to $gpaTotal + 0.0)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
-(set: $ability to (max: 0, $ability - 5))
+(set: $deltaAbility to -5)(set: $ability to (max: 0, $ability - 5))
 (set: $usedAI to false)
 (display: "StatDisplay")
 # Coming Clean
@@ -392,7 +395,7 @@ Ms. Patel is running another session. February tests are on the horizon.
 [[Skip it->LateJan Skip]]
 
 :: LateJan Study
-(set: $energy to (max: 0, $energy - 20))
+(set: $deltaEnergy to -20)(set: $deltaAbility to 8)(set: $energy to (max: 0, $energy - 20))
 (set: $ability to (min: 100, $ability + 8))
 (display: "StatDisplay")
 # Head Down
@@ -407,7 +410,7 @@ You go. You work. You get sharper.
 [[Continue->February]]
 
 :: LateJan Skip
-(set: $energy to (min: 100, $energy + 10))
+(set: $deltaEnergy to 10)(set: $energy to (min: 100, $energy + 10))
 (display: "StatDisplay")
 # Resting
 
@@ -452,7 +455,7 @@ Test GPA: (print: $gpaMark)
 
 :: February Cheat
 (set: $usedAI to true)
-(set: $ability to (max: 0, $ability - 4))
+(set: $deltaAbility to -4)(set: $ability to (max: 0, $ability - 4))
 (display: "StatDisplay")
 # Under the Desk
 
@@ -495,7 +498,7 @@ The final optional study session of the year.
 [[Skip it->LateFeb Skip]]
 
 :: LateFeb Study
-(set: $energy to (max: 0, $energy - 20))
+(set: $deltaEnergy to -20)(set: $deltaAbility to 8)(set: $energy to (max: 0, $energy - 20))
 (set: $ability to (min: 100, $ability + 8))
 (display: "StatDisplay")
 # Final Push
@@ -510,7 +513,7 @@ Your pen moves faster now than it did in September.
 [[Continue->March]]
 
 :: LateFeb Skip
-(set: $energy to (min: 100, $energy + 10))
+(set: $deltaEnergy to 10)(set: $energy to (min: 100, $energy + 10))
 (display: "StatDisplay")
 # Rest
 
