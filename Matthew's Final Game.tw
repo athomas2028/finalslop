@@ -43,6 +43,9 @@ code, tt, .mono {
   margin-bottom: 18px;
   font-size: 0.9em;
   color: #a8dadc;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 :: StatDisplay
