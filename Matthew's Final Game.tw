@@ -16,7 +16,7 @@ body {
   color: #eaeaea;
 }
 tw-story {
-  max-width: 720px;
+  max-width: min(720px, 95vw);
   margin: 0 auto;
   padding: 20px;
 }
@@ -69,6 +69,7 @@ Integrity, once lost, is hard to rebuild. But it is never too late to start.
 (set: $energy to 80)
 (set: $ability to 80)
 (set: $usedAI to false)
+(set: $usedAICount to 0)
 (set: $gpaTotal to 0)
 (set: $gpaCount to 0)
 (set: $currentGPA to "N/A")
@@ -150,9 +151,10 @@ Assignment GPA: 3.4 | +Ability | -Energy
 
 :: October AI
 (set: $usedAI to true)
-(set: $ability to (max: 0, $ability - 4))
-(set: $energy to (min: 100, $energy + 10))
-(set: $gpaTotal to $gpaTotal + 3.8)
+(set: $usedAICount to $usedAICount + 1)
+(set: $ability to (max: 0, $ability - 8))
+(set: $energy to (max: 0, $energy - 5))
+(set: $gpaTotal to $gpaTotal + 2.5)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
 (display: "StatDisplay")
@@ -160,9 +162,9 @@ Assignment GPA: 3.4 | +Ability | -Energy
 
 Four minutes later — a polished essay. You submit it and fall asleep.
 
-The grade comes back strong. But something feels hollow.
+The grade comes back mediocre. The writing is generic, surface-level. It gets a C+.
 
-Assignment GPA: 3.8 | +Energy | -Ability
+Assignment GPA: 2.5 | -Energy | -Ability
 
 [[Continue->Late October]]
 
@@ -225,8 +227,9 @@ The whole group is on board. Except maybe you.
 
 :: November Friends AI
 (set: $usedAI to true)
-(set: $ability to (max: 0, $ability - 5))
-(set: $gpaTotal to $gpaTotal + 2.5)
+(set: $usedAICount to $usedAICount + 1)
+(set: $ability to (max: 0, $ability - 10))
+(set: $gpaTotal to $gpaTotal + 1.5)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
 (display: "StatDisplay")
@@ -234,9 +237,9 @@ The whole group is on board. Except maybe you.
 
 The presentation goes smoothly — until your teacher asks follow-up questions none of you can answer.
 
-"I have been doing this for twenty years. I know what you wrote and what you did not."
+"I have been doing this for twenty years. I know AI-generated work when I see it."
 
-Group Project GPA: 2.5 (penalized) | -Ability
+Group Project GPA: 1.5 (flagged for AI) | -Ability (heavy)
 
 [[Continue->Late November]]
 
@@ -351,7 +354,7 @@ You have nothing to worry about. Every word you submitted was your own.
 (set: $gpaTotal to $gpaTotal + 0.0)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
-(set: $ability to (max: 0, $ability - 5))
+(set: $ability to (max: 0, $ability - 10))
 (set: $usedAI to false)
 (display: "StatDisplay")
 # Coming Clean
@@ -362,7 +365,9 @@ She listens. She is stern. Then:
 
 "I appreciate that you came to me. That takes courage. There will be consequences — but expulsion is not one of them."
 
-GPA penalty applied | -Ability | You remain enrolled
+However, the academic integrity board puts you on formal probation. Your transcripts will reflect this.
+
+GPA penalty applied | -Ability (heavy) | Formal Probation
 
 [[Continue->Late January]]
 
@@ -436,7 +441,8 @@ Test GPA: (print: $gpaMark)
 
 :: February Cheat
 (set: $usedAI to true)
-(set: $ability to (max: 0, $ability - 4))
+(set: $usedAICount to $usedAICount + 1)
+(set: $ability to (max: 0, $ability - 8))
 (display: "StatDisplay")
 # Under the Desk
 
@@ -450,9 +456,10 @@ You have already handed it in.
 [[Say nothing and hope for the best->Expelled]]
 
 :: February Confess
-(set: $gpaTotal to $gpaTotal + 1.0)
+(set: $gpaTotal to $gpaTotal + 0.5)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
+(set: $ability to (max: 0, $ability - 5))
 (set: $usedAI to false)
 (display: "StatDisplay")
 # Coming Clean
@@ -463,9 +470,11 @@ You go up after class, heart pounding.
 
 Your teacher looks at you for a long moment.
 
-"I appreciate your honesty. This will still affect your grade — but I respect that you came forward."
+"I appreciate your honesty — but the school policy is clear. This goes on your record."
 
-GPA penalty applied | You remain enrolled
+He marks the test as a zero and files an academic dishonesty report. It will follow your applications.
+
+Test GPA: 0.5 | -Ability | Academic Dishonesty Report
 
 [[Continue->Late February]]
 
@@ -524,7 +533,12 @@ Your phone buzzes.
 
 ---
 
-(if: $currentGPA >= 4.0)[
+(if: $usedAICount >= 2)[
+Multiple AI incidents are noted on your record. Your applications are rejected across the board.
+
+The universities cite "academic integrity concerns." It is a hard lesson.
+
+](else-if: $currentGPA >= 4.0)[
 Congratulations. You have been accepted to your first choice university.
 
 "We were impressed by your academic dedication and consistent performance."
@@ -533,15 +547,13 @@ You read it three times. Then you call your parents.
 ](else-if: $currentGPA >= 3.0)[
 You have been accepted to your second choice university.
 
-It is not the school you first dreamed of. But it is a great school, and you got here honestly.
+(if: $usedAI)[A note on your file about academic integrity nearly cost you the offer. You got a second chance.](else:)[It is a great school, and you got here honestly.]
 ](else-if: $currentGPA >= 2.5)[
 You have been accepted to a college — your third choice.
 
-It is not what you imagined. But a door is open.
+(if: $usedAI)[The integrity flag on your transcript closed most doors. But a narrow door is still open.](else:)[It is not what you imagined. But a door is open.]
 ](else-if: $currentGPA <= 2.4)[
-This year, you were not accepted to university.
-
-It stings. But it is not the end. There are paths forward.
+(if: $usedAI)[This year, you were not accepted to university. Your GPA combined with academic integrity issues made it impossible. Rebuilding trust takes longer than losing it.](else:)[This year, you were not accepted to university. It stings. But it is not the end. There are paths forward.]
 ]
 
 Your final GPA: (print: $currentGPA)
