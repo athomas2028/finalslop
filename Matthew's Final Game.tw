@@ -22,12 +22,14 @@ tw-story {
   width: 100%;
   max-width: 100%;
   margin: 0;
-  padding: 20px;
+  padding: 0;
   box-sizing: border-box;
 }
 tw-passage {
   font-size: 1.1em;
   line-height: 1.7;
+  margin: 0;
+  padding: 20px;
 }
 tw-link, .enchantment-link, .link-internal {
   font-family: 'Computer Modern Sans', sans-serif;
