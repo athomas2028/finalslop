@@ -604,20 +604,27 @@ body {
   background-color: #1a1a2e;
   color: #eaeaea;
 }
+h1, h2, h3, h4 {
+  font-family: "CMU Sans Serif", sans-serif;
+}
 tw-story {
   max-width: 0 auto;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0 20px 20px;
 }
 tw-passage {
   font-size: 1.1em;
   line-height: 1.7;
 }
 .stat-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   background: #16213e;
   border: 1px solid #0f3460;
   border-radius: 8px;
   padding: 10px 16px;
+  margin-top: 0;
   margin-bottom: 18px;
   font-size: 0.9em;
   color: #a8dadc;
