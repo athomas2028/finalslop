@@ -620,9 +620,10 @@ tw-passage {
   color: #a8dadc;
 }
 img {
-  width: 100%;
+  width: 50%;
   height: auto;
+  display: block;
+  margin: 0 auto 20px auto;
   border-radius: 8px;
-  margin-bottom: 20px;
   border: 1px solid #0f3460;
 }
