@@ -34,7 +34,7 @@ Rest is not weakness. It is the foundation everything else is built on.
 
 The exam room is silent. Paper on desk. No phones. No laptops. No Cognito.
 
-"You have ninety minutes. Begin."
+<span class="dialogue">"You have ninety minutes. Begin."</span>
 
 [[Do your honest best->December Honest]]
 [[Try to cheat->Expelled]]
@@ -175,11 +175,11 @@ You have already handed it in.
 
 You go up after class, heart pounding.
 
-"I made a mistake. I used AI and the answer was wrong. I am telling you now."
+<span class="dialogue">"I made a mistake. I used AI and the answer was wrong. I am telling you now."</span>
 
 Your teacher looks at you for a long moment.
 
-"I appreciate your honesty. This will still affect your grade — but I respect that you came forward."
+<span class="dialogue">"I appreciate your honesty. This will still affect your grade — but I respect that you came forward."</span>
 
 GPA penalty applied | You remain enrolled
 
@@ -214,7 +214,7 @@ Test GPA: (print: $gpaMark)
 
 The principal speaks over the PA:
 
-"As of this month, the school will be using detection software to scan all assignments submitted this year for AI-generated content."
+<span class="dialogue">"As of this month, the school will be using detection software to scan all assignments submitted this year for AI-generated content."</span>
 
 The room goes very quiet.
 
@@ -243,7 +243,7 @@ You go to the principal's office before results are posted.
 
 She listens. She is stern. Then:
 
-"I appreciate that you came to me. That takes courage. There will be consequences — but expulsion is not one of them."
+<span class="dialogue">"I appreciate that you came to me. That takes courage. There will be consequences — but expulsion is not one of them."</span>
 
 GPA penalty applied | -Ability | You remain enrolled
 
@@ -342,9 +342,9 @@ Ms. Patel posts a sign-up sheet for an optional after-school study session. No p
 
 Between classes, you catch pieces of a conversation.
 
-"Cognito finished my whole history essay in like four minutes."
-"No way. Did you get caught?"
-"Nah. It even writes in your style."
+<span class="dialogue">"Cognito finished my whole history essay in like four minutes."</span>
+<span class="dialogue">"No way. Did you get caught?"</span>
+<span class="dialogue">"Nah. It even writes in your style."</span>
 
 You keep walking. But the name sticks in your head. Cognito.
 
@@ -484,7 +484,7 @@ Your English teacher assigns a major group project. You may choose your own part
 
 You team up with your crew — until someone pulls up Cognito at the second meeting.
 
-"Dude, this thing writes better than us. Come on."
+<span class="dialogue">"Dude, this thing writes better than us. Come on."</span>
 
 The whole group is on board. Except maybe you.
 
@@ -504,7 +504,7 @@ The whole group is on board. Except maybe you.
 
 The presentation goes smoothly — until your teacher asks follow-up questions none of you can answer.
 
-"I have been doing this for twenty years. I know what you wrote and what you did not."
+<span class="dialogue">"I have been doing this for twenty years. I know what you wrote and what you did not."</span>
 
 Group Project GPA: 2.5 (penalized) | -Ability
 
@@ -588,6 +588,39 @@ Assignment GPA: 3.4 | +Ability | -Energy
 [[Continue->Late October]]
 
 
+:: Results {"position":"525,400","size":"100,100"}
+(display: "StatDisplay")
+# The Email
+
+Your phone buzzes.
+
+---
+
+(if: $currentGPA >= 4.0)[
+Congratulations. You have been accepted to your first choice university.
+
+<span class="dialogue">"We were impressed by your academic dedication and consistent performance."</span>
+
+You read it three times. Then you call your parents.
+](else-if: $currentGPA >= 3.0)[
+You have been accepted to your second choice university.
+
+It is not the school you first dreamed of. But it is a great school, and you got here honestly.
+](else-if: $currentGPA >= 2.5)[
+You have been accepted to a college — your third choice.
+
+It is not what you imagined. But a door is open.
+](else-if: $currentGPA <= 2.4)[
+This year, you were not accepted to university.
+
+It stings. But it is not the end. There are paths forward.
+]
+
+Your final GPA: (print: $currentGPA)
+
+[[Read the closing message->Ending]]
+
+
 :: September {"position":"525,25","size":"100,100"}
 (display: "StatDisplay")
 # September — A Fresh Start
@@ -597,7 +630,7 @@ The halls smell like new sneakers and anxiety. It is the first week of Grade 12 
 
 Your English teacher Mr. Hargrove holds up his hand before anyone can speak.
 
-"This year, I want you to do your own thinking. There are tools out there that will try to do it for you. Do not let them. Your mind is the only thing that is truly yours."
+<span class="dialogue">"This year, I want you to do your own thinking. There are tools out there that will try to do it for you. Do not let them. Your mind is the only thing that is truly yours."</span>
 
 (set: $energy to (min: 100, $energy + 5))
 
@@ -633,8 +666,11 @@ GPA: (print: $currentGPA) | Energy: (print: $energy)/100 | Ability: (print: $abi
 
 
 :: StoryStylesheet [stylesheet]
+@import url("https://cdn.jsdelivr.net/npm/computer-modern@0.1.3/cmu-sans-serif.css");
+@import url("https://cdn.jsdelivr.net/npm/computer-modern@0.1.3/cmu-typewriter-text.css");
+
 body {
-  font-family: Georgia, serif;
+  font-family: "CMU Sans Serif", sans-serif;
   background-color: #1a1a2e;
   color: #eaeaea;
 }
@@ -655,6 +691,9 @@ tw-passage {
   margin-bottom: 18px;
   font-size: 0.9em;
   color: #a8dadc;
+}
+.dialogue {
+  font-family: "CMU Typewriter Text", monospace;
 }
 img {
   width: 100%;
