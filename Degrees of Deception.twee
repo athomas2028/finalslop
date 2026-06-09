@@ -1,0 +1,363 @@
+:: StoryTitle
+Degrees of Deception
+
+
+:: StoryData
+{
+  "ifid": "GPA-GHOST-V6-FINAL-FIXED",
+  "format": "SugarCube",
+  "format-version": "2.37.3",
+  "start": "Start Screen",
+  "zoom": 1
+}
+
+
+:: Apr_Unplugged {"position":"1025,275","size":"100,100"}
+<div class="container">
+  <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" class="passage-img">
+  <h1 class="warning">April: The Unplugged Final</h1>
+  <p>One week. No internet. Just you, a pen, and paper. This determines 60% of your grade.</p>
+
+  <<if $integrity lte 0>>
+    <p class="warning">Harvard rescinded your offer. You are being expelled. You don't even get to take the test.</p>
+    [[The End|Ending_Expelled]]
+  <<elseif $muscle gte 80>>
+    <p class="success">The Calculus is easy. Your brain is a finely-tuned machine.</p>
+    [[The End|Ending_Scholar]]
+  <<elseif $muscle gte 45>>
+    <p>You fumble the hard questions, but you pass. You survived.</p>
+    [[The End|Ending_Normie]]
+  <<else>>
+    <p class="failure">You stare at the paper. You don't know how to write a paragraph on your own anymore.</p>
+    [[The End|Ending_Ghost]]
+  <</if>>
+</div>
+
+
+:: Dec_Confess {"position":"900,150","size":"100,100"}
+<div class="container">
+  <p>The teacher is shocked but respects your integrity. You fail the section but stay in school.</p>
+  [[January: The Burnout|Jan_Burnout]]
+</div>
+
+
+:: Dec_Hope {"position":"1025,150","size":"100,100"}
+<div class="container">
+  <p>She catches it. You get a zero. Your name is now on the "Academic Integrity" watch list.</p>
+  [[January: The Burnout|Jan_Burnout]]
+</div>
+
+
+:: Dec_Midterms {"position":"775,150","size":"100,100"}
+<div class="container">
+  <img src="https://images.unsplash.com/photo-1628863353691-0071c8c1874c?auto=format&fit=crop&w=800&q=80" class="passage-img">
+  <h2>December: The Hallucination</h2>
+  <p>During a Chemistry midterm, you use AI secretly. It gives you a confident answer about a "Z-Alpha Covalent Bond." You hand it in. Later, you find out: <strong>A Z-Alpha Bond doesn't exist.</strong></p>
+
+  <<link [[Confess before it's graded.|Dec_Confess]] @class="choice-btn">><<set $integrity += 10>><<set $gpa -= 0.2>><</link>>
+  <<link [[Hope for the best.|Dec_Hope]] @class="choice-btn">><<set $integrity -= 20>><</link>>
+</div>
+
+
+:: Ending_Expelled [no-stats] {"position":"275,400","size":"100,100"}
+<div class="container">
+  <h2 class="failure">ENDING: DISHONORABLE DISCHARGE</h2>
+  <p>Expelled. Your reputation is gone. One "Generate" button destroyed years of work.</p>
+  [[RESTART|Start Screen]]
+</div>
+
+
+:: Ending_Ghost [no-stats] {"position":"150,400","size":"100,100"}
+<div class="container">
+  <h2 class="warning">ENDING: THE COGNITIVE GHOST</h2>
+  <p>You failed the final. No graduation. You can't download a soul.</p>
+  [[RESTART|Start Screen]]
+</div>
+
+
+:: Ending_Normie [no-stats] {"position":"25,400","size":"100,100"}
+<div class="container">
+  <h2>ENDING: THE SURVIVOR</h2>
+  <p>You graduated. You're heading to a decent state school. You'll get by, but you'll always be dependent.</p>
+  [[RESTART|Start Screen]]
+</div>
+
+
+:: Ending_Scholar [no-stats] {"position":"1150,275","size":"100,100"}
+<div class="container">
+  <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80" class="passage-img">
+  <h2 class="success">ENDING: THE HUMAN ARCHITECT</h2>
+  <p>Harvard accepted you. You kept your mind sharp in a world of ghosts. You and Chloe head to Cambridge together.</p>
+  [[RESTART|Start Screen]]
+</div>
+
+
+:: Feb_Fake {"position":"400,275","size":"100,100"}
+<div class="container">
+  <p>You stammer. He sees through it instantly. "I've been to the Serengeti, kid. That's not what it's like. Why are you lying to me?"</p>
+  <<set $integrity -= 30>>
+  [[Moving toward March|Mar_Audit]]
+</div>
+
+
+:: Feb_Interview {"position":"275,275","size":"100,100"}
+<div class="container">
+  <img src="https://images.unsplash.com/photo-1710362921917-2e33bb342a23?auto=format&fit=crop&w=800&q=80" class="passage-img">
+  <h2>February: The Alumni Interview</h2>
+  <p>A Harvard Alumnus meets you at a local coffee shop. No tech allowed. No phones on the table. Just a conversation.</p>
+  
+  <<if $cheated_apps>>
+    <p>He asks about your "trip to Africa." You freeze. You don't know the names of the cities. You can't remember the details from the AI prompt.</p>
+    [[Try to fake it|Feb_Fake]]
+    [[Confess|Feb_Truth]]
+  <<else>>
+    <p>You talk about your job at the deli. He loves it. "That's real grit," he says. "Most applicants these days sound like chatbots."</p>
+    [[Moving toward March|Mar_Audit]]
+  <</if>>
+</div>
+
+
+:: Feb_Truth {"position":"525,275","size":"100,100"}
+<div class="container">
+  <p>You admit it was a lie. He looks disappointed. "I'm sorry. We look for thinkers, not prompt-readers."</p>
+  [[Moving toward March|Mar_Audit]]
+</div>
+
+
+:: Initialize {"position":"275,25","size":"100,100"}
+<<set $muscle to 40>>
+<<set $integrity to 100>>
+<<set $gpa to 3.8>>
+<<set $stress to 10>>
+<<set $chloe to 0>>
+<<set $cheated_essay to false>>
+<<set $cheated_math to false>>
+<<set $cheated_apps to false>>
+<<goto "September: The Arrival">>
+
+
+:: Jan_Burnout {"position":"1150,150","size":"100,100"}
+<div class="container">
+  <img src="https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?auto=format&fit=crop&w=800&q=80" class="passage-img">
+  <h2>January: The Dark Month</h2>
+  <p>Your brain feels sluggish. You can't even read a book for fun anymore. Chloe invites you to a "No-Tech Study Session."</p>
+
+  <<link [[Go to the session.|Jan_Session]] @class="choice-btn">><<set $muscle += 20>><<set $chloe += 20>><</link>>
+  <<link [[Stay home with Cognito.|Jan_Stay]] @class="choice-btn">><<set $muscle -= 10>><<set $chloe -= 20>><</link>>
+</div>
+
+
+:: Jan_Session {"position":"25,275","size":"100,100"}
+<div class="container">
+  <p>It's hard. Your brain feels heavy. But after three hours, the connections return. Chloe smiles. "Welcome back."</p>
+  [[February: The Interview|Feb_Interview]]
+</div>
+
+
+:: Jan_Stay {"position":"150,275","size":"100,100"}
+<div class="container">
+  <p>You stay home. The AI does the work. You are safe, but you are becoming a stranger to yourself.</p>
+  [[February: The Interview|Feb_Interview]]
+</div>
+
+
+:: Mar_Audit {"position":"650,275","size":"100,100"}
+<div class="container">
+  <h2>March: The School Crackdown</h2>
+  <p>The school installs "Deep-Audit" scanners. Panic is everywhere. You can "Self-Report" now for a lighter penalty, or risk it.</p>
+
+  <<link [[Self-Report now.|Mar_Report]] @class="choice-btn">><<set $integrity += 30>><<set $gpa -= 0.5>><</link>>
+  <<link [[Gamble on your luck.|Mar_Gamble]] @class="choice-btn">><<set $integrity -= 20>><</link>>
+</div>
+
+
+:: Mar_Gamble {"position":"900,275","size":"100,100"}
+<div class="container">
+  <<if $integrity lt 50>>
+    <p class="warning">The scanner flags everything. You're called to the Principal's office. It's a disaster.</p>
+    <<set $integrity -= 50>>
+  <<else>>
+    <p>You pass the audit. You're safe, but the guilt is a physical weight in your stomach.</p>
+  <</if>>
+  [[April: The Unplugged Week|Apr_Unplugged]]
+</div>
+
+
+:: Mar_Report {"position":"775,275","size":"100,100"}
+<div class="container">
+  <p>You're banned from the Honor Roll, but you won't be expelled. You start rebuilding from zero.</p>
+  [[April: The Unplugged Week|Apr_Unplugged]]
+</div>
+
+
+:: Nov_Africa {"position":"650,150","size":"100,100"}
+<div class="container">
+  <p>The AI creates a masterpiece of fiction. You've never left your county. It's a beautiful, dangerous lie.</p>
+  [[December: Midterm Audit|Dec_Midterms]]
+</div>
+
+
+:: Nov_Apps {"position":"400,150","size":"100,100"}
+<div class="container">
+  <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80" class="passage-img">
+  <h2>November: Early Decision</h2>
+  <p>The Harvard application is open. The AI offers to write a cinematic story about a "life-changing volunteer trip" to the Serengeti that you never took.</p>
+
+  <<link [[Write the truth about your Deli job.|Nov_Deli]] @class="choice-btn">><<set $muscle += 10>><<set $integrity += 10>><</link>>
+  <<link [[Generate the 'Serengeti Trip' fake story.|Nov_Africa]] @class="choice-btn">><<set $integrity -= 30>><<set $cheated_apps to true>><</link>>
+</div>
+
+
+:: Nov_Deli {"position":"525,150","size":"100,100"}
+<div class="container">
+  <p>You write about the grease and the pride of hard work. It's unpolished but real. You submit it with a racing heart.</p>
+  [[December: Midterm Audit|Dec_Midterms]]
+</div>
+
+
+:: Oct_Cheat {"position":"1150,25","size":"100,100"}
+<div class="container">
+  <p>The plugin solves the problems in seconds. You spend your free time gaming. But when Vogel asks you to solve a proof on the board, you stand in dead silence. Chloe looks at you with pity.</p>
+  <<set $chloe -= 20>>
+  [[Continue to November|Oct_Social]]
+</div>
+
+
+:: Oct_Social {"position":"25,150","size":"100,100"}
+<div class="container">
+  <img src="https://images.unsplash.com/photo-1606281388640-f2b80e0a383a?
+  auto=format&fit=crop&w=800&q=80" class="passage-img">
+  <h2>The Chloe Complication</h2>
+  <p>Chloe catches you after school. She's the smartest girl in the grade and she doesn't hide her disappointment. "I'm not stupid. I know you're using Cognito. You're losing your edge, and Harvard doesn't take ghosts."</p>
+  
+  <<link [[Lie: "I'm just tired."|Oct_Social_Lie]] @class="choice-btn">><<set $integrity -= 10>><<set $chloe -= 20>><</link>>
+  <<link [[Truth: "I'm drowning in work."|Oct_Social_Truth]] @class="choice-btn">><<set $chloe += 10>><<set $stress -= 5>><</link>>
+</div>
+
+
+:: Oct_Social_Lie {"position":"150,150","size":"100,100"}
+<div class="container">
+  <p>She rolls her eyes. "Good luck on the final, then." She walks away.</p>
+  [[Next: College App Season|Nov_Apps]]
+</div>
+
+
+:: Oct_Social_Truth {"position":"275,150","size":"100,100"}
+<div class="container">
+  <p>She sighs. "Put the phone away. Let's study for real tonight. No technology allowed."</p>
+  [[Next: College App Season|Nov_Apps]]
+</div>
+
+
+:: Oct_Study {"position":"1025,25","size":"100,100"}
+<div class="container">
+  <p>You spend your weekend wrestling with integrals. Chloe, the valedictorian, notices you at the library. "Tough problem? Want to work on it together?"</p>
+  <<set $chloe += 20>><<set $muscle += 5>>
+  [[Continue to November|Oct_Social]]
+</div>
+
+
+:: October_Intro {"position":"900,25","size":"100,100"}
+<div class="container">
+  <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80" class="passage-img">
+  <h2>October: The Calculus Wall</h2>
+  <p>Mr. Vogel’s Calculus BC class is notoriously brutal. Dave shows you a "math-solver" plugin. "Point and click," he whispers. "Vogel will never know."</p>
+  
+  <<link [[Study the old-fashioned way.|Oct_Study]] @class="choice-btn">><<set $muscle += 15>><<set $stress += 20>><</link>>
+  <<link [[Use the camera plugin for everything.|Oct_Cheat]] @class="choice-btn">><<set $muscle -= 15>><<set $integrity -= 15>><<set $cheated_math to true>><</link>>
+</div>
+
+
+:: PassageHeader {"position":"25,25","size":"100,100"}
+<<if !tags().includes("no-stats")>>
+<div class="dashboard">
+  <span class="stat-label">Brain Muscle</span>
+  <div class="meter-bg"><div class="meter-fill muscle-color" @style="'width:' + $muscle + '%'"></div></div>
+  <span class="stat-label">Integrity</span>
+  <div class="meter-bg"><div class="meter-fill integrity-color" @style="'width:' + $integrity + '%'"></div></div>
+  <div style="display: flex; justify-content: space-between; font-size: 0.9em; font-family: 'Fira Code';">
+    <span>GPA: <span style="color:#4dff88">$gpa</span></span>
+    <span>STRESS: $stress%</span>
+  </div>
+</div>
+<</if>>
+
+
+:: Sept_AI {"position":"775,25","size":"100,100"}
+<div class="container">
+  <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80" class="passage-img">
+  <p>Copy. Paste. Submit. You sleep while the machine works. You get an A+, but you learned zero.</p>
+  [[Next: The Calculus Wall|October_Intro]]
+</div>
+
+
+:: Sept_Hybrid {"position":"650,25","size":"100,100"}
+<div class="container">
+  <p>The AI provides the bones, you provide the flesh. It's efficient, but the spark of discovery feels muted.</p>
+  [[Next: The Calculus Wall|October_Intro]]
+</div>
+
+
+:: Sept_Manual {"position":"525,25","size":"100,100"}
+<div class="container">
+  <p>Your eyes sting, but your analysis is your own. Ms. Halloway praises your "authentic human perspective."</p>
+  [[Next: The Calculus Wall|October_Intro]]
+</div>
+
+
+:: September: The Arrival {"position":"400,25","size":"100,100"}
+<div class="container">
+  <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80" class="passage-img">
+  <h2>September: The AP English Crucible</h2>
+  <p>Your English teacher hands out the prompt for a 2,000-word analysis of <em>The Great Gatsby</em>. You're exhausted from a 6-hour shift at the deli. A link to <strong>"Scribe-Bot Elite"</strong> pulses on your phone.</p>
+  
+  <<link [[Power through manually (Stressful)|Sept_Manual]] @class="choice-btn">><<set $muscle += 15>><<set $stress += 20>><</link>>
+  <<link [[Use the AI for a hybrid 'outline' (Moderate)|Sept_Hybrid]] @class="choice-btn">><<set $muscle += 5>><<set $integrity -= 5>><</link>>
+  <<link [[Let AI write the whole thing (Lazy)|Sept_AI]] @class="choice-btn">><<set $muscle -= 10>><<set $integrity -= 20>><<set $cheated_essay to true>><</link>>
+</div>
+
+
+:: Start Screen [no-stats] {"position":"150,25","size":"100,100"}
+<div class="container" style="text-align: center;">
+  <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" class="passage-img">
+  <h1 style="font-size: 3.5em; margin-bottom: 5px;">The GPA Gambit</h1>
+  <h3 style="color: #555;">Senior Year: The Final Hustle</h3>
+  <div style="margin-top: 50px;">
+    [[ENTER SENIOR YEAR|Initialize]]
+  </div>
+</div>
+
+
+:: StoryStylesheet [stylesheet]
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&family=Inter:wght@400;700&display=swap');
+
+body { background-color: #0d0d12; color: #d1d1e0; font-family: 'Inter', sans-serif; line-height: 1.6; }
+.container { max-width: 750px; margin: 20px auto; padding: 35px; background: #16161e; border: 1px solid #2a2a3a; border-radius: 15px; }
+
+/* Dashboard Styles */
+.dashboard { background: #1c1c27; padding: 15px; border-radius: 10px; margin-bottom: 20px; border: 1px solid #333; position: sticky; top: 10px; z-index: 100; }
+.stat-label { font-size: 0.7em; text-transform: uppercase; color: #888; display: block; margin-bottom: 4px; }
+
+/* FIXED THE LEAKING BAR HERE */
+.meter-bg { 
+  background: #000; 
+  height: 10px; 
+  border-radius: 5px; 
+  margin-bottom: 12px; 
+  border: 1px solid #222; 
+  overflow: hidden; /* This stops the color from leaking out */
+  position: relative;
+}
+
+.meter-fill { height: 100%; border-radius: 0; transition: width 0.8s ease-in-out; }
+.muscle-color { background: #4da6ff; box-shadow: 0 0 10px rgba(77, 166, 255, 0.5); }
+.integrity-color { background: #ff4d4d; box-shadow: 0 0 10px rgba(255, 77, 77, 0.5); }
+
+/* Image Style */
+.passage-img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; border: 1px solid #333; display: block; }
+
+.choice-btn { display: block; padding: 18px; margin: 12px 0; background: #252535; color: #fff; border: 1px solid #3d3d5c; border-radius: 8px; text-decoration: none; font-weight: 500; text-align: left;}
+.choice-btn:hover { background: #34344d; border-color: #79a1ff; transform: translateX(5px); cursor: pointer; transition: 0.2s; }
+h1, h2 { font-family: 'Fira Code', monospace; color: #79a1ff; }
+.success { color: #4dff88; font-weight: bold; }
+.warning { color: #ff4d4d; font-weight: bold; }
