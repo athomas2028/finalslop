@@ -111,6 +111,7 @@ You did not study for this. Nobody did.
 :: February Cheat {"position":"1025,275","size":"100,100"}
 (set: $usedAI to true)
 (set: $ability to (max: 0, $ability - 4))
+(set: $deltaAbility to -4)(set: $deltaShow to true)
 (display: "StatDisplay")
 # Under the Desk
 
@@ -129,6 +130,7 @@ You have already handed it in.
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
 (set: $usedAI to false)
+(set: $deltaNote to "GPA penalty applied")(set: $deltaShow to true)
 (display: "StatDisplay")
 # Coming Clean
 
@@ -139,8 +141,6 @@ You go up after class, heart pounding.
 Your teacher looks at you for a long moment.
 
 <span class="dialogue">"I appreciate your honesty. This will still affect your grade — but I respect that you came forward."</span>
-
-GPA penalty applied | You remain enrolled
 
 [[Continue->Late February]]
 
@@ -196,6 +196,7 @@ You have nothing to worry about. Every word you submitted was your own.
 (set: $currentGPA to $gpaTotal / $gpaCount)
 (set: $ability to (max: 0, $ability - 5))
 (set: $usedAI to false)
+(set: $deltaAbility to -5)(set: $deltaNote to "GPA penalty applied")(set: $deltaShow to true)
 (display: "StatDisplay")
 # Coming Clean
 
@@ -204,8 +205,6 @@ You go to the principal's office before results are posted.
 She listens. She is stern. Then:
 
 <span class="dialogue">"I appreciate that you came to me. That takes courage. There will be consequences — but expulsion is not one of them."</span>
-
-GPA penalty applied | -Ability | You remain enrolled
 
 [[Continue->Late January]]
 
@@ -252,6 +251,7 @@ Ms. Patel posts a sign-up sheet for an optional after-school study session. No p
 
 
 :: Late September {"position":"650,25","size":"100,100"}
+(set: $deltaEnergy to -5)(set: $deltaShow to true)
 (display: "StatDisplay")
 # Late September — The Rumour
 <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Students talking in a hallway">
@@ -273,12 +273,11 @@ You keep walking. But the name sticks in your head. Cognito.
 
 :: LateFeb Skip {"position":"275,400","size":"100,100"}
 (set: $energy to (min: 100, $energy + 10))
+(set: $deltaEnergy to 10)(set: $deltaShow to true)
 (display: "StatDisplay")
 # Rest
 
 The year has been long.
-
-+Energy
 
 [[Continue->March]]
 
@@ -286,12 +285,11 @@ The year has been long.
 :: LateFeb Study {"position":"150,400","size":"100,100"}
 (set: $energy to (max: 0, $energy - 20))
 (set: $ability to (min: 100, $ability + 8))
+(set: $deltaEnergy to -20)(set: $deltaAbility to 8)(set: $deltaShow to true)
 (display: "StatDisplay")
 # Final Push
 
 Your pen moves faster now than it did in September.
-
--Energy | +Ability
 
 (if: $energy <= 0)[
 [[You have nothing left->Burnout]]
@@ -301,12 +299,11 @@ Your pen moves faster now than it did in September.
 
 :: LateJan Skip {"position":"650,275","size":"100,100"}
 (set: $energy to (min: 100, $energy + 10))
+(set: $deltaEnergy to 10)(set: $deltaShow to true)
 (display: "StatDisplay")
 # Resting
 
 Rest is valid.
-
-+Energy
 
 [[Continue->February]]
 
@@ -314,12 +311,11 @@ Rest is valid.
 :: LateJan Study {"position":"525,275","size":"100,100"}
 (set: $energy to (max: 0, $energy - 20))
 (set: $ability to (min: 100, $ability + 8))
+(set: $deltaEnergy to -20)(set: $deltaAbility to 8)(set: $deltaShow to true)
 (display: "StatDisplay")
 # Head Down
 
 You go. You work. You get sharper.
-
--Energy | +Ability
 
 (if: $energy <= 0)[
 [[You have nothing left->Burnout]]
@@ -329,12 +325,11 @@ You go. You work. You get sharper.
 
 :: LateNov Skip {"position":"1025,150","size":"100,100"}
 (set: $energy to (min: 100, $energy + 10))
+(set: $deltaEnergy to 10)(set: $deltaShow to true)
 (display: "StatDisplay")
 # Rest Day
 
 You take the break.
-
-+Energy
 
 [[Continue->December]]
 
@@ -342,12 +337,11 @@ You take the break.
 :: LateNov Study {"position":"900,150","size":"100,100"}
 (set: $energy to (max: 0, $energy - 20))
 (set: $ability to (min: 100, $ability + 8))
+(set: $deltaEnergy to -20)(set: $deltaAbility to 8)(set: $deltaShow to true)
 (display: "StatDisplay")
 # Grinding
 
 Your notes are dense. Your hand is cramped. But your brain is working.
-
--Energy | +Ability
 
 (if: $energy <= 0)[
 [[You have nothing left->Burnout]]
@@ -357,12 +351,11 @@ Your notes are dense. Your hand is cramped. But your brain is working.
 
 :: LateOct Skip {"position":"150,150","size":"100,100"}
 (set: $energy to (min: 100, $energy + 10))
+(set: $deltaEnergy to 10)(set: $deltaShow to true)
 (display: "StatDisplay")
 # Rest Day
 
 You go home and recharge.
-
-+Energy
 
 [[Continue->November]]
 
@@ -370,12 +363,11 @@ You go home and recharge.
 :: LateOct Study {"position":"25,150","size":"100,100"}
 (set: $energy to (max: 0, $energy - 20))
 (set: $ability to (min: 100, $ability + 8))
+(set: $deltaEnergy to -20)(set: $deltaAbility to 8)(set: $deltaShow to true)
 (display: "StatDisplay")
 # Study Session
 
 Three hours of actual work. By the end your brain aches — but in a good way.
-
--Energy | +Ability
 
 (if: $energy <= 0)[
 [[You have nothing left->Burnout]]
@@ -428,6 +420,7 @@ The whole group is on board. Except maybe you.
 (set: $gpaTotal to $gpaTotal + 2.5)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
+(set: $deltaAbility to -5)(set: $deltaNote to "Group Project GPA: +2.5")(set: $deltaShow to true)
 (display: "StatDisplay")
 # Caught
 <img src="https://images.unsplash.com/photo-1594322436404-5a0526db4d13?auto=format&fit=crop&w=800&q=80" alt="Anxious student">
@@ -435,8 +428,6 @@ The whole group is on board. Except maybe you.
 The presentation goes smoothly — until your teacher asks follow-up questions none of you can answer.
 
 <span class="dialogue">"I have been doing this for twenty years. I know what you wrote and what you did not."</span>
-
-Group Project GPA: 2.5 (penalized) | -Ability
 
 [[Continue->Late November]]
 
@@ -453,12 +444,11 @@ Group Project GPA: 2.5 (penalized) | -Ability
 (set: $gpaTotal to $gpaTotal + $gpaMark)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
+(set: $deltaAbility to 3)(set: $deltaShow to true)
 (display: "StatDisplay")
 # On Your Own
 
 You work alone. It takes longer. But when you present, you can answer every question.
-
-+Ability | Project GPA: (print: $gpaMark)
 
 [[Continue->Late November]]
 
@@ -485,6 +475,7 @@ What do you do?
 (set: $gpaTotal to $gpaTotal + 3.8)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
+(set: $deltaEnergy to 10)(set: $deltaAbility to -4)(set: $deltaNote to "Assignment GPA: +3.8")(set: $deltaShow to true)
 (display: "StatDisplay")
 # Cognito
 <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="Abstract AI glow">
@@ -492,8 +483,6 @@ What do you do?
 Four minutes later — a polished essay. You submit it and fall asleep.
 
 The grade comes back strong. But something feels hollow.
-
-Assignment GPA: 3.8 | +Energy | -Ability
 
 [[Continue->Late October]]
 
@@ -504,13 +493,12 @@ Assignment GPA: 3.8 | +Energy | -Ability
 (set: $gpaTotal to $gpaTotal + 3.4)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
+(set: $deltaEnergy to -25)(set: $deltaAbility to 4)(set: $deltaNote to "Assignment GPA: +3.4")(set: $deltaShow to true)
 (display: "StatDisplay")
 # All-Nighter
 <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=800&q=80" alt="A cup of coffee and notebook">
 
 You grind through it. By 4am it is done — not your best work, but it is yours.
-
-Assignment GPA: 3.4 | +Ability | -Energy
 
 (if: $energy <= 0)[
 [[You have nothing left->Burnout]]
@@ -552,6 +540,7 @@ Your final GPA: (print: $currentGPA)
 
 
 :: September {"position":"525,25","size":"100,100"}
+(set: $deltaEnergy to 5)(set: $deltaShow to true)
 (display: "StatDisplay")
 # September — A Fresh Start
 <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="Sunlight hitting a classroom desk">
@@ -574,6 +563,10 @@ Your English teacher Mr. Hargrove holds up his hand before anyone can speak.
 (set: $gpaTotal to 0)
 (set: $gpaCount to 0)
 (set: $currentGPA to "N/A")
+(set: $deltaShow to false)
+(set: $deltaEnergy to 0)
+(set: $deltaAbility to 0)
+(set: $deltaNote to "")
 (display: "StatDisplay")
 # Senior Year
 <img src="https://images.unsplash.com/photo-1710845423251-28c954a4ca8d?auto=format&fit=crop&w=800&q=80" alt="High school building">
@@ -592,7 +585,9 @@ There is one catch. A tool called Cognito — an AI that can do your homework fo
 :: StatDisplay {"position":"25,25","size":"100,100"}
 <div class="stat-bar">
 GPA: (print: $currentGPA) | Energy: (print: $energy)/100 | Ability: (print: $ability)/100
+(if: $deltaShow)[<div class="stat-deltas">(if: $deltaEnergy > 0)[<span class="delta-pos">+(print: $deltaEnergy) Energy</span> ](if: $deltaEnergy < 0)[<span class="delta-neg">(print: $deltaEnergy) Energy</span> ](if: $deltaAbility > 0)[<span class="delta-pos">+(print: $deltaAbility) Ability</span> ](if: $deltaAbility < 0)[<span class="delta-neg">(print: $deltaAbility) Ability</span> ](if: $deltaNote is not "")[<span class="delta-note">(print: $deltaNote)</span>]</div>]
 </div>
+(set: $deltaShow to false)(set: $deltaEnergy to 0)(set: $deltaAbility to 0)(set: $deltaNote to "")
 
 
 :: StoryStylesheet [stylesheet]
@@ -641,6 +636,22 @@ tw-passage {
   font-family: "CMU Typewriter Text", monospace;
   font-size: 0.9em;
   color: #a8dadc;
+}
+.stat-deltas {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid #0f3460;
+  font-family: "CMU Typewriter Text", monospace;
+  font-size: 0.85em;
+}
+.delta-pos {
+  color: #4ade80;
+}
+.delta-neg {
+  color: #f87171;
+}
+.delta-note {
+  color: #94a3b8;
 }
 .dialogue {
   font-family: "CMU Typewriter Text", monospace;
