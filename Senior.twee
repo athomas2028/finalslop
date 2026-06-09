@@ -590,8 +590,19 @@ There is one catch. A tool called Cognito — an AI that can do your homework fo
 
 
 :: StatDisplay {"position":"25,25","size":"100,100"}
+(if: (defined: "prevEnergy") is false)[
+  (set: $prevEnergy to $energy)
+  (set: $prevAbility to $ability)
+  (set: $deltaEnergy to 0)
+  (set: $deltaAbility to 0)
+](else:)[
+  (set: $deltaEnergy to $energy - $prevEnergy)
+  (set: $deltaAbility to $ability - $prevAbility)
+  (set: $prevEnergy to $energy)
+  (set: $prevAbility to $ability)
+]
 <div class="stat-bar">
-GPA: (print: $currentGPA) | Energy: (print: $energy)/100 | Ability: (print: $ability)/100
+GPA: (print: $currentGPA) | Energy: (print: $energy)/100 (if: $deltaEnergy > 0)[<span class="delta-up">+(print: $deltaEnergy)</span>](if: $deltaEnergy < 0)[<span class="delta-down">(print: $deltaEnergy)</span>]| Ability: (print: $ability)/100 (if: $deltaAbility > 0)[<span class="delta-up">+(print: $deltaAbility)</span>](if: $deltaAbility < 0)[<span class="delta-down">(print: $deltaAbility)</span>]
 </div>
 
 
@@ -604,24 +615,33 @@ body {
   background-color: #1a1a2e;
   color: #eaeaea;
 }
+h1, h2, h3, h4 {
+  font-family: "CMU Sans Serif", sans-serif;
+}
 tw-story {
   max-width: 0 auto;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0 20px 20px;
 }
 tw-passage {
   font-size: 1.1em;
   line-height: 1.7;
 }
 .stat-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   background: #16213e;
   border: 1px solid #0f3460;
   border-radius: 8px;
   padding: 10px 16px;
+  margin-top: 0;
   margin-bottom: 18px;
   font-size: 0.9em;
   color: #a8dadc;
 }
+.delta-up { color: #4caf50; }
+.delta-down { color: #f44336; }
 .dialogue {
   font-family: "CMU Typewriter Text", monospace;
 }
