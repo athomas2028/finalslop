@@ -638,7 +638,7 @@ tw-passage {
   border: 1px solid #0f3460;
   border-radius: 8px;
   padding: 10px 16px;
-  margin-top: 5px;
+  margin-top: 0;
   margin-bottom: 18px;
   font-family: "CMU Typewriter Text", monospace;
   font-size: 0.9em;
