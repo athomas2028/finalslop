@@ -28,7 +28,7 @@ Rest is not weakness. It is the foundation everything else is built on.
 
 
 :: December {"position":"1150,150","size":"100,100"}
-(display: "StatDisplay")
+{(display: "StatDisplay")}
 # December — Midterms
 <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80" alt="A pen on a test paper">
 
@@ -41,7 +41,7 @@ The exam room is silent. Paper on desk. No phones. No laptops. No Cognito.
 
 
 :: December Honest {"position":"25,275","size":"100,100"}
-(set: $gpaMark to 1.0)
+{(set: $gpaMark to 1.0)
 (if: $ability >= 90)[(set: $gpaMark to 4.0)]
 (else-if: $ability >= 85)[(set: $gpaMark to 3.8)]
 (else-if: $ability >= 80)[(set: $gpaMark to 3.4)]
@@ -51,7 +51,7 @@ The exam room is silent. Paper on desk. No phones. No laptops. No Cognito.
 (set: $gpaTotal to $gpaTotal + $gpaMark)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
-(display: "StatDisplay")
+(display: "StatDisplay")}
 # Your Best
 
 You write what you know. When the bell rings, you set down your pen and breathe.
@@ -94,7 +94,7 @@ Integrity, once lost, is hard to rebuild. But it is never too late to start.
 
 
 :: February {"position":"775,275","size":"100,100"}
-(display: "StatDisplay")
+{(display: "StatDisplay")}
 # February — Surprise Test
 <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80" alt="A checklist and pen">
 
@@ -109,10 +109,10 @@ You did not study for this. Nobody did.
 
 
 :: February Cheat {"position":"1025,275","size":"100,100"}
-(set: $usedAI to true)
+{(set: $usedAI to true)
 (set: $ability to (max: 0, $ability - 4))
 (set: $deltaAbility to -4)(set: $deltaShow to true)
-(display: "StatDisplay")
+(display: "StatDisplay")}
 # Under the Desk
 
 You get what looks like a solid answer from Cognito. You write it down.
@@ -126,12 +126,12 @@ You have already handed it in.
 
 
 :: February Confess {"position":"1150,275","size":"100,100"}
-(set: $gpaTotal to $gpaTotal + 1.0)
+{(set: $gpaTotal to $gpaTotal + 1.0)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
 (set: $usedAI to false)
 (set: $deltaNote to "GPA penalty applied")(set: $deltaShow to true)
-(display: "StatDisplay")
+(display: "StatDisplay")}
 # Coming Clean
 
 You go up after class, heart pounding.
@@ -146,7 +146,7 @@ Your teacher looks at you for a long moment.
 
 
 :: February Honest {"position":"900,275","size":"100,100"}
-(set: $gpaMark to 0.5)
+{(set: $gpaMark to 0.5)
 (if: $ability >= 90)[(set: $gpaMark to 3.5)]
 (else-if: $ability >= 85)[(set: $gpaMark to 3.3)]
 (else-if: $ability >= 80)[(set: $gpaMark to 2.9)]
@@ -156,7 +156,7 @@ Your teacher looks at you for a long moment.
 (set: $gpaTotal to $gpaTotal + $gpaMark)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
-(display: "StatDisplay")
+(display: "StatDisplay")}
 # Doing Your Best
 
 You write what you can. It is not perfect — pop quizzes never are. But it is honest.
@@ -167,7 +167,7 @@ Test GPA: (print: $gpaMark)
 
 
 :: January {"position":"150,275","size":"100,100"}
-(display: "StatDisplay")
+{(display: "StatDisplay")}
 # January — The Scan
 <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80" alt="Computer code and security">
 
@@ -191,13 +191,13 @@ You have nothing to worry about. Every word you submitted was your own.
 
 
 :: January Confess {"position":"275,275","size":"100,100"}
-(set: $gpaTotal to $gpaTotal + 0.0)
+{(set: $gpaTotal to $gpaTotal + 0.0)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
 (set: $ability to (max: 0, $ability - 5))
 (set: $usedAI to false)
 (set: $deltaAbility to -5)(set: $deltaNote to "GPA penalty applied")(set: $deltaShow to true)
-(display: "StatDisplay")
+(display: "StatDisplay")}
 # Coming Clean
 
 You go to the principal's office before results are posted.
@@ -210,7 +210,7 @@ She listens. She is stern. Then:
 
 
 :: Late February {"position":"25,400","size":"100,100"}
-(display: "StatDisplay")
+{(display: "StatDisplay")}
 # Late February — One Last Session
 
 The final optional study session of the year.
@@ -220,7 +220,7 @@ The final optional study session of the year.
 
 
 :: Late January {"position":"400,275","size":"100,100"}
-(display: "StatDisplay")
+{(display: "StatDisplay")}
 # Late January — Study Session
 
 Ms. Patel is running another session. February tests are on the horizon.
@@ -230,7 +230,7 @@ Ms. Patel is running another session. February tests are on the horizon.
 
 
 :: Late November {"position":"775,150","size":"100,100"}
-(display: "StatDisplay")
+{(display: "StatDisplay")}
 # Late November — Study Session
 
 Ms. Patel is running another after-school study session. Midterms are coming.
@@ -240,7 +240,7 @@ Ms. Patel is running another after-school study session. Midterms are coming.
 
 
 :: Late October {"position":"1150,25","size":"100,100"}
-(display: "StatDisplay")
+{(display: "StatDisplay")}
 # Late October — Study Session
 <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80" alt="Books stacked in a library">
 
@@ -251,8 +251,8 @@ Ms. Patel posts a sign-up sheet for an optional after-school study session. No p
 
 
 :: Late September {"position":"650,25","size":"100,100"}
-(set: $deltaEnergy to -5)(set: $deltaShow to true)
-(display: "StatDisplay")
+{(set: $deltaEnergy to -5)(set: $deltaShow to true)
+(display: "StatDisplay")}
 # Late September — The Rumour
 <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Students talking in a hallway">
 
@@ -264,7 +264,7 @@ Between classes, you catch pieces of a conversation.
 
 You keep walking. But the name sticks in your head. Cognito.
 
-(set: $energy to (max: 0, $energy - 5))
+{(set: $energy to (max: 0, $energy - 5))}
 (if: $energy <= 0)[
 [[You have nothing left->Burnout]]
 ](else:)
@@ -272,9 +272,9 @@ You keep walking. But the name sticks in your head. Cognito.
 
 
 :: LateFeb Skip {"position":"275,400","size":"100,100"}
-(set: $energy to (min: 100, $energy + 10))
+{(set: $energy to (min: 100, $energy + 10))
 (set: $deltaEnergy to 10)(set: $deltaShow to true)
-(display: "StatDisplay")
+(display: "StatDisplay")}
 # Rest
 
 The year has been long.
@@ -283,10 +283,10 @@ The year has been long.
 
 
 :: LateFeb Study {"position":"150,400","size":"100,100"}
-(set: $energy to (max: 0, $energy - 20))
+{(set: $energy to (max: 0, $energy - 20))
 (set: $ability to (min: 100, $ability + 8))
 (set: $deltaEnergy to -20)(set: $deltaAbility to 8)(set: $deltaShow to true)
-(display: "StatDisplay")
+(display: "StatDisplay")}
 # Final Push
 
 Your pen moves faster now than it did in September.
@@ -298,9 +298,9 @@ Your pen moves faster now than it did in September.
 
 
 :: LateJan Skip {"position":"650,275","size":"100,100"}
-(set: $energy to (min: 100, $energy + 10))
+{(set: $energy to (min: 100, $energy + 10))
 (set: $deltaEnergy to 10)(set: $deltaShow to true)
-(display: "StatDisplay")
+(display: "StatDisplay")}
 # Resting
 
 Rest is valid.
@@ -309,10 +309,10 @@ Rest is valid.
 
 
 :: LateJan Study {"position":"525,275","size":"100,100"}
-(set: $energy to (max: 0, $energy - 20))
+{(set: $energy to (max: 0, $energy - 20))
 (set: $ability to (min: 100, $ability + 8))
 (set: $deltaEnergy to -20)(set: $deltaAbility to 8)(set: $deltaShow to true)
-(display: "StatDisplay")
+(display: "StatDisplay")}
 # Head Down
 
 You go. You work. You get sharper.
@@ -324,9 +324,9 @@ You go. You work. You get sharper.
 
 
 :: LateNov Skip {"position":"1025,150","size":"100,100"}
-(set: $energy to (min: 100, $energy + 10))
+{(set: $energy to (min: 100, $energy + 10))
 (set: $deltaEnergy to 10)(set: $deltaShow to true)
-(display: "StatDisplay")
+(display: "StatDisplay")}
 # Rest Day
 
 You take the break.
@@ -335,10 +335,10 @@ You take the break.
 
 
 :: LateNov Study {"position":"900,150","size":"100,100"}
-(set: $energy to (max: 0, $energy - 20))
+{(set: $energy to (max: 0, $energy - 20))
 (set: $ability to (min: 100, $ability + 8))
 (set: $deltaEnergy to -20)(set: $deltaAbility to 8)(set: $deltaShow to true)
-(display: "StatDisplay")
+(display: "StatDisplay")}
 # Grinding
 
 Your notes are dense. Your hand is cramped. But your brain is working.
@@ -350,9 +350,9 @@ Your notes are dense. Your hand is cramped. But your brain is working.
 
 
 :: LateOct Skip {"position":"150,150","size":"100,100"}
-(set: $energy to (min: 100, $energy + 10))
+{(set: $energy to (min: 100, $energy + 10))
 (set: $deltaEnergy to 10)(set: $deltaShow to true)
-(display: "StatDisplay")
+(display: "StatDisplay")}
 # Rest Day
 
 You go home and recharge.
@@ -361,10 +361,10 @@ You go home and recharge.
 
 
 :: LateOct Study {"position":"25,150","size":"100,100"}
-(set: $energy to (max: 0, $energy - 20))
+{(set: $energy to (max: 0, $energy - 20))
 (set: $ability to (min: 100, $ability + 8))
 (set: $deltaEnergy to -20)(set: $deltaAbility to 8)(set: $deltaShow to true)
-(display: "StatDisplay")
+(display: "StatDisplay")}
 # Study Session
 
 Three hours of actual work. By the end your brain aches — but in a good way.
@@ -376,7 +376,7 @@ Three hours of actual work. By the end your brain aches — but in a good way.
 
 
 :: March {"position":"400,400","size":"100,100"}
-(display: "StatDisplay")
+{(display: "StatDisplay")}
 # March — The Wait
 <img src="https://images.unsplash.com/photo-1512428559083-a401a30c9550?auto=format&fit=crop&w=800&q=80" alt="Smartphone on a table">
 
@@ -390,7 +390,7 @@ You sit with your phone in your hand.
 
 
 :: November {"position":"275,150","size":"100,100"}
-(display: "StatDisplay")
+{(display: "StatDisplay")}
 # November — Group Project
 <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" alt="Students collaborating">
 
@@ -401,7 +401,7 @@ Your English teacher assigns a major group project. You may choose your own part
 
 
 :: November Friends {"position":"400,150","size":"100,100"}
-(display: "StatDisplay")
+{(display: "StatDisplay")}
 # With Friends
 
 You team up with your crew — until someone pulls up Cognito at the second meeting.
@@ -415,13 +415,13 @@ The whole group is on board. Except maybe you.
 
 
 :: November Friends AI {"position":"525,150","size":"100,100"}
-(set: $usedAI to true)
+{(set: $usedAI to true)
 (set: $ability to (max: 0, $ability - 5))
 (set: $gpaTotal to $gpaTotal + 2.5)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
 (set: $deltaAbility to -5)(set: $deltaNote to "Group Project GPA: +2.5")(set: $deltaShow to true)
-(display: "StatDisplay")
+(display: "StatDisplay")}
 # Caught
 <img src="https://images.unsplash.com/photo-1594322436404-5a0526db4d13?auto=format&fit=crop&w=800&q=80" alt="Anxious student">
 
@@ -433,7 +433,7 @@ The presentation goes smoothly — until your teacher asks follow-up questions n
 
 
 :: November Solo {"position":"650,150","size":"100,100"}
-(set: $ability to (min: 100, $ability + 3))
+{(set: $ability to (min: 100, $ability + 3))
 (set: $gpaMark to 1.0)
 (if: $ability >= 90)[(set: $gpaMark to 4.0)]
 (else-if: $ability >= 85)[(set: $gpaMark to 3.8)]
@@ -445,7 +445,7 @@ The presentation goes smoothly — until your teacher asks follow-up questions n
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
 (set: $deltaAbility to 3)(set: $deltaShow to true)
-(display: "StatDisplay")
+(display: "StatDisplay")}
 # On Your Own
 
 You work alone. It takes longer. But when you present, you can answer every question.
@@ -454,7 +454,7 @@ You work alone. It takes longer. But when you present, you can answer every ques
 
 
 :: October {"position":"775,25","size":"100,100"}
-(display: "StatDisplay")
+{(display: "StatDisplay")}
 # October — Late Night Crisis
 <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=800&q=80" alt="A desk lamp lighting up books at night">
 
@@ -469,14 +469,14 @@ What do you do?
 
 
 :: October AI {"position":"1025,25","size":"100,100"}
-(set: $usedAI to true)
+{(set: $usedAI to true)
 (set: $ability to (max: 0, $ability - 4))
 (set: $energy to (min: 100, $energy + 10))
 (set: $gpaTotal to $gpaTotal + 3.8)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
 (set: $deltaEnergy to 10)(set: $deltaAbility to -4)(set: $deltaNote to "Assignment GPA: +3.8")(set: $deltaShow to true)
-(display: "StatDisplay")
+(display: "StatDisplay")}
 # Cognito
 <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="Abstract AI glow">
 
@@ -488,13 +488,13 @@ The grade comes back strong. But something feels hollow.
 
 
 :: October Allnighter {"position":"900,25","size":"100,100"}
-(set: $energy to (max: 0, $energy - 25))
+{(set: $energy to (max: 0, $energy - 25))
 (set: $ability to (min: 100, $ability + 4))
 (set: $gpaTotal to $gpaTotal + 3.4)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
 (set: $deltaEnergy to -25)(set: $deltaAbility to 4)(set: $deltaNote to "Assignment GPA: +3.4")(set: $deltaShow to true)
-(display: "StatDisplay")
+(display: "StatDisplay")}
 # All-Nighter
 <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=800&q=80" alt="A cup of coffee and notebook">
 
@@ -507,7 +507,7 @@ You grind through it. By 4am it is done — not your best work, but it is yours.
 
 
 :: Results {"position":"525,400","size":"100,100"}
-(display: "StatDisplay")
+{(display: "StatDisplay")}
 # The Email
 
 Your phone buzzes.
@@ -540,8 +540,8 @@ Your final GPA: (print: $currentGPA)
 
 
 :: September {"position":"525,25","size":"100,100"}
-(set: $deltaEnergy to 5)(set: $deltaShow to true)
-(display: "StatDisplay")
+{(set: $deltaEnergy to 5)(set: $deltaShow to true)
+(display: "StatDisplay")}
 # September — A Fresh Start
 <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80" alt="Sunlight hitting a classroom desk">
 
@@ -551,13 +551,13 @@ Your English teacher Mr. Hargrove holds up his hand before anyone can speak.
 
 <span class="dialogue">"This year, I want you to do your own thinking. There are tools out there that will try to do it for you. Do not let them. Your mind is the only thing that is truly yours."</span>
 
-(set: $energy to (min: 100, $energy + 5))
+{(set: $energy to (min: 100, $energy + 5))}
 
 [[Continue->Late September]]
 
 
 :: Start {"position":"400,25","size":"100,100"}
-(set: $energy to 80)
+{(set: $energy to 80)
 (set: $ability to 80)
 (set: $usedAI to false)
 (set: $gpaTotal to 0)
@@ -567,7 +567,7 @@ Your English teacher Mr. Hargrove holds up his hand before anyone can speak.
 (set: $deltaEnergy to 0)
 (set: $deltaAbility to 0)
 (set: $deltaNote to "")
-(display: "StatDisplay")
+(display: "StatDisplay")}
 # Senior Year
 <img src="https://images.unsplash.com/photo-1710845423251-28c954a4ca8d?auto=format&fit=crop&w=800&q=80" alt="High school building">
 
@@ -583,11 +583,11 @@ There is one catch. A tool called Cognito — an AI that can do your homework fo
 
 
 :: StatDisplay {"position":"25,25","size":"100,100"}
-<div class="stat-bar">
+{<div class="stat-bar">
 GPA: (print: $currentGPA) | Energy: (print: $energy)/100 | Ability: (print: $ability)/100
 (if: $deltaShow)[<div class="stat-deltas">(if: $deltaEnergy > 0)[<span class="delta-pos">+(print: $deltaEnergy) Energy</span> ](if: $deltaEnergy < 0)[<span class="delta-neg">(print: $deltaEnergy) Energy</span> ](if: $deltaAbility > 0)[<span class="delta-pos">+(print: $deltaAbility) Ability</span> ](if: $deltaAbility < 0)[<span class="delta-neg">(print: $deltaAbility) Ability</span> ](if: $deltaNote is not "")[<span class="delta-note">(print: $deltaNote)</span>]</div>]
 </div>
-(set: $deltaShow to false)(set: $deltaEnergy to 0)(set: $deltaAbility to 0)(set: $deltaNote to "")
+(set: $deltaShow to false)(set: $deltaEnergy to 0)(set: $deltaAbility to 0)(set: $deltaNote to "")}
 
 
 :: StoryStylesheet [stylesheet]
@@ -620,7 +620,7 @@ tw-story {
 tw-passage {
   font-size: 1.1em;
   line-height: 1.7;
-  padding-top: 0;
+  padding-top: 15px;
   margin-top: 0;
 }
 .stat-bar {
@@ -657,7 +657,7 @@ tw-passage {
   font-family: "CMU Typewriter Text", monospace;
 }
 img {
-  width: 50%;
+  max-width: 100%;
   height: auto;
   display: block;
   margin: 0 auto 20px auto;
