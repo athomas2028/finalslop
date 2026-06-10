@@ -22,13 +22,6 @@ body {
 tw-include::before {
   display: none;
 }
-tw-include {
-  padding: 0 !important;
-  margin: 0;
-  background: none;
-  outline: none;
-  min-height: 0;
-}
 h1, h2, h3, h4 {
   font-family: "CMU Serif", serif;
   margin-top: 0;
@@ -45,7 +38,7 @@ tw-story {
 tw-passage {
   font-size: 1.1em;
   line-height: 1.7;
-  padding-top: 0;
+  padding-top: 15px;
   margin-top: 0;
 }
 .stat-bar {
@@ -82,7 +75,7 @@ tw-passage {
   font-family: "CMU Typewriter Text", monospace;
 }
 img {
-  width: 50%;
+  max-width: 100%;
   height: auto;
   display: block;
   margin: 0 auto 20px auto;
@@ -99,7 +92,7 @@ By the time anyone notices, it is too late to catch up. You do not finish the ye
 
 Rest is not weakness. It is the foundation everything else is built on.
 
-[[Play Again-&gt;Start]]</tw-passagedata><tw-passagedata pid="2" name="December" tags="" position="1150,150" size="100,100">(display: &quot;StatDisplay&quot;)
+[[Play Again-&gt;Start]]</tw-passagedata><tw-passagedata pid="2" name="December" tags="" position="1150,150" size="100,100">{(display: &quot;StatDisplay&quot;)}
 # December — Midterms
 &lt;img src=&quot;https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot; alt=&quot;A pen on a test paper&quot;&gt;
 
@@ -108,7 +101,7 @@ The exam room is silent. Paper on desk. No phones. No laptops. No Cognito.
 &lt;span class=&quot;dialogue&quot;&gt;&quot;You have ninety minutes. Begin.&quot;&lt;/span&gt;
 
 [[Do your honest best-&gt;December Honest]]
-[[Try to cheat-&gt;Expelled]]</tw-passagedata><tw-passagedata pid="3" name="December Honest" tags="" position="25,275" size="100,100">(set: $gpaMark to 1.0)
+[[Try to cheat-&gt;Expelled]]</tw-passagedata><tw-passagedata pid="3" name="December Honest" tags="" position="25,275" size="100,100">{(set: $gpaMark to 1.0)
 (if: $ability &gt;= 90)[(set: $gpaMark to 4.0)]
 (else-if: $ability &gt;= 85)[(set: $gpaMark to 3.8)]
 (else-if: $ability &gt;= 80)[(set: $gpaMark to 3.4)]
@@ -118,7 +111,7 @@ The exam room is silent. Paper on desk. No phones. No laptops. No Cognito.
 (set: $gpaTotal to $gpaTotal + $gpaMark)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
-(display: &quot;StatDisplay&quot;)
+(display: &quot;StatDisplay&quot;)}
 # Your Best
 
 You write what you know. When the bell rings, you set down your pen and breathe.
@@ -149,7 +142,7 @@ Without a diploma, your university dreams are over — at least for now.
 
 Integrity, once lost, is hard to rebuild. But it is never too late to start.
 
-[[Play Again-&gt;Start]]</tw-passagedata><tw-passagedata pid="6" name="February" tags="" position="775,275" size="100,100">(display: &quot;StatDisplay&quot;)
+[[Play Again-&gt;Start]]</tw-passagedata><tw-passagedata pid="6" name="February" tags="" position="775,275" size="100,100">{(display: &quot;StatDisplay&quot;)}
 # February — Surprise Test
 &lt;img src=&quot;https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot; alt=&quot;A checklist and pen&quot;&gt;
 
@@ -160,10 +153,10 @@ POP QUIZ — Please clear your desks.
 You did not study for this. Nobody did.
 
 [[Try your honest best-&gt;February Honest]]
-[[Sneak a look at Cognito under the desk-&gt;February Cheat]]</tw-passagedata><tw-passagedata pid="7" name="February Cheat" tags="" position="1025,275" size="100,100">(set: $usedAI to true)
+[[Sneak a look at Cognito under the desk-&gt;February Cheat]]</tw-passagedata><tw-passagedata pid="7" name="February Cheat" tags="" position="1025,275" size="100,100">{(set: $usedAI to true)
 (set: $ability to (max: 0, $ability - 4))
 (set: $deltaAbility to -4)(set: $deltaShow to true)
-(display: &quot;StatDisplay&quot;)
+(display: &quot;StatDisplay&quot;)}
 # Under the Desk
 
 You get what looks like a solid answer from Cognito. You write it down.
@@ -173,12 +166,12 @@ Then — reading it back — you realize it is completely made up. Fabricated da
 You have already handed it in.
 
 [[Tell the teacher before they grade it-&gt;February Confess]]
-[[Say nothing and hope for the best-&gt;Expelled]]</tw-passagedata><tw-passagedata pid="8" name="February Confess" tags="" position="1150,275" size="100,100">(set: $gpaTotal to $gpaTotal + 1.0)
+[[Say nothing and hope for the best-&gt;Expelled]]</tw-passagedata><tw-passagedata pid="8" name="February Confess" tags="" position="1150,275" size="100,100">{(set: $gpaTotal to $gpaTotal + 1.0)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
 (set: $usedAI to false)
 (set: $deltaNote to &quot;GPA penalty applied&quot;)(set: $deltaShow to true)
-(display: &quot;StatDisplay&quot;)
+(display: &quot;StatDisplay&quot;)}
 # Coming Clean
 
 You go up after class, heart pounding.
@@ -189,7 +182,7 @@ Your teacher looks at you for a long moment.
 
 &lt;span class=&quot;dialogue&quot;&gt;&quot;I appreciate your honesty. This will still affect your grade — but I respect that you came forward.&quot;&lt;/span&gt;
 
-[[Continue-&gt;Late February]]</tw-passagedata><tw-passagedata pid="9" name="February Honest" tags="" position="900,275" size="100,100">(set: $gpaMark to 0.5)
+[[Continue-&gt;Late February]]</tw-passagedata><tw-passagedata pid="9" name="February Honest" tags="" position="900,275" size="100,100">{(set: $gpaMark to 0.5)
 (if: $ability &gt;= 90)[(set: $gpaMark to 3.5)]
 (else-if: $ability &gt;= 85)[(set: $gpaMark to 3.3)]
 (else-if: $ability &gt;= 80)[(set: $gpaMark to 2.9)]
@@ -199,14 +192,14 @@ Your teacher looks at you for a long moment.
 (set: $gpaTotal to $gpaTotal + $gpaMark)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
-(display: &quot;StatDisplay&quot;)
+(display: &quot;StatDisplay&quot;)}
 # Doing Your Best
 
 You write what you can. It is not perfect — pop quizzes never are. But it is honest.
 
 Test GPA: (print: $gpaMark)
 
-[[Continue-&gt;Late February]]</tw-passagedata><tw-passagedata pid="10" name="January" tags="" position="150,275" size="100,100">(display: &quot;StatDisplay&quot;)
+[[Continue-&gt;Late February]]</tw-passagedata><tw-passagedata pid="10" name="January" tags="" position="150,275" size="100,100">{(display: &quot;StatDisplay&quot;)}
 # January — The Scan
 &lt;img src=&quot;https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot; alt=&quot;Computer code and security&quot;&gt;
 
@@ -225,13 +218,13 @@ Your stomach drops. You have used Cognito. This could be bad.
 You have nothing to worry about. Every word you submitted was your own.
 
 [[Continue-&gt;Late January]]
-]</tw-passagedata><tw-passagedata pid="11" name="January Confess" tags="" position="275,275" size="100,100">(set: $gpaTotal to $gpaTotal + 0.0)
+]</tw-passagedata><tw-passagedata pid="11" name="January Confess" tags="" position="275,275" size="100,100">{(set: $gpaTotal to $gpaTotal + 0.0)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
 (set: $ability to (max: 0, $ability - 5))
 (set: $usedAI to false)
 (set: $deltaAbility to -5)(set: $deltaNote to &quot;GPA penalty applied&quot;)(set: $deltaShow to true)
-(display: &quot;StatDisplay&quot;)
+(display: &quot;StatDisplay&quot;)}
 # Coming Clean
 
 You go to the principal&#39;s office before results are posted.
@@ -240,32 +233,33 @@ She listens. She is stern. Then:
 
 &lt;span class=&quot;dialogue&quot;&gt;&quot;I appreciate that you came to me. That takes courage. There will be consequences — but expulsion is not one of them.&quot;&lt;/span&gt;
 
-[[Continue-&gt;Late January]]</tw-passagedata><tw-passagedata pid="12" name="Late February" tags="" position="25,400" size="100,100">(display: &quot;StatDisplay&quot;)
+[[Continue-&gt;Late January]]</tw-passagedata><tw-passagedata pid="12" name="Late February" tags="" position="25,400" size="100,100">{(display: &quot;StatDisplay&quot;)}
 # Late February — One Last Session
 
 The final optional study session of the year.
 
 [[Attend the study session-&gt;LateFeb Study]]
-[[Skip it-&gt;LateFeb Skip]]</tw-passagedata><tw-passagedata pid="13" name="Late January" tags="" position="400,275" size="100,100">(display: &quot;StatDisplay&quot;)
+[[Skip it-&gt;LateFeb Skip]]</tw-passagedata><tw-passagedata pid="13" name="Late January" tags="" position="400,275" size="100,100">{(display: &quot;StatDisplay&quot;)}
 # Late January — Study Session
 
 Ms. Patel is running another session. February tests are on the horizon.
 
 [[Attend the study session-&gt;LateJan Study]]
-[[Skip it-&gt;LateJan Skip]]</tw-passagedata><tw-passagedata pid="14" name="Late November" tags="" position="775,150" size="100,100">(display: &quot;StatDisplay&quot;)
+[[Skip it-&gt;LateJan Skip]]</tw-passagedata><tw-passagedata pid="14" name="Late November" tags="" position="775,150" size="100,100">{(display: &quot;StatDisplay&quot;)}
 # Late November — Study Session
 
 Ms. Patel is running another after-school study session. Midterms are coming.
 
 [[Attend the study session-&gt;LateNov Study]]
-[[Skip it-&gt;LateNov Skip]]</tw-passagedata><tw-passagedata pid="15" name="Late October" tags="" position="1150,25" size="100,100">(display: &quot;StatDisplay&quot;)
+[[Skip it-&gt;LateNov Skip]]</tw-passagedata><tw-passagedata pid="15" name="Late October" tags="" position="1150,25" size="100,100">{(display: &quot;StatDisplay&quot;)}
 # Late October — Study Session
 &lt;img src=&quot;https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot; alt=&quot;Books stacked in a library&quot;&gt;
 
 Ms. Patel posts a sign-up sheet for an optional after-school study session. No phones, no laptops, just books and focused work.
 
 [[Attend the study session-&gt;LateOct Study]]
-[[Skip it — you need the rest-&gt;LateOct Skip]]</tw-passagedata><tw-passagedata pid="16" name="Late September" tags="" position="650,25" size="100,100">(display: &quot;StatDisplay&quot;)
+[[Skip it — you need the rest-&gt;LateOct Skip]]</tw-passagedata><tw-passagedata pid="16" name="Late September" tags="" position="650,25" size="100,100">{(set: $deltaEnergy to -5)(set: $deltaShow to true)
+(display: &quot;StatDisplay&quot;)}
 # Late September — The Rumour
 &lt;img src=&quot;https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot; alt=&quot;Students talking in a hallway&quot;&gt;
 
@@ -277,22 +271,21 @@ Between classes, you catch pieces of a conversation.
 
 You keep walking. But the name sticks in your head. Cognito.
 
-(set: $deltaEnergy to -5)(set: $deltaShow to true)
-(set: $energy to (max: 0, $energy - 5))
+{(set: $energy to (max: 0, $energy - 5))}
 (if: $energy &lt;= 0)[
 [[You have nothing left-&gt;Burnout]]
 ](else:)
-[[Continue-&gt;October]]</tw-passagedata><tw-passagedata pid="17" name="LateFeb Skip" tags="" position="275,400" size="100,100">(set: $energy to (min: 100, $energy + 10))
+[[Continue-&gt;October]]</tw-passagedata><tw-passagedata pid="17" name="LateFeb Skip" tags="" position="275,400" size="100,100">{(set: $energy to (min: 100, $energy + 10))
 (set: $deltaEnergy to 10)(set: $deltaShow to true)
-(display: &quot;StatDisplay&quot;)
+(display: &quot;StatDisplay&quot;)}
 # Rest
 
 The year has been long.
 
-[[Continue-&gt;March]]</tw-passagedata><tw-passagedata pid="18" name="LateFeb Study" tags="" position="150,400" size="100,100">(set: $energy to (max: 0, $energy - 20))
+[[Continue-&gt;March]]</tw-passagedata><tw-passagedata pid="18" name="LateFeb Study" tags="" position="150,400" size="100,100">{(set: $energy to (max: 0, $energy - 20))
 (set: $ability to (min: 100, $ability + 8))
 (set: $deltaEnergy to -20)(set: $deltaAbility to 8)(set: $deltaShow to true)
-(display: &quot;StatDisplay&quot;)
+(display: &quot;StatDisplay&quot;)}
 # Final Push
 
 Your pen moves faster now than it did in September.
@@ -300,17 +293,17 @@ Your pen moves faster now than it did in September.
 (if: $energy &lt;= 0)[
 [[You have nothing left-&gt;Burnout]]
 ](else:)
-[[Continue-&gt;March]]</tw-passagedata><tw-passagedata pid="19" name="LateJan Skip" tags="" position="650,275" size="100,100">(set: $energy to (min: 100, $energy + 10))
+[[Continue-&gt;March]]</tw-passagedata><tw-passagedata pid="19" name="LateJan Skip" tags="" position="650,275" size="100,100">{(set: $energy to (min: 100, $energy + 10))
 (set: $deltaEnergy to 10)(set: $deltaShow to true)
-(display: &quot;StatDisplay&quot;)
+(display: &quot;StatDisplay&quot;)}
 # Resting
 
 Rest is valid.
 
-[[Continue-&gt;February]]</tw-passagedata><tw-passagedata pid="20" name="LateJan Study" tags="" position="525,275" size="100,100">(set: $energy to (max: 0, $energy - 20))
+[[Continue-&gt;February]]</tw-passagedata><tw-passagedata pid="20" name="LateJan Study" tags="" position="525,275" size="100,100">{(set: $energy to (max: 0, $energy - 20))
 (set: $ability to (min: 100, $ability + 8))
 (set: $deltaEnergy to -20)(set: $deltaAbility to 8)(set: $deltaShow to true)
-(display: &quot;StatDisplay&quot;)
+(display: &quot;StatDisplay&quot;)}
 # Head Down
 
 You go. You work. You get sharper.
@@ -318,17 +311,17 @@ You go. You work. You get sharper.
 (if: $energy &lt;= 0)[
 [[You have nothing left-&gt;Burnout]]
 ](else:)
-[[Continue-&gt;February]]</tw-passagedata><tw-passagedata pid="21" name="LateNov Skip" tags="" position="1025,150" size="100,100">(set: $energy to (min: 100, $energy + 10))
+[[Continue-&gt;February]]</tw-passagedata><tw-passagedata pid="21" name="LateNov Skip" tags="" position="1025,150" size="100,100">{(set: $energy to (min: 100, $energy + 10))
 (set: $deltaEnergy to 10)(set: $deltaShow to true)
-(display: &quot;StatDisplay&quot;)
+(display: &quot;StatDisplay&quot;)}
 # Rest Day
 
 You take the break.
 
-[[Continue-&gt;December]]</tw-passagedata><tw-passagedata pid="22" name="LateNov Study" tags="" position="900,150" size="100,100">(set: $energy to (max: 0, $energy - 20))
+[[Continue-&gt;December]]</tw-passagedata><tw-passagedata pid="22" name="LateNov Study" tags="" position="900,150" size="100,100">{(set: $energy to (max: 0, $energy - 20))
 (set: $ability to (min: 100, $ability + 8))
 (set: $deltaEnergy to -20)(set: $deltaAbility to 8)(set: $deltaShow to true)
-(display: &quot;StatDisplay&quot;)
+(display: &quot;StatDisplay&quot;)}
 # Grinding
 
 Your notes are dense. Your hand is cramped. But your brain is working.
@@ -336,17 +329,17 @@ Your notes are dense. Your hand is cramped. But your brain is working.
 (if: $energy &lt;= 0)[
 [[You have nothing left-&gt;Burnout]]
 ](else:)
-[[Continue-&gt;December]]</tw-passagedata><tw-passagedata pid="23" name="LateOct Skip" tags="" position="150,150" size="100,100">(set: $energy to (min: 100, $energy + 10))
+[[Continue-&gt;December]]</tw-passagedata><tw-passagedata pid="23" name="LateOct Skip" tags="" position="150,150" size="100,100">{(set: $energy to (min: 100, $energy + 10))
 (set: $deltaEnergy to 10)(set: $deltaShow to true)
-(display: &quot;StatDisplay&quot;)
+(display: &quot;StatDisplay&quot;)}
 # Rest Day
 
 You go home and recharge.
 
-[[Continue-&gt;November]]</tw-passagedata><tw-passagedata pid="24" name="LateOct Study" tags="" position="25,150" size="100,100">(set: $energy to (max: 0, $energy - 20))
+[[Continue-&gt;November]]</tw-passagedata><tw-passagedata pid="24" name="LateOct Study" tags="" position="25,150" size="100,100">{(set: $energy to (max: 0, $energy - 20))
 (set: $ability to (min: 100, $ability + 8))
 (set: $deltaEnergy to -20)(set: $deltaAbility to 8)(set: $deltaShow to true)
-(display: &quot;StatDisplay&quot;)
+(display: &quot;StatDisplay&quot;)}
 # Study Session
 
 Three hours of actual work. By the end your brain aches — but in a good way.
@@ -354,7 +347,7 @@ Three hours of actual work. By the end your brain aches — but in a good way.
 (if: $energy &lt;= 0)[
 [[You have nothing left-&gt;Burnout]]
 ](else:)
-[[Continue-&gt;November]]</tw-passagedata><tw-passagedata pid="25" name="March" tags="" position="400,400" size="100,100">(display: &quot;StatDisplay&quot;)
+[[Continue-&gt;November]]</tw-passagedata><tw-passagedata pid="25" name="March" tags="" position="400,400" size="100,100">{(display: &quot;StatDisplay&quot;)}
 # March — The Wait
 &lt;img src=&quot;https://images.unsplash.com/photo-1512428559083-a401a30c9550?auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot; alt=&quot;Smartphone on a table&quot;&gt;
 
@@ -364,14 +357,14 @@ University admissions results.
 
 You sit with your phone in your hand.
 
-[[Open the email-&gt;Results]]</tw-passagedata><tw-passagedata pid="26" name="November" tags="" position="275,150" size="100,100">(display: &quot;StatDisplay&quot;)
+[[Open the email-&gt;Results]]</tw-passagedata><tw-passagedata pid="26" name="November" tags="" position="275,150" size="100,100">{(display: &quot;StatDisplay&quot;)}
 # November — Group Project
 &lt;img src=&quot;https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot; alt=&quot;Students collaborating&quot;&gt;
 
 Your English teacher assigns a major group project. You may choose your own partners.
 
 [[Partner with your friends-&gt;November Friends]]
-[[Work alone-&gt;November Solo]]</tw-passagedata><tw-passagedata pid="27" name="November Friends" tags="" position="400,150" size="100,100">(display: &quot;StatDisplay&quot;)
+[[Work alone-&gt;November Solo]]</tw-passagedata><tw-passagedata pid="27" name="November Friends" tags="" position="400,150" size="100,100">{(display: &quot;StatDisplay&quot;)}
 # With Friends
 
 You team up with your crew — until someone pulls up Cognito at the second meeting.
@@ -381,13 +374,13 @@ You team up with your crew — until someone pulls up Cognito at the second meet
 The whole group is on board. Except maybe you.
 
 [[Join them — use Cognito-&gt;November Friends AI]]
-[[Leave the group and work alone-&gt;November Solo]]</tw-passagedata><tw-passagedata pid="28" name="November Friends AI" tags="" position="525,150" size="100,100">(set: $usedAI to true)
+[[Leave the group and work alone-&gt;November Solo]]</tw-passagedata><tw-passagedata pid="28" name="November Friends AI" tags="" position="525,150" size="100,100">{(set: $usedAI to true)
 (set: $ability to (max: 0, $ability - 5))
 (set: $gpaTotal to $gpaTotal + 2.5)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
 (set: $deltaAbility to -5)(set: $deltaNote to &quot;Group Project GPA: +2.5&quot;)(set: $deltaShow to true)
-(display: &quot;StatDisplay&quot;)
+(display: &quot;StatDisplay&quot;)}
 # Caught
 &lt;img src=&quot;https://images.unsplash.com/photo-1594322436404-5a0526db4d13?auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot; alt=&quot;Anxious student&quot;&gt;
 
@@ -395,7 +388,7 @@ The presentation goes smoothly — until your teacher asks follow-up questions n
 
 &lt;span class=&quot;dialogue&quot;&gt;&quot;I have been doing this for twenty years. I know what you wrote and what you did not.&quot;&lt;/span&gt;
 
-[[Continue-&gt;Late November]]</tw-passagedata><tw-passagedata pid="29" name="November Solo" tags="" position="650,150" size="100,100">(set: $ability to (min: 100, $ability + 3))
+[[Continue-&gt;Late November]]</tw-passagedata><tw-passagedata pid="29" name="November Solo" tags="" position="650,150" size="100,100">{(set: $ability to (min: 100, $ability + 3))
 (set: $gpaMark to 1.0)
 (if: $ability &gt;= 90)[(set: $gpaMark to 4.0)]
 (else-if: $ability &gt;= 85)[(set: $gpaMark to 3.8)]
@@ -407,12 +400,12 @@ The presentation goes smoothly — until your teacher asks follow-up questions n
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
 (set: $deltaAbility to 3)(set: $deltaShow to true)
-(display: &quot;StatDisplay&quot;)
+(display: &quot;StatDisplay&quot;)}
 # On Your Own
 
 You work alone. It takes longer. But when you present, you can answer every question.
 
-[[Continue-&gt;Late November]]</tw-passagedata><tw-passagedata pid="30" name="October" tags="" position="775,25" size="100,100">(display: &quot;StatDisplay&quot;)
+[[Continue-&gt;Late November]]</tw-passagedata><tw-passagedata pid="30" name="October" tags="" position="775,25" size="100,100">{(display: &quot;StatDisplay&quot;)}
 # October — Late Night Crisis
 &lt;img src=&quot;https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot; alt=&quot;A desk lamp lighting up books at night&quot;&gt;
 
@@ -423,14 +416,14 @@ Your stomach drops. Assignment due tomorrow morning.
 What do you do?
 
 [[Pull an all-nighter and do it yourself-&gt;October Allnighter]]
-[[Use Cognito and get to sleep early-&gt;October AI]]</tw-passagedata><tw-passagedata pid="31" name="October AI" tags="" position="1025,25" size="100,100">(set: $usedAI to true)
+[[Use Cognito and get to sleep early-&gt;October AI]]</tw-passagedata><tw-passagedata pid="31" name="October AI" tags="" position="1025,25" size="100,100">{(set: $usedAI to true)
 (set: $ability to (max: 0, $ability - 4))
 (set: $energy to (min: 100, $energy + 10))
 (set: $gpaTotal to $gpaTotal + 3.8)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
 (set: $deltaEnergy to 10)(set: $deltaAbility to -4)(set: $deltaNote to &quot;Assignment GPA: +3.8&quot;)(set: $deltaShow to true)
-(display: &quot;StatDisplay&quot;)
+(display: &quot;StatDisplay&quot;)}
 # Cognito
 &lt;img src=&quot;https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot; alt=&quot;Abstract AI glow&quot;&gt;
 
@@ -438,13 +431,13 @@ Four minutes later — a polished essay. You submit it and fall asleep.
 
 The grade comes back strong. But something feels hollow.
 
-[[Continue-&gt;Late October]]</tw-passagedata><tw-passagedata pid="32" name="October Allnighter" tags="" position="900,25" size="100,100">(set: $energy to (max: 0, $energy - 25))
+[[Continue-&gt;Late October]]</tw-passagedata><tw-passagedata pid="32" name="October Allnighter" tags="" position="900,25" size="100,100">{(set: $energy to (max: 0, $energy - 25))
 (set: $ability to (min: 100, $ability + 4))
 (set: $gpaTotal to $gpaTotal + 3.4)
 (set: $gpaCount to $gpaCount + 1)
 (set: $currentGPA to $gpaTotal / $gpaCount)
 (set: $deltaEnergy to -25)(set: $deltaAbility to 4)(set: $deltaNote to &quot;Assignment GPA: +3.4&quot;)(set: $deltaShow to true)
-(display: &quot;StatDisplay&quot;)
+(display: &quot;StatDisplay&quot;)}
 # All-Nighter
 &lt;img src=&quot;https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot; alt=&quot;A cup of coffee and notebook&quot;&gt;
 
@@ -453,7 +446,7 @@ You grind through it. By 4am it is done — not your best work, but it is yours.
 (if: $energy &lt;= 0)[
 [[You have nothing left-&gt;Burnout]]
 ](else:)
-[[Continue-&gt;Late October]]</tw-passagedata><tw-passagedata pid="33" name="Results" tags="" position="525,400" size="100,100">(display: &quot;StatDisplay&quot;)
+[[Continue-&gt;Late October]]</tw-passagedata><tw-passagedata pid="33" name="Results" tags="" position="525,400" size="100,100">{(display: &quot;StatDisplay&quot;)}
 # The Email
 
 Your phone buzzes.
@@ -482,7 +475,8 @@ It stings. But it is not the end. There are paths forward.
 
 Your final GPA: (print: $currentGPA)
 
-[[Read the closing message-&gt;Ending]]</tw-passagedata><tw-passagedata pid="34" name="September" tags="" position="525,25" size="100,100">(display: &quot;StatDisplay&quot;)
+[[Read the closing message-&gt;Ending]]</tw-passagedata><tw-passagedata pid="34" name="September" tags="" position="525,25" size="100,100">{(set: $deltaEnergy to 5)(set: $deltaShow to true)
+(display: &quot;StatDisplay&quot;)}
 # September — A Fresh Start
 &lt;img src=&quot;https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot; alt=&quot;Sunlight hitting a classroom desk&quot;&gt;
 
@@ -492,10 +486,9 @@ Your English teacher Mr. Hargrove holds up his hand before anyone can speak.
 
 &lt;span class=&quot;dialogue&quot;&gt;&quot;This year, I want you to do your own thinking. There are tools out there that will try to do it for you. Do not let them. Your mind is the only thing that is truly yours.&quot;&lt;/span&gt;
 
-(set: $deltaEnergy to 5)(set: $deltaShow to true)
-(set: $energy to (min: 100, $energy + 5))
+{(set: $energy to (min: 100, $energy + 5))}
 
-[[Continue-&gt;Late September]]</tw-passagedata><tw-passagedata pid="35" name="Start" tags="" position="400,25" size="100,100">(set: $energy to 80)
+[[Continue-&gt;Late September]]</tw-passagedata><tw-passagedata pid="35" name="Start" tags="" position="400,25" size="100,100">{(set: $energy to 80)
 (set: $ability to 80)
 (set: $usedAI to false)
 (set: $gpaTotal to 0)
@@ -505,7 +498,7 @@ Your English teacher Mr. Hargrove holds up his hand before anyone can speak.
 (set: $deltaEnergy to 0)
 (set: $deltaAbility to 0)
 (set: $deltaNote to &quot;&quot;)
-(display: &quot;StatDisplay&quot;)
+(display: &quot;StatDisplay&quot;)}
 # Senior Year
 &lt;img src=&quot;https://images.unsplash.com/photo-1710845423251-28c954a4ca8d?auto=format&amp;fit=crop&amp;w=800&amp;q=80&quot; alt=&quot;High school building&quot;&gt;
 
@@ -517,10 +510,11 @@ Graduate with a high GPA and get into a top university.
 
 There is one catch. A tool called Cognito — an AI that can do your homework for you — is spreading through your school. It is tempting. It is everywhere. And every choice you make this year will shape your future.
 
-[[Begin the Year-&gt;September]]</tw-passagedata><tw-passagedata pid="36" name="StatDisplay" tags="" position="25,25" size="100,100">&lt;div class=&quot;stat-bar&quot;&gt;
+[[Begin the Year-&gt;September]]</tw-passagedata><tw-passagedata pid="36" name="StatDisplay" tags="" position="25,25" size="100,100">{&lt;div class=&quot;stat-bar&quot;&gt;
 GPA: (print: $currentGPA) | Energy: (print: $energy)/100 | Ability: (print: $ability)/100
 (if: $deltaShow)[&lt;div class=&quot;stat-deltas&quot;&gt;(if: $deltaEnergy &gt; 0)[&lt;span class=&quot;delta-pos&quot;&gt;+(print: $deltaEnergy) Energy&lt;/span&gt; ](if: $deltaEnergy &lt; 0)[&lt;span class=&quot;delta-neg&quot;&gt;(print: $deltaEnergy) Energy&lt;/span&gt; ](if: $deltaAbility &gt; 0)[&lt;span class=&quot;delta-pos&quot;&gt;+(print: $deltaAbility) Ability&lt;/span&gt; ](if: $deltaAbility &lt; 0)[&lt;span class=&quot;delta-neg&quot;&gt;(print: $deltaAbility) Ability&lt;/span&gt; ](if: $deltaNote is not &quot;&quot;)[&lt;span class=&quot;delta-note&quot;&gt;(print: $deltaNote)&lt;/span&gt;]&lt;/div&gt;]
-&lt;/div&gt;</tw-passagedata></tw-storydata>
+&lt;/div&gt;
+(set: $deltaShow to false)(set: $deltaEnergy to 0)(set: $deltaAbility to 0)(set: $deltaNote to &quot;&quot;)}</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
